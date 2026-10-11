@@ -11,7 +11,26 @@ export default function InformationPage(): React.ReactElement {
     if (/^#section-\d+$/.test(hash)) document.getElementById(hash.slice(1))?.scrollIntoView();
     else window.scrollTo(0, 0);
   }, [pathname, hash]);
-  usePageMeta({ title: `${page.title} | Agentic Awesome Skills`, description: page.description, canonicalPath: page.path, robots: 'index, follow' });
+  usePageMeta({
+    title: `${page.title} | Agentic Awesome Skills`,
+    description: page.description,
+    canonicalPath: page.path,
+    robots: 'index, follow',
+    jsonLd: (canonicalUrl) => [{
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: page.title,
+      headline: page.title,
+      description: page.description,
+      url: canonicalUrl,
+      mainEntityOfPage: canonicalUrl,
+      isPartOf: {
+        '@type': 'WebSite',
+        name: 'Agentic Awesome Skills',
+        url: canonicalUrl.replace(/[^/]+\/?$/u, ''),
+      },
+    }],
+  });
   return <div className="information-page">
     <header><p className="information-page__eyebrow">{page.title}</p><h1>{page.intro}</h1><p className="information-page__lede">{page.lede}</p></header>
     <nav className="information-page__outline" aria-label="On this page">{page.sections.map((section, index) => <a key={section.title} href={`${page.path}#section-${index}`}>{section.title}</a>)}</nav>

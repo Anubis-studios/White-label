@@ -174,6 +174,32 @@ describe('seo assets verification helpers', () => {
     expect(() => assertPrerenderedRouteIdentities(routes, distDir, '/repo', report.rootUrl)).not.toThrow();
   });
 
+  it('accepts informational routes declared in informationPages.json', () => {
+    const xml = `
+      <urlset>
+        <url><loc>${FIXTURE_ROOT_URL}</loc></url>
+        <url><loc>${FIXTURE_ROOT_URL}teams/</loc></url>
+        <url><loc>${FIXTURE_ROOT_URL}trust/</loc></url>
+        <url><loc>${FIXTURE_ROOT_URL}aas-core/</loc></url>
+        <url><loc>${FIXTURE_ROOT_URL}skill/agent-a/</loc></url>
+      </urlset>
+    `;
+
+    expect(() => analyzeSitemap(xml, { minSkillUrls: 1 })).not.toThrow();
+  });
+
+  it('rejects undeclared non-skill routes outside the information page allowlist', () => {
+    const xml = `
+      <urlset>
+        <url><loc>${FIXTURE_ROOT_URL}</loc></url>
+        <url><loc>${FIXTURE_ROOT_URL}undeclared-page/</loc></url>
+        <url><loc>${FIXTURE_ROOT_URL}skill/agent-a/</loc></url>
+      </urlset>
+    `;
+
+    expect(() => analyzeSitemap(xml, { minSkillUrls: 1 })).toThrow('unsupported non-skill routes');
+  });
+
   it('throws when sitemap has duplicated URLs', () => {
     const xml = `
       <urlset>

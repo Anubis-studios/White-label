@@ -8,6 +8,7 @@ import sanitizeFilename from 'sanitize-filename';
 import { getSeoLandingPaths } from './generate-sitemap.js';
 
 const APP_ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const INFORMATION_PAGES_PATH = path.join(APP_ROOT_DIR, 'src', 'data', 'informationPages.json');
 const DOCS_SOCIAL_GUIDES = JSON.parse(fs.readFileSync(path.join(APP_ROOT_DIR, 'src/data/docs-social.json'), 'utf8'));
 const REPO_ROOT_DIR = path.resolve(APP_ROOT_DIR, '..', '..');
 const REPOSITORY_URL = 'https://github.com/sickn33/agentic-awesome-skills';
@@ -75,6 +76,25 @@ function assertPlainFileInsideRoot(filePath, rootDir) {
     `Verification input escaped its physical root: ${resolvedFile}`,
   );
   return resolvedFile;
+}
+
+export function readInformationPagePaths(filePath = INFORMATION_PAGES_PATH) {
+  if (!fs.existsSync(filePath)) {
+    return [];
+  }
+  let pages;
+  try {
+    pages = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  } catch {
+    return [];
+  }
+  if (!Array.isArray(pages)) {
+    return [];
+  }
+  return pages
+    .map((page) => String(page?.path || '').trim())
+    .filter((pagePath) => pagePath.startsWith('/') && pagePath.endsWith('/') && !pagePath.includes('..'))
+    .map((pagePath) => pagePath.replace(/\/{2,}/gu, '/'));
 }
 
 export function extractSitemapLocations(xmlText) {
@@ -335,11 +355,18 @@ export function analyzeSitemap(urlText, { minSkillUrls = 1, requireHostedUrl = f
     `${normalizedRoot}/docs`,
     `${normalizedRoot}/docs/`,
   ]);
+  const informationPagesPathVariants = new Set(
+    readInformationPagePaths().flatMap((pagePath) => [
+      `${normalizedRoot}${pagePath}`,
+      `${normalizedRoot}${pagePath}`.replace(/\/$/u, ''),
+    ]),
+  );
   const allowedExtraPathVariants = new Set([
     ...pluginPathVariants,
     ...workbenchPathVariants,
     ...corePathVariants,
     ...docsPathVariants,
+    ...informationPagesPathVariants,
   ]);
   const docsPrefix = `${normalizedRoot}/docs/`;
   const topicPathVariants = new Set(
