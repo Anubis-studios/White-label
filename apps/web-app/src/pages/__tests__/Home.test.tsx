@@ -91,9 +91,9 @@ describe('Home', () => {
 
       expect(screen.getByRole('heading', {
         level: 1,
-        name: /AAS Core: agent-first skill stacks for Codex, Claude Code, and compatible clients/i,
+        name: /Find the skills for your next project./i,
       })).toBeInTheDocument();
-      expect(screen.getByText(/Search\. Choose\. Validate\. Preview\./i)).toBeInTheDocument();
+      expect(screen.getByText(/Compare a few candidates/)).toBeInTheDocument();
       expect(screen.getByRole('link', { name: /Review an AAS Core stack/i })).toHaveAttribute('href', '/workbench/');
       expect(screen.getByText(/What is the difference between skills and MCP tools/i)).toBeInTheDocument();
       expect(document.querySelector('meta[property="og:title"]')).toHaveAttribute(
