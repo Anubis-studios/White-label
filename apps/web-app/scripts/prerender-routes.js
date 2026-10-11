@@ -1045,7 +1045,26 @@ function main() {
   const informationPages = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, 'src/data/informationPages.json'), 'utf8'));
   for (const page of informationPages) {
     const fallback = `<main><p>${escapeHtml(page.title)}</p><h1>${escapeHtml(page.intro)}</h1><p>${escapeHtml(page.lede)}</p>${page.sections.map((section, index) => `<section id="section-${index}"><h2>${escapeHtml(section.title)}</h2><p>${escapeHtml(section.body)}</p>${section.links.map((link) => `<a href="${escapeHtml(link.href.startsWith('/') ? routeToUrl(link.href, siteBaseUrl) : link.href)}">${escapeHtml(link.label)}</a>`).join(' ')}</section>`).join('')}</main>`;
-    writePrerenderedRoute(page.path, template, { title: `${page.title} | ${SITE_NAME}`, description: page.description, canonicalUrl: routeToUrl(page.path, siteBaseUrl), ogImage: socialImage, jsonLd: [] }, fallback);
+    writePrerenderedRoute(page.path, template, {
+      title: `${page.title} | ${SITE_NAME}`,
+      description: page.description,
+      canonicalUrl: routeToUrl(page.path, siteBaseUrl),
+      ogImage: socialImage,
+      jsonLd: [{
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: page.title,
+        headline: page.title,
+        description: page.description,
+        url: routeToUrl(page.path, siteBaseUrl),
+        mainEntityOfPage: routeToUrl(page.path, siteBaseUrl),
+        isPartOf: {
+          '@type': 'WebSite',
+          name: SITE_NAME,
+          url: siteBaseUrl,
+        },
+      }],
+    }, fallback);
   }
 
   const pluginsCanonical = routeToUrl('/plugins', siteBaseUrl);
