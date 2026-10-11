@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
 import { Link } from 'react-router';
 import { Icon } from '../components/ui/Icon';
+import { LandingDiscovery } from '../components/LandingDiscovery';
 import { useSkills } from '../context/SkillContext';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { catalogVersion } from '../utils/catalogRelease';
@@ -26,7 +27,7 @@ const steps = [
   {
     id: '01',
     title: 'Search',
-    body: 'The agent queries the full catalog through local MCP or the hosted Core UI. Every skill ships with evidence, risk, and source.',
+    body: 'The agent queries the full catalog through local MCP or the hosted Core UI. Inspect recorded requirements, declared risk, and source where available.',
   },
   {
     id: '02',
@@ -41,7 +42,7 @@ const steps = [
   {
     id: '04',
     title: 'Preview',
-    body: 'An immutable plan shows exactly what would land where. Apply only when you agree.',
+    body: 'An immutable plan shows exactly what would land where. Review before any separate installation step.',
   },
 ] as const;
 
@@ -89,9 +90,10 @@ export function Landing(): React.ReactElement {
         <p className="landing-hero__punch">Search. Choose. Validate. Preview.</p>
         <p className="landing-hero__lede">
           {catalogSizeLabel} reusable <code>SKILL.md</code> playbooks for Codex, Claude Code, Cursor,
-          Gemini CLI, and Antigravity. AAS Core lets the agent pick exact skills and preview the
-          plan before anything touches your project.
+          Gemini CLI, and Antigravity. Find a starting point for your next project.
         </p>
+
+        <LandingDiscovery />
 
         <div className="landing-terminal">
           <span className="landing-terminal__prompt" aria-hidden="true">$</span>
@@ -109,7 +111,7 @@ export function Landing(): React.ReactElement {
 
         <div className="landing-hero__actions">
           <Link to={toIndexableRoutePath('/core')} className="landing-cta landing-cta--primary">
-            Enter Core
+            Browse the catalog
             <Icon name="arrowRight" size={16} />
           </Link>
           <a href={REPO_URL} target="_blank" rel="noreferrer" className="landing-cta landing-cta--ghost">
@@ -117,6 +119,20 @@ export function Landing(): React.ReactElement {
             GitHub
           </a>
         </div>
+      </section>
+
+      <section className="landing-section landing-start" aria-labelledby="landing-start-title">
+        <div className="landing-section__intro landing-section__intro--wide">
+          <p className="landing-kicker">Start here</p>
+          <h2 id="landing-start-title">Your first skill, in three steps.</h2>
+          <p>A skill is a reusable set of instructions for your agent. You choose what to adopt.</p>
+        </div>
+        <ol className="landing-start__steps">
+          <li><h3>1. Find a starting point</h3><p>Search by task. Open a skill to read its instructions, source, and requirements.</p><Link to="/core/">Explore skills →</Link></li>
+          <li><h3>2. Review your selection</h3><p>Save a few candidates to your shortlist. Compare them and share their IDs with a colleague.</p><Link to="/core/?scope=shortlist">Open your shortlist →</Link></li>
+          <li><h3>3. Use your agent’s guide</h3><p>Follow the setup guide for your tool, then ask your agent to use the reviewed skills.</p><Link to="/docs/">Choose a setup guide →</Link></li>
+        </ol>
+        <p className="landing-start__team">Evaluating AAS at work? <Link to="/teams/">Read the team adoption guide →</Link> · <Link to="/trust/">Trust & transparency →</Link></p>
       </section>
 
       <section className="landing-section landing-video" aria-labelledby="landing-video-title">
@@ -180,7 +196,7 @@ export function Landing(): React.ReactElement {
               <span><strong>v{catalogVersion}</strong>current release</span>
             </span>
             <span className="landing-tile__go">
-              Enter Core <Icon name="arrowRight" size={16} />
+              Browse the catalog <Icon name="arrowRight" size={16} />
             </span>
           </Link>
 
@@ -235,8 +251,8 @@ export function Landing(): React.ReactElement {
             <Icon name="book" size={16} />
             Read the Core guide
           </a>
-          <Link to={toIndexableRoutePath('/workbench')} className="landing-cta landing-cta--ghost">
-            Try the Workbench
+          <Link to="/aas-core/" className="landing-cta landing-cta--ghost">
+            Explore Core, CLI & MCP
             <Icon name="arrowRight" size={16} />
           </Link>
         </div>
@@ -252,7 +268,7 @@ export function Landing(): React.ReactElement {
           </span>
         </a>
         <p className="landing-strip__note">
-          Open source, MIT. Send a skill, fix a doc, or open an issue: source PRs are welcome.
+          Open source: MIT code, CC BY 4.0 original content, with upstream notices preserved. Source PRs are welcome.
         </p>
         <a href={REPO_URL} target="_blank" rel="noreferrer" className="landing-cta landing-cta--ghost">
           <Icon name="star" size={16} />

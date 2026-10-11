@@ -1,0 +1,265 @@
+[
+  {
+    "path": "/teams/",
+    "title": "For teams",
+    "description": "Evaluate reusable agent skills with a small pilot, reviewable selections, and clear adoption boundaries.",
+    "intro": "Give your team a shared starting point.",
+    "lede": "Reusable playbooks for the coding agents you already use. Start with one workflow, inspect the instructions, and keep your team in control.",
+    "sections": [
+      {
+        "title": "Choose a practical first workflow",
+        "body": "Explore focused packs for building web apps, reviewing security, testing software, or automating repetitive work. A pack is a starting point: inspect its skills and requirements before adopting it.",
+        "links": [
+          {
+            "label": "Compare domain packs",
+            "href": "/plugins/"
+          },
+          {
+            "label": "Browse individual skills",
+            "href": "/core/"
+          }
+        ]
+      },
+      {
+        "title": "Run a small pilot",
+        "body": "Pick one task in a non-sensitive project. Read the relevant SKILL.md files, check external tools and credentials, and follow the guide for your agent. Review proposed actions and judge the result against your own acceptance criteria.",
+        "links": [
+          {
+            "label": "Getting started",
+            "href": "/docs/getting-started/"
+          },
+          {
+            "label": "Agent setup guides",
+            "href": "/docs/"
+          }
+        ]
+      },
+      {
+        "title": "Share a reviewable selection",
+        "body": "Use the catalog shortlist to compare skills and share their exact IDs with colleagues. Shared links include the catalog version and IDs only; they are not private links or snapshots of old skill content. Keep project details out of the URL.",
+        "links": [
+          {
+            "label": "Build a shortlist",
+            "href": "/core/"
+          }
+        ]
+      },
+      {
+        "title": "Make adoption repeatable",
+        "body": "Record the exact skill IDs and catalog version in your team workflow. With AAS Core, your agent selects the skills; validation checks the manifest and catalog, and planning produces a reviewable artifact. The Workbench inspects imported artifacts in browser memory.",
+        "links": [
+          {
+            "label": "Core workflow and boundaries",
+            "href": "/docs/aas-core/"
+          },
+          {
+            "label": "Review in the Workbench",
+            "href": "/workbench/"
+          }
+        ]
+      },
+      {
+        "title": "What to check before wider use",
+        "body": "Review each skill\u2019s source, license, declared risk, limitations, and required services. AAS is community-maintained open source; it does not provide a service-level agreement, compliance certification, or guaranteed agent outcomes. Model providers and optional services have their own terms and costs.",
+        "links": [
+          {
+            "label": "Trust & transparency",
+            "href": "/trust/"
+          },
+          {
+            "label": "Ask the community",
+            "href": "https://github.com/sickn33/agentic-awesome-skills/discussions/new?category=q-a"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/trust/",
+    "title": "Trust & transparency",
+    "description": "Understand AAS sources, licenses, privacy, review boundaries, and security reporting.",
+    "intro": "Know what you are adopting.",
+    "lede": "AAS is an independent, community-curated project. Inspect the source and decide whether each skill fits your environment.",
+    "sections": [
+      {
+        "title": "Source and review",
+        "body": "The GitHub repository is the canonical source. Skill details expose recorded source, requirements, and declared risk where available. Metadata and schema validation are useful checks; they do not certify security, compliance, or fitness for your project. Review the instructions and bundled files before use.",
+        "links": [
+          {
+            "label": "Source repository",
+            "href": "https://github.com/sickn33/agentic-awesome-skills"
+          },
+          {
+            "label": "Contribution standards",
+            "href": "https://github.com/sickn33/agentic-awesome-skills/blob/main/CONTRIBUTING.md"
+          }
+        ]
+      },
+      {
+        "title": "Licenses and attribution",
+        "body": "Original code and tooling use MIT. Original documentation and other non-code written content use CC BY 4.0 unless a more specific upstream notice applies. Imported skills may carry additional license and attribution requirements. Check the relevant files before redistribution or commercial adoption.",
+        "links": [
+          {
+            "label": "Code license",
+            "href": "https://github.com/sickn33/agentic-awesome-skills/blob/main/LICENSE"
+          },
+          {
+            "label": "Content license",
+            "href": "https://github.com/sickn33/agentic-awesome-skills/blob/main/LICENSE-CONTENT"
+          },
+          {
+            "label": "Sources & attribution",
+            "href": "https://github.com/sickn33/agentic-awesome-skills/blob/main/docs/sources/sources.md"
+          }
+        ]
+      },
+      {
+        "title": "Browser data and analytics",
+        "body": "Saved skills and shortlists stay in this browser\u2019s local storage. Workbench imports stay in memory. Shared links contain selected IDs and a catalog version, and anyone with the link can read them. The hosted catalog uses Vercel Web Analytics for aggregate visit statistics; AAS removes query strings and fragments from analytics URLs. The catalog also requests public aggregate skill-save counts from Supabase.",
+        "links": [
+          {
+            "label": "Privacy policy",
+            "href": "https://github.com/sickn33/agentic-awesome-skills/blob/main/PRIVACY.md"
+          },
+          {
+            "label": "Vercel analytics privacy",
+            "href": "https://vercel.com/docs/analytics/privacy-policy"
+          }
+        ]
+      },
+      {
+        "title": "Local tools and third parties",
+        "body": "Skills-only plugins are local instruction bundles and do not independently collect telemetry. AAS Core\u2019s local catalog discovery is read-only and offline-capable. Your agent client, model provider, and any services you enable handle data under their own policies. A skill mentioning a service does not grant access or include its fees.",
+        "links": [
+          {
+            "label": "Core reference",
+            "href": "/docs/aas-core/"
+          },
+          {
+            "label": "Terms of use",
+            "href": "https://github.com/sickn33/agentic-awesome-skills/blob/main/TERMS.md"
+          }
+        ]
+      },
+      {
+        "title": "Report a problem",
+        "body": "Use GitHub issues for reproducible bugs and Discussions for support. Send sensitive vulnerability reports through private security reporting; do not include credentials or private project information in public posts.",
+        "links": [
+          {
+            "label": "Report a bug",
+            "href": "https://github.com/sickn33/agentic-awesome-skills/issues/new/choose"
+          },
+          {
+            "label": "Private security report",
+            "href": "https://github.com/sickn33/agentic-awesome-skills/security/advisories/new"
+          },
+          {
+            "label": "Security policy",
+            "href": "https://github.com/sickn33/agentic-awesome-skills/blob/main/SECURITY.md"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/aas-core/",
+    "title": "Core & tools",
+    "description": "Understand AAS Core, the aas CLI, and the local MCP in one workflow: inspect, choose, validate, and preview.",
+    "intro": "Core, CLI, and MCP. One reviewable workflow.",
+    "lede": "Your agent chooses the skills. AAS records and validates that selection. You review the plan before any separate installation.",
+    "sections": [
+      {
+        "title": "AAS Core: the workflow and its contracts",
+        "body": "Core is the local boundary for discovering skills, recording exact agent-selected IDs, validating a stack manifest, and previewing a plan. The catalog provides evidence; the coding agent makes the project-specific selection. Core does not choose a stack through a ranking or scoring policy.",
+        "links": [
+          {
+            "label": "Browse the skill catalog",
+            "href": "/core/"
+          },
+          {
+            "label": "Read the full Core guide",
+            "href": "/docs/aas-core/"
+          }
+        ]
+      },
+      {
+        "title": "The CLI: persistence, validation, and planning",
+        "body": "The aas command-line tool configures the local runtime and works with explicit artifact paths. aas stack validate checks a manifest against the schema and catalog. aas stack plan writes the requested immutable plan artifact without installing skills or changing the project target. The optional audit checks consistency across artifacts.",
+        "links": [
+          {
+            "label": "Validation and plan examples",
+            "href": "/docs/aas-core/#validate-and-preview-the-plan"
+          },
+          {
+            "label": "Get started with your agent",
+            "href": "/docs/getting-started/"
+          }
+        ]
+      },
+      {
+        "title": "The MCP: tools your agent can call",
+        "body": "The local stdio MCP exposes catalog search, skill and bundle inspection, stack composition, and evidence tools to supported clients. Discovery is read-only and offline-capable. compose_stack validates the exact IDs selected by the agent and returns a manifest in process memory; the client or CLI persists it separately. A local stdio host is distinct from a public HTTPS connector.",
+        "links": [
+          {
+            "label": "Configure the local MCP",
+            "href": "/docs/aas-core/#configure-the-local-mcp"
+          },
+          {
+            "label": "Codex setup",
+            "href": "/docs/codex-cli-skills/"
+          },
+          {
+            "label": "Claude Code setup",
+            "href": "/docs/claude-code-skills/"
+          }
+        ]
+      },
+      {
+        "title": "The complete path",
+        "body": "1. Follow your client\u2019s setup guide. 2. Let the agent inspect the project, search the complete catalog, and read candidates. 3. Review its exact selection and stack manifest. 4. Validate and produce a plan with the CLI. 5. Inspect the artifacts in the Workbench. Your browser shortlist is a starting list to discuss with the agent, not a validated Core stack.",
+        "links": [
+          {
+            "label": "Walk through the Core quick path",
+            "href": "/docs/aas-core/#quick-path"
+          },
+          {
+            "label": "Open the Workbench and its recorded example",
+            "href": "/workbench/"
+          }
+        ]
+      },
+      {
+        "title": "From review to installation",
+        "body": "The supported Core path is manifest validation and a non-applying plan preview. A direct installer preview is a separate handoff using reviewed IDs, an exact catalog version, and a destination you approve. It does not apply a Core plan. Check the instructions and prerequisites before any installation; apply and recovery remain experimental opt-ins outside the supported preview path.",
+        "links": [
+          {
+            "label": "Use the reviewed selection",
+            "href": "/docs/aas-core/#use-the-reviewed-selection"
+          },
+          {
+            "label": "Compare focused plugin packs",
+            "href": "/plugins/"
+          }
+        ]
+      },
+      {
+        "title": "Privacy and practical limits",
+        "body": "AAS skills-only bundles do not independently collect telemetry. Local discovery can work offline, while your agent client, model provider, and tools you enable have their own data policies and costs. The hosted Workbench keeps imports in browser memory. Schema and integrity checks do not establish that a skill is safe or suitable for your project.",
+        "links": [
+          {
+            "label": "Trust & transparency",
+            "href": "/trust/"
+          },
+          {
+            "label": "Team adoption guide",
+            "href": "/teams/"
+          },
+          {
+            "label": "Privacy, trust, and limits",
+            "href": "/docs/aas-core/#privacy-trust-and-limits"
+          }
+        ]
+      }
+    ]
+  }
+]
