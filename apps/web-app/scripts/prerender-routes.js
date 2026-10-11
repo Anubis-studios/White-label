@@ -1042,6 +1042,12 @@ function main() {
   });
   writePrerenderedRoute('/core', template, homeMeta, buildHomeFallback({ landingPages, siteBaseUrl }));
 
+  const informationPages = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, 'src/data/informationPages.json'), 'utf8'));
+  for (const page of informationPages) {
+    const fallback = `<main><p>${escapeHtml(page.title)}</p><h1>${escapeHtml(page.intro)}</h1><p>${escapeHtml(page.lede)}</p>${page.sections.map((section, index) => `<section id="section-${index}"><h2>${escapeHtml(section.title)}</h2><p>${escapeHtml(section.body)}</p>${section.links.map((link) => `<a href="${escapeHtml(link.href.startsWith('/') ? routeToUrl(link.href, siteBaseUrl) : link.href)}">${escapeHtml(link.label)}</a>`).join(' ')}</section>`).join('')}</main>`;
+    writePrerenderedRoute(page.path, template, { title: `${page.title} | ${SITE_NAME}`, description: page.description, canonicalUrl: routeToUrl(page.path, siteBaseUrl), ogImage: socialImage, jsonLd: [] }, fallback);
+  }
+
   const pluginsCanonical = routeToUrl('/plugins', siteBaseUrl);
   const pluginsMeta = buildPluginsMeta({
     pluginCount: JSON.parse(fs.readFileSync(path.join(ROOT_DIR, '../../data/specialized-plugin-candidates.json'), 'utf8')).candidates.length,
