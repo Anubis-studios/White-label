@@ -160,5 +160,106 @@
         ]
       }
     ]
+  },
+  {
+    "path": "/aas-core/",
+    "title": "Core & tools",
+    "description": "Understand AAS Core, the aas CLI, and the local MCP in one workflow: inspect, choose, validate, and preview.",
+    "intro": "Core, CLI, and MCP. One reviewable workflow.",
+    "lede": "Your agent chooses the skills. AAS records and validates that selection. You review the plan before any separate installation.",
+    "sections": [
+      {
+        "title": "AAS Core: the workflow and its contracts",
+        "body": "Core is the local boundary for discovering skills, recording exact agent-selected IDs, validating a stack manifest, and previewing a plan. The catalog provides evidence; the coding agent makes the project-specific selection. Core does not choose a stack through a ranking or scoring policy.",
+        "links": [
+          {
+            "label": "Browse the skill catalog",
+            "href": "/core/"
+          },
+          {
+            "label": "Read the full Core guide",
+            "href": "/docs/aas-core/"
+          }
+        ]
+      },
+      {
+        "title": "The CLI: persistence, validation, and planning",
+        "body": "The aas command-line tool configures the local runtime and works with explicit artifact paths. aas stack validate checks a manifest against the schema and catalog. aas stack plan writes the requested immutable plan artifact without installing skills or changing the project target. The optional audit checks consistency across artifacts.",
+        "links": [
+          {
+            "label": "Validation and plan examples",
+            "href": "/docs/aas-core/#validate-and-preview-the-plan"
+          },
+          {
+            "label": "Get started with your agent",
+            "href": "/docs/getting-started/"
+          }
+        ]
+      },
+      {
+        "title": "The MCP: tools your agent can call",
+        "body": "The local stdio MCP exposes catalog search, skill and bundle inspection, stack composition, and evidence tools to supported clients. Discovery is read-only and offline-capable. compose_stack validates the exact IDs selected by the agent and returns a manifest in process memory; the client or CLI persists it separately. A local stdio host is distinct from a public HTTPS connector.",
+        "links": [
+          {
+            "label": "Configure the local MCP",
+            "href": "/docs/aas-core/#configure-the-local-mcp"
+          },
+          {
+            "label": "Codex setup",
+            "href": "/docs/codex-cli-skills/"
+          },
+          {
+            "label": "Claude Code setup",
+            "href": "/docs/claude-code-skills/"
+          }
+        ]
+      },
+      {
+        "title": "The complete path",
+        "body": "1. Follow your client\u2019s setup guide. 2. Let the agent inspect the project, search the complete catalog, and read candidates. 3. Review its exact selection and stack manifest. 4. Validate and produce a plan with the CLI. 5. Inspect the artifacts in the Workbench. Your browser shortlist is a starting list to discuss with the agent, not a validated Core stack.",
+        "links": [
+          {
+            "label": "Walk through the Core quick path",
+            "href": "/docs/aas-core/#quick-path"
+          },
+          {
+            "label": "Open the Workbench and its recorded example",
+            "href": "/workbench/"
+          }
+        ]
+      },
+      {
+        "title": "From review to installation",
+        "body": "The supported Core path is manifest validation and a non-applying plan preview. A direct installer preview is a separate handoff using reviewed IDs, an exact catalog version, and a destination you approve. It does not apply a Core plan. Check the instructions and prerequisites before any installation; apply and recovery remain experimental opt-ins outside the supported preview path.",
+        "links": [
+          {
+            "label": "Use the reviewed selection",
+            "href": "/docs/aas-core/#use-the-reviewed-selection"
+          },
+          {
+            "label": "Compare focused plugin packs",
+            "href": "/plugins/"
+          }
+        ]
+      },
+      {
+        "title": "Privacy and practical limits",
+        "body": "AAS skills-only bundles do not independently collect telemetry. Local discovery can work offline, while your agent client, model provider, and tools you enable have their own data policies and costs. The hosted Workbench keeps imports in browser memory. Schema and integrity checks do not establish that a skill is safe or suitable for your project.",
+        "links": [
+          {
+            "label": "Trust & transparency",
+            "href": "/trust/"
+          },
+          {
+            "label": "Team adoption guide",
+            "href": "/teams/"
+          },
+          {
+            "label": "Privacy, trust, and limits",
+            "href": "/docs/aas-core/#privacy-trust-and-limits"
+          }
+        ]
+      }
+    ]
   }
 ]

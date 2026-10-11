@@ -11,6 +11,13 @@ describe('team and transparency pages', () => {
     expect(screen.getByRole('link', { name: /Core workflow and boundaries/ })).toHaveAttribute('href', '/docs/aas-core/');
     expect(document.querySelector('link[rel="canonical"]')).toHaveAttribute('href', `${window.location.origin}/teams/`);
   });
+  it('explains Core, CLI and local MCP together with exact guide links', () => {
+    render(<MemoryRouter initialEntries={['/aas-core/']}><InformationPage /></MemoryRouter>);
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Core, CLI, and MCP');
+    expect(screen.getByRole('link', { name: /Configure the local MCP/ })).toHaveAttribute('href', '/docs/aas-core/#configure-the-local-mcp');
+    expect(screen.getByText(/aas stack plan writes/)).toBeInTheDocument();
+    expect(screen.getByText(/does not apply a Core plan/)).toBeInTheDocument();
+  });
   it('links controlling license files and private reporting rather than making certifications', () => {
     render(<MemoryRouter initialEntries={['/trust']}><InformationPage /></MemoryRouter>);
     expect(screen.getByRole('link', { name: /Content license/ })).toHaveAttribute('href', expect.stringContaining('/LICENSE-CONTENT'));

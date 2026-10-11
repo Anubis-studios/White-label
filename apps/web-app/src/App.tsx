@@ -50,6 +50,7 @@ function App(): React.ReactElement {
               >
                 Catalog
               </NavLink>
+              <NavLink to="/aas-core/" className={({ isActive }) => `app-nav__link ${isActive ? 'is-active' : ''}`}>Core & tools</NavLink>
               <NavLink
                 to={toIndexableRoutePath('/workbench')}
                 className={({ isActive }) => `app-nav__link ${isActive ? 'is-active' : ''}`}
@@ -84,6 +85,7 @@ function App(): React.ReactElement {
                 <nav aria-label="Mobile navigation">
                   <Link to="/">Home</Link>
                   <Link to={toIndexableRoutePath('/core')}>Catalog</Link>
+                  <Link to="/aas-core/">Core & tools</Link>
                   <Link to={toIndexableRoutePath('/workbench')}>Workbench</Link>
                   <Link to={toIndexableRoutePath('/plugins')}>Plugins</Link>
                   <Link to="/teams/">For teams</Link>
@@ -111,6 +113,7 @@ function App(): React.ReactElement {
                 <Route path="/topics/:slug" element={<TopicLanding />} />
                 <Route path="/skill/:id" element={<SkillDetail />} />
               </Route>
+              <Route path="/aas-core" element={<InformationPage />} />
               <Route path="/teams" element={<InformationPage />} />
               <Route path="/trust" element={<InformationPage />} />
               <Route path="/plugins" element={<Plugins />} />
@@ -126,6 +129,7 @@ function App(): React.ReactElement {
           <p>Independent, community-curated project. Review skills before use.</p>
           <nav aria-label="Footer navigation">
             <Link to="/docs/">Documentation</Link>
+            <Link to="/aas-core/">Core & tools</Link>
             <Link to="/teams/">For teams</Link>
             <Link to="/trust/">Trust & transparency</Link>
             <a href="https://github.com/sickn33/agentic-awesome-skills/blob/main/PRIVACY.md">Privacy</a>

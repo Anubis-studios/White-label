@@ -17,7 +17,8 @@ Do not place secrets or personal data in prompts, examples, issue reports, or pu
 The hosted catalog is a static application hosted on Vercel. It:
 
 - loads public catalog data and public, aggregate skill-save counts;
-- stores saved-skill choices and shortlists in that browser's local storage;
+- stores saved-skill choices, shortlists, and named collections (including optional notes) in that browser's local storage;
+- imports collection files into browser memory for an explicit review before saving; exports contain the names, notes, version labels, and IDs chosen by the user;
 - creates shareable links containing exact skill IDs and the catalog version in a URL fragment; anyone receiving a link can inspect it, so it should not be treated as private;
 - keeps Workbench imports in browser memory and does not upload them to AAS;
 - uses Vercel Web Analytics for aggregate visit statistics, with query strings and URL fragments removed by AAS before analytics events are sent;
@@ -30,7 +31,7 @@ Vercel describes Web Analytics as cookie-free aggregate measurement; see its [an
 
 ## Retention and control
 
-AAS does not maintain a user profile or a server-side store of plugin conversations. Browser-local saved skills can be removed by clearing site data. Content voluntarily posted to GitHub is retained and controlled under GitHub's features and policies.
+AAS does not maintain a user profile or a server-side store of plugin conversations. Collections have no automatic cross-device sync. Export a backup before clearing site data; browser-local saved skills and collections can be removed by clearing site data. Content voluntarily posted to GitHub is retained and controlled under GitHub's features and policies.
 
 ## Contact
 

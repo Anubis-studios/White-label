@@ -255,7 +255,7 @@ function generateBridge(options) {
   });
   // First-party docs and new informational pages have no legacy routes to migrate.
   const bridgeSitemapRoutes = sitemapRoutes.filter(
-    ({ relativeRoute }) => relativeRoute !== 'docs' && !relativeRoute.startsWith('docs/') && !['teams', 'trust'].includes(relativeRoute),
+    ({ relativeRoute }) => relativeRoute !== 'docs' && !relativeRoute.startsWith('docs/') && !['teams', 'trust', 'aas-core'].includes(relativeRoute),
   );
   if (bridgeSitemapRoutes.length !== expectedRoutes) {
     throw new Error(`sitemap route count ${bridgeSitemapRoutes.length} does not match locked expectation ${expectedRoutes}`);

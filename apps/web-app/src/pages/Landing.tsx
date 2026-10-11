@@ -251,8 +251,8 @@ export function Landing(): React.ReactElement {
             <Icon name="book" size={16} />
             Read the Core guide
           </a>
-          <Link to={toIndexableRoutePath('/workbench')} className="landing-cta landing-cta--ghost">
-            Try the Workbench
+          <Link to="/aas-core/" className="landing-cta landing-cta--ghost">
+            Explore Core, CLI & MCP
             <Icon name="arrowRight" size={16} />
           </Link>
         </div>
