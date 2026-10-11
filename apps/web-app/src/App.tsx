@@ -1,11 +1,14 @@
 import { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Link, NavLink, Route, Routes } from 'react-router';
+import { redactAnalyticsUrl } from './utils/analyticsPrivacy';
 import { Analytics } from '@vercel/analytics/react';
 import { Icon } from './components/ui/Icon';
 import { toIndexableRoutePath } from './utils/seo';
 
+const InformationPage = lazy(() => import('./pages/InformationPage'));
 const Landing = lazy(() => import('./pages/Landing'));
 const Home = lazy(() => import('./pages/Home'));
+const SharedSelection = lazy(() => import('./pages/SharedSelection'));
 const SkillDetail = lazy(() => import('./pages/SkillDetail'));
 const Workbench = lazy(() => import('./pages/Workbench'));
 const Plugins = lazy(() => import('./pages/Plugins'));
@@ -45,8 +48,9 @@ function App(): React.ReactElement {
                 to={toIndexableRoutePath('/core')}
                 className={({ isActive }) => `app-nav__link ${isActive ? 'is-active' : ''}`}
               >
-                Core
+                Catalog
               </NavLink>
+              <NavLink to="/aas-core/" className={({ isActive }) => `app-nav__link ${isActive ? 'is-active' : ''}`}>Core & tools</NavLink>
               <NavLink
                 to={toIndexableRoutePath('/workbench')}
                 className={({ isActive }) => `app-nav__link ${isActive ? 'is-active' : ''}`}
@@ -59,6 +63,7 @@ function App(): React.ReactElement {
               >
                 Plugins
               </NavLink>
+              <NavLink to="/teams/" className={({ isActive }) => `app-nav__link ${isActive ? 'is-active' : ''}`}>For teams</NavLink>
               <NavLink to="/docs/" className={({ isActive }) => `app-nav__link ${isActive ? 'is-active' : ''}`}>
                 Docs
               </NavLink>
@@ -79,9 +84,11 @@ function App(): React.ReactElement {
                 <summary aria-label="Open navigation">Menu</summary>
                 <nav aria-label="Mobile navigation">
                   <Link to="/">Home</Link>
-                  <Link to={toIndexableRoutePath('/core')}>Core</Link>
+                  <Link to={toIndexableRoutePath('/core')}>Catalog</Link>
+                  <Link to="/aas-core/">Core & tools</Link>
                   <Link to={toIndexableRoutePath('/workbench')}>Workbench</Link>
                   <Link to={toIndexableRoutePath('/plugins')}>Plugins</Link>
+                  <Link to="/teams/">For teams</Link>
                   <Link to="/docs/">Docs</Link>
                   <a href="https://github.com/sickn33/agentic-awesome-skills" target="_blank" rel="noreferrer">View on GitHub</a>
                 </nav>
@@ -102,9 +109,13 @@ function App(): React.ReactElement {
               <Route element={<CatalogRouteProvider />}>
                 <Route path="/" element={<Landing />} />
                 <Route path="/core" element={<Home />} />
+                <Route path="/share" element={<SharedSelection />} />
                 <Route path="/topics/:slug" element={<TopicLanding />} />
                 <Route path="/skill/:id" element={<SkillDetail />} />
               </Route>
+              <Route path="/aas-core" element={<InformationPage />} />
+              <Route path="/teams" element={<InformationPage />} />
+              <Route path="/trust" element={<InformationPage />} />
               <Route path="/plugins" element={<Plugins />} />
               <Route path="/docs" element={<Docs />} />
               <Route path="/docs/:slug" element={<Docs />} />
@@ -118,13 +129,19 @@ function App(): React.ReactElement {
           <p>Independent, community-curated project. Review skills before use.</p>
           <nav aria-label="Footer navigation">
             <Link to="/docs/">Documentation</Link>
+            <Link to="/aas-core/">Core & tools</Link>
+            <Link to="/teams/">For teams</Link>
+            <Link to="/trust/">Trust & transparency</Link>
+            <a href="https://github.com/sickn33/agentic-awesome-skills/blob/main/PRIVACY.md">Privacy</a>
+            <a href="https://github.com/sickn33/agentic-awesome-skills/blob/main/TERMS.md">Terms</a>
+            <a href="https://github.com/sickn33/agentic-awesome-skills/blob/main/SECURITY.md">Security</a>
             <a href="https://github.com/sickn33/agentic-awesome-skills#contributing" target="_blank" rel="noreferrer">Contributing</a>
             <a href="https://github.com/sickn33/agentic-awesome-skills/blob/main/LICENSE" target="_blank" rel="noreferrer">License</a>
             <a href="https://github.com/sickn33/agentic-awesome-skills/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noreferrer">Code of Conduct</a>
           </nav>
         </footer>
       </div>
-      <Analytics />
+      <Analytics beforeSend={(event) => ({ ...event, url: redactAnalyticsUrl(event.url) })} />
     </Router>
   );
 }

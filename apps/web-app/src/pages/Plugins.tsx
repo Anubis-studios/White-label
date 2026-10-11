@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react';
-import { Link } from 'react-router';
+import { useEffect, useMemo, useState } from 'react';
+import { Link, useLocation } from 'react-router';
 import { Icon } from '../components/ui/Icon';
 import { specializedPlugins, type SpecializedPlugin } from '../data/specializedPlugins';
 import { usePageMeta } from '../hooks/usePageMeta';
@@ -13,6 +13,12 @@ const gettingStartedDocUrl = () => `${import.meta.env.BASE_URL}docs/getting-star
 
 export function Plugins(): React.ReactElement {
   const [query, setQuery] = useState('');
+  const { hash } = useLocation();
+  useEffect(() => {
+    const plugin = specializedPlugins.find((entry) => `#${entry.id}` === hash);
+    if (plugin) document.getElementById(plugin.id)?.scrollIntoView({ block: 'start' });
+    else if (!hash) window.scrollTo(0, 0);
+  }, [hash]);
   usePageMeta(buildPluginsMeta(specializedPlugins.length));
 
   const filtered = useMemo(() => {
