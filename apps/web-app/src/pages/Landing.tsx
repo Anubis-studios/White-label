@@ -69,6 +69,23 @@ export function Landing(): React.ReactElement {
       <Link className="core-setup-card" to="/docs/claude-code-skills/"><span className="core-setup-icon"><img src={`${import.meta.env.BASE_URL}claude-setup-mark.png`} width={52} height={52} alt="" /></span><span><strong>Claude Code setup <Icon name="arrowRight" size={18} /></strong><span>Connect Claude Code to AAS Core using the local stdio MCP.</span></span></Link>
     </section>
     <div className="core-boundary"><p>Core validates and previews. Review the instructions and plan before any separate installation.</p><Link to="/docs/aas-core/">Core, CLI & MCP reference <Icon name="arrowRight" size={16} /></Link></div>
+    <section className="core-video" aria-labelledby="core-video-title">
+      <p className="core-eyebrow">AAS in 40 seconds</p>
+      <h2 id="core-video-title">Meet the skill catalog behind Core.</h2>
+      <p>A short introduction to reusable skills and the agent workflow around them.</p>
+      <video controls playsInline preload="none" poster={`${import.meta.env.BASE_URL}videos/aas-onboarding-poster.jpg`} aria-label="AAS introduction video">
+        <source src={`${import.meta.env.BASE_URL}videos/aas-onboarding.mp4`} type="video/mp4" />
+        Your browser does not support HTML video.
+      </video>
+    </section>
+    <section className="core-maintainer" aria-label="Project">
+      <a href="https://github.com/sickn33" target="_blank" rel="noreferrer" className="core-maintainer__profile">
+        <img src={`${import.meta.env.BASE_URL}maintainer-avatar.jpg`} alt="" width={40} height={40} loading="lazy" />
+        <span><span className="core-maintainer__label">Maintained by</span><strong>@sickn33</strong></span>
+      </a>
+      <p>Open source: MIT code, CC BY 4.0 original content, with upstream notices preserved. Source PRs are welcome.</p>
+      <a href="https://github.com/sickn33/agentic-awesome-skills" target="_blank" rel="noreferrer" className="core-text-link"><Icon name="star" size={16} /> Star on GitHub</a>
+    </section>
   </div>;
 }
 export default Landing;

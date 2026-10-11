@@ -834,3 +834,8 @@ no fetch and no installer handoff. Root validation, references, documentation
 security, warning budget and full repository tests pass. Codex CLI installation passed with a temporary isolated configuration; native
 UI rendering remains unverified. Generated outputs stay excluded from
 this source PR and belong to protected canonical synchronization.
+
+
+## Core homepage introduction and maintainer restoration (2026-10-11)
+
+Restore the existing locally hosted 40-second introduction video after Core setup, with native controls, its original poster, and no preloading or autoplay. Restore the bottom Maintained by @sickn33 strip, existing local avatar, original licensing notice and GitHub star link. Keep the Core-first hero and navigation intact; responsive styles stack the strip on mobile. No new external service or dependency is added.
