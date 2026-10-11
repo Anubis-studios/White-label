@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router';
+import { CatalogNavigation } from '../components/CatalogNavigation';
+import './CatalogExperience.css';
 import { Icon } from '../components/ui/Icon';
 import { specializedPlugins, type SpecializedPlugin } from '../data/specializedPlugins';
 import { usePageMeta } from '../hooks/usePageMeta';
@@ -31,6 +33,7 @@ export function Plugins(): React.ReactElement {
 
   return (
     <div className="plugins-page">
+      <CatalogNavigation active="packs" />
       <header className="plugins-hero">
         <h1>Choose the focused AAS plugin for the job.</h1>
         <p>AAS specialized plugins are domain-specific distributions of the full skill library — smaller scope, clearer activation, faster starts.</p>

@@ -25,7 +25,7 @@ function CollectionEditor({ collection, available, onEdit, onRemove, onAdd }: { 
   </div>;
 }
 
-export function SkillCollections({ shortlistIds, availableIds, onAdd }: { shortlistIds: string[]; availableIds: string[]; onAdd: (ids: string[]) => void }): React.ReactElement {
+export function SkillCollections({ shortlistIds, availableIds, onAdd, standalone = false }: { shortlistIds: string[]; availableIds: string[]; onAdd: (ids: string[]) => void; standalone?: boolean }): React.ReactElement {
   const store = useSkillCollections();
   const importAttempt = useRef(0);
   useEffect(() => () => { importAttempt.current += 1; }, []);
@@ -45,7 +45,7 @@ export function SkillCollections({ shortlistIds, availableIds, onAdd }: { shortl
     } catch { setMessage('Export unavailable in this browser. Your saved collections are unchanged.'); }
     finally { if (url) window.setTimeout(() => URL.revokeObjectURL(url!), 1000); }
   };
-  return <details className="platform-panel skill-collections" id="skill-collections">
+  return <details className="platform-panel skill-collections" id="skill-collections" open={standalone || undefined}>
     <summary>My collections <span>{store.collections.length} saved on this device</span></summary>
     <div className="platform-panel__body">
       <p>Save multiple selections with names and notes. No account or automatic device sync. Export a backup before clearing site data.</p>

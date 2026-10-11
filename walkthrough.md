@@ -1,3 +1,11 @@
+## Core-first UX, selected visual direction (October 11, 2026)
+
+Implemented the user's third displayed design as the Core homepage: one primary setup action, a navigable recorded example, and contextual Codex/Claude setup links. The example renders actual committed historical manifest/plan data and discloses its v16.7.0 catalog when inspected; it performs no live AI or project writes. The homepage is outside CatalogRouteProvider, avoiding initial catalog requests and persistence initialization.
+
+Reduced primary navigation to Catalog, Docs, and For teams. Catalog now separates skills, packs, workflows, and named collections; repeated product/technical/FAQ sections were removed from skill search. Core/CLI/MCP reference and the plan reviewer are accessible through documentation and contextual actions. Preserved /aas-core/ and its old section anchors through redirects; sitemap removes the duplicate overview and prerender/SEO copy now reflects the product/catalog distinction. Existing filters, saved selections, collections and public routes remain supported. No dependency or runtime service is added.
+
+Validation: 301 web tests in 52 files, coverage, typecheck, production build/prerender, 27-guide and production SEO verification, changed-source lint, chain, reference/documentation security checks and 132 local repository test groups passed. Design QA compared the selected image and browser render at 1487 x 1058 and tested 390px mobile reflow. See design-qa.md for comparison iterations, assets, purposeful behavior and evidence limits. Generated sitemap is excluded from the source PR.
+
 ## Catalog discovery, collections, and Core overview (October 11, 2026)
 
 The catalog now groups and searches every category without hiding canonical categories, collapses advanced matching/risk/source controls, and keeps the selected count and review links available while browsing. Optional workflow and outcome explorers follow results. A guided goal/agent path links existing editorial packs and workflows without automatic selection. Browser-local named collections preserve version labels and exact IDs, support notes and explicit file import/export, reject invalid or oversized data, and report storage failures. Imports append new identities without overwriting saved lists; unavailable IDs remain inspectable and cannot be added to the working shortlist.
