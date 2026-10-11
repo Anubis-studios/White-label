@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
 import { Link } from 'react-router';
 import { Icon } from '../components/ui/Icon';
+import { LandingDiscovery } from '../components/LandingDiscovery';
 import { useSkills } from '../context/SkillContext';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { catalogVersion } from '../utils/catalogRelease';
@@ -89,9 +90,10 @@ export function Landing(): React.ReactElement {
         <p className="landing-hero__punch">Search. Choose. Validate. Preview.</p>
         <p className="landing-hero__lede">
           {catalogSizeLabel} reusable <code>SKILL.md</code> playbooks for Codex, Claude Code, Cursor,
-          Gemini CLI, and Antigravity. AAS Core lets the agent pick exact skills and preview the
-          plan before anything touches your project.
+          Gemini CLI, and Antigravity. Find a starting point for your next project.
         </p>
+
+        <LandingDiscovery />
 
         <div className="landing-terminal">
           <span className="landing-terminal__prompt" aria-hidden="true">$</span>

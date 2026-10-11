@@ -1,3 +1,12 @@
+# Homepage discovery and shareable shortlists - 2026-10-11
+
+- Added a homepage search form, explicit goal/category links, and an agent-specific setup-guide selector using the existing catalog and documentation routes.
+- Added [shared selections](apps/web-app/src/pages/SharedSelection.tsx) with bounded, versioned URL fragments containing only canonical skill IDs. No accounts, database, new dependencies, or paid external services were added.
+- Shared links are inspected in memory. Saving is explicit and merges with the existing browser shortlist; missing IDs and catalog-version drift remain visible. Project goals, targets, and imported artifacts are excluded from shared URLs. These are discovery selections, not validated Core stacks.
+- Added malformed/oversized-link, clipboard-fallback, stale-link, explicit-save, storage-failure, and existing-shortlist-preservation tests.
+- Validation: repository validation and reference checks, documentation security, 132 repository test groups, web coverage suite, type checking, production build, and lint on changed source files. Full-app lint still reports the two unchanged `set-state-in-effect` errors in Workbench and PluginWorkbench.
+- Browser verification: homepage search to the catalog, selection-link creation and opening, desktop layout, and a 390px mobile viewport. Publication and live production verification are separate from this implementation evidence.
+
 # Top skills contributors - 2026-09-27
 
 - Added a second Top Contributors ranking for canonical skills introduced, alongside the existing commit ranking.

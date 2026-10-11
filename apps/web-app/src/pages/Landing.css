@@ -671,3 +671,16 @@
     transition: none;
   }
 }
+
+/* Discovery uses the existing landing typography and cyan action treatment. */
+.landing-discovery { width: min(100%, 44rem); margin: 1.75rem 0 .25rem; text-align: left; }
+.landing-discovery form > label { display: block; margin-bottom: .65rem; font-weight: 600; }
+.landing-discovery__search { display: flex; gap: .6rem; }
+.landing-discovery__search input { min-width: 0; flex: 1; padding: .85rem 1rem; border: 1px solid var(--landing-line-strong); border-radius: .6rem; background: var(--landing-panel); color: var(--landing-text); font: inherit; }
+.landing-discovery__search input:focus-visible { outline: 2px solid var(--landing-cyan); outline-offset: 3px; }
+.landing-discovery__shortcuts { display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; margin-top: .9rem; font-size: .9rem; }
+.landing-discovery a { color: var(--landing-cyan); text-underline-offset: 4px; }
+.landing-discovery__guide { display: flex; flex-wrap: wrap; gap: .65rem; align-items: center; margin-top: 1.25rem; font-size: .9rem; }
+.landing-discovery__guide select { padding: .4rem .6rem; border: 1px solid var(--landing-line-strong); border-radius: .4rem; background: var(--landing-panel); color: var(--landing-text); font: inherit; }
+.landing-discovery > p { color: var(--landing-muted); font-size: .85rem; line-height: 1.6; margin-top: .8rem; }
+@media (max-width: 480px) { .landing-discovery__search { flex-direction: column; } .landing-discovery__search .landing-cta { justify-content: center; } }

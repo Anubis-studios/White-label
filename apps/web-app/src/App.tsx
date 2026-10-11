@@ -6,6 +6,7 @@ import { toIndexableRoutePath } from './utils/seo';
 
 const Landing = lazy(() => import('./pages/Landing'));
 const Home = lazy(() => import('./pages/Home'));
+const SharedSelection = lazy(() => import('./pages/SharedSelection'));
 const SkillDetail = lazy(() => import('./pages/SkillDetail'));
 const Workbench = lazy(() => import('./pages/Workbench'));
 const Plugins = lazy(() => import('./pages/Plugins'));
@@ -102,6 +103,7 @@ function App(): React.ReactElement {
               <Route element={<CatalogRouteProvider />}>
                 <Route path="/" element={<Landing />} />
                 <Route path="/core" element={<Home />} />
+                <Route path="/share" element={<SharedSelection />} />
                 <Route path="/topics/:slug" element={<TopicLanding />} />
                 <Route path="/skill/:id" element={<SkillDetail />} />
               </Route>
