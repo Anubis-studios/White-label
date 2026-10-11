@@ -1,3 +1,7 @@
+## Team adoption and transparency (October 11, 2026)
+
+Added a three-step Start here section, static /teams/ and /trust/ pages, Catalog navigation, and visible Privacy/Terms/Security links. Team guidance links existing setup and Core documentation without adding installation commands or services. New informational routes stay outside the legacy bridge, preserving its existing curated route lock; a regression verifies their exclusion. Both pages share their copy with the static prerender and appear in the sitemap. Corrected MIT/CC BY 4.0 distinctions and hosted privacy disclosures for Vercel, Supabase public counts, local persistence, and shared links. Analytics URLs omit searches and fragments; no custom events or new dependencies were added.
+
 # Homepage discovery and shareable shortlists - 2026-10-11
 
 - Added a homepage search form, explicit goal/category links, and an agent-specific setup-guide selector using the existing catalog and documentation routes.
@@ -677,6 +681,8 @@
 - Reduced the one-time FLOSS/fund request from USD 25,000 to USD 10,000, the minimum published at https://floss.fund/faq, and revised the proposed allocation to total USD 10,000.
 - Set the README immediate community-support target to EUR 100 per month with an explicit recurring Buy Me a Coffee route. This monthly target is separate from the annual grant proposal.
 - Preserved the existing project identifiers, funding channel, and dated adoption evidence.
+
+Validation: production build/typecheck and 281 web tests (47 files) passed, as did repository validation, reference checks, documentation security, and the full local test suite. Changed-source lint passed. Browser checks verified both informational pages and a 390px layout without horizontal overflow.
 
 ## 2026-09-05 — Complete skill metadata dates
 

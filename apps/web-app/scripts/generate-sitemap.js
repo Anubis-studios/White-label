@@ -150,6 +150,8 @@ export function buildSitemap(skills, topCount = TOP_SKILL_COUNT, baseUrl = SITE_
       toIndexableRoutePath('/core'),
       toIndexableRoutePath('/workbench'),
       toIndexableRoutePath('/plugins'),
+      '/teams/',
+      '/trust/',
       '/docs/',
       ...JSON.parse(fs.readFileSync(path.join(ROOT_DIR, 'src/data/docs.json'), 'utf8')).map((doc) => `/docs/${doc.slug}/`),
       ...landingPaths,

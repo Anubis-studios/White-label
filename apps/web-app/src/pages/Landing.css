@@ -684,3 +684,10 @@
 .landing-discovery__guide select { padding: .4rem .6rem; border: 1px solid var(--landing-line-strong); border-radius: .4rem; background: var(--landing-panel); color: var(--landing-text); font: inherit; }
 .landing-discovery > p { color: var(--landing-muted); font-size: .85rem; line-height: 1.6; margin-top: .8rem; }
 @media (max-width: 480px) { .landing-discovery__search { flex-direction: column; } .landing-discovery__search .landing-cta { justify-content: center; } }
+
+.landing-start__steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; padding: 0; list-style: none; }
+.landing-start__steps h3 { font-size: 1.05rem; }
+.landing-start__steps p, .landing-start__team { color: var(--landing-muted); line-height: 1.7; }
+.landing-start a { color: var(--landing-cyan); text-underline-offset: 4px; }
+.landing-start__team { margin-top: 2rem; }
+@media (max-width: 700px) { .landing-start__steps { grid-template-columns: 1fr; gap: 1rem; } }
