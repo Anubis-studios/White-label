@@ -41,7 +41,7 @@ describe('Landing', () => {
     expect(screen.getByRole('heading', { level: 2, name: /Works with every agent/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 2, name: /Current surfaces/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 2, name: /From intent to a reviewable plan/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /^Enter Core$/i })).toHaveAttribute('href', '/core/');
+    expect(screen.getByRole('link', { name: /^Browse the catalog$/i })).toHaveAttribute('href', '/core/');
     expect(screen.getByRole('link', { name: /Open Workbench/i })).toHaveAttribute('href', '/workbench/');
     expect(screen.getByRole('link', { name: /Compare plugins/i })).toHaveAttribute('href', '/plugins/');
     expect(screen.getByRole('link', { name: /@sickn33/i })).toHaveAttribute(
