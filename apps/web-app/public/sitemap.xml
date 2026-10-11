@@ -37,12 +37,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://aaskills.tech/aas-core/</loc>
-    <lastmod>2026-10-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://aaskills.tech/docs/</loc>
     <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
