@@ -22,7 +22,7 @@ This skill changes the order of work:
 3. Scale up in **cost-gated rungs**, measuring and projecting cost before each one.
 4. Only then add features, **one at a time**, re-running the tests after each.
 
-## When to use
+## When to Use
 
 - A workflow with 2+ stages (ingest -> transform -> model/LLM -> output), or anything that touches paid compute: warehouse credits, LLM tokens, embeddings, API calls.
 - New or unfamiliar data, a new tool or SDK, an architecture that has not run in this environment before.
@@ -131,6 +131,28 @@ Tell the user, briefly:
 - Writing many tools or rules that each fit one test question (overfitting); fix classes of errors instead, and confirm on held-out tests.
 - Claiming success on tests written by the same agent that built the system.
 - Stopping at an over-budget projection without first trying to make the job fit the budget.
+
+## Example
+
+User: "Tag all 400 tickets in tickets.csv with a category using our LLM endpoint."
+
+```text
+Step 0  path: CSV -> 1 LLM call -> tagged.csv | test: 10 hand-checked tickets correct | budget: $2 (proposed)
+Sample: 3 tickets have empty bodies (API bills then errors) -> skip; only 220 of 400 texts are unique -> cache by hash
+Spent so far:
+L0  1 ticket    pass   $0.004
+L1  10 tickets  10/10  $0.04   -> full run projected $0.88 (with dedupe) < $2, continue
+L2  100         12/12  $0.25   -> continue
+L3  400         pass   $0.88 total (naive run would have cost $1.60)
+```
+
+## Limitations
+
+- Needs a way to measure cost (a ledger, billing view, token counts or query history); without it, projections are estimates and should be labeled as such.
+- Small rungs can miss problems that only appear at scale (rate limits, rare record types, skewed partitions); keep the full-run gate and reconcile totals.
+- Adds a few minutes and some tokens per task; not worth it for one-off queries, single-file fixes or work already proven at full size.
+- Tests written by the same agent can be too easy; use held-out tests or a human spot-check before claiming quality.
+- Cost levers listed for Snowflake and dbt are starting points; check your platform's current pricing and features.
 
 ## Done means
 
