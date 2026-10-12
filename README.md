@@ -79,6 +79,8 @@ Every contribution helps us keep the skills curated, the tooling tested, and the
 
 [![Powered by Atlas Cloud](https://www.atlascloud.ai/oss-program/powered-by-atlas-cloud.svg)](https://www.atlascloud.ai/)
 
+For a complete setup through your first skill selection and installation preview, follow [Codex setup](docs/users/codex-cli-skills.md) or [Claude Code setup](docs/users/claude-code-skills.md).
+
 ## AAS Core: Agent-First Preview
 
 Codex or Claude inspects your project and chooses exact skills. Every current catalog skill is individually searchable, readable, and available for agent selection. The read-only `compose_stack` tool validates the chosen IDs and structure in memory; a client or the `aas` CLI can persist `aas-stack.json` and optional selection evidence. `aas stack validate` checks the manifest, while `aas stack plan` writes an immutable preview for your review. Manifests have a technical maximum of 128 skills; Core does not rank or recommend candidates or install skills in this supported preview path.

@@ -407,7 +407,7 @@ Rules:
 
 Reject any PR that fails this:
 
-1.  **Metadata**: Has `name`, `description`?
+1.  **Metadata**: Has `name` and a task-specific `description`? `npm run validate` rejects empty descriptions and the known skill-template placeholder.
 2.  **Safety**: `risk: offensive` used for red-team tools?
 3.  **Clarity**: Does it say _when_ to use it?
 4.  **Examples**: Copy-pasteable code blocks?
