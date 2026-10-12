@@ -18,7 +18,7 @@ license_source: "https://github.com/Pazificateur69/tokenleak/blob/main/LICENSE"
 
 ## Overview
 
-Every tool result an agent pulls into context is re-sent on every later call until compaction, so a 6k-token log read early in a 60-call session is paid about 55 more times. These rules make the agent let in only what the next decision needs: locate before reading, compute instead of reading data, bound command output, never re-read, batch independent calls. In a 40-run A/B benchmark in Claude Code they cut cost by 40% with the same 20/20 pass rate (method and raw results in the source repo).
+Every tool result an agent pulls into context is re-sent on every later call until compaction, so a 6k-token log read early in a 60-call session is paid about 55 more times. These rules make the agent let in only what the next decision needs: locate before reading, compute instead of reading data, bound command output, never re-read, batch independent calls. Over 80 A/B runs in Claude Code (Sonnet 5) they cut cost by 32% with the same 40/40 pass rate; on Haiku 4.5 they only help together with the plugin's read guard (-20%). Method and raw results are in the source repo.
 
 ## When to Use This Skill
 
@@ -50,7 +50,7 @@ Every tool result an agent pulls into context is re-sent on every later call unt
 
 ## Limitations
 
-- The savings depend on the workload: in the benchmark a short test-fixing task showed no gain, while noisy builds and multi-file features showed 40-60%.
-- The benchmark covers one model (Claude Sonnet 5) and four small tasks on a synthetic repo.
+- The savings depend on the workload and the model: in the benchmark a short test-fixing task gained 5%, noisy builds and multi-file features 24-51%; small models such as Haiku 4.5 barely follow the rules without the plugin's read guard.
+- The benchmark covers two models and four small tasks on a synthetic repo, and runs vary 2 to 4x.
 - The rules cost about 850 tokens of context themselves; on very short sessions they may not pay for themselves.
 - The companion transcript audit (`tokenleak.py`) lives in the source repo and is not included here.
