@@ -1,6 +1,6 @@
 {
   "generatedAt": "2026-10-11T17:57:03.000Z",
-  "total": 2685,
+  "total": 2687,
   "skills": [
     {
       "id": "00-andruia-consultant",
@@ -6069,6 +6069,41 @@
         "boundaries"
       ],
       "path": "skills/architecture-review/SKILL.md"
+    },
+    {
+      "id": "arcmira-find-quotes",
+      "canonical_id": "arcmira-find-quotes",
+      "name": "arcmira-find-quotes",
+      "description": "Search indexed YouTube and podcast transcripts for quotes, speakers and clip boundaries with timestamped source links using Arcmira.",
+      "category": "research",
+      "risk": "safe",
+      "source": "https://github.com/arcmira/mcp/tree/v0.10.6/plugins/arcmira/skills/find-quotes",
+      "source_type": "official",
+      "source_repo": "arcmira/mcp",
+      "license": "Apache-2.0",
+      "license_source": "https://github.com/arcmira/mcp/blob/v0.10.6/plugins/arcmira/LICENSE",
+      "tags": [
+        "youtube",
+        "transcripts",
+        "quotes",
+        "research",
+        "timestamps"
+      ],
+      "triggers": [
+        "youtube",
+        "transcripts",
+        "quotes",
+        "research",
+        "timestamps",
+        "arcmira",
+        "find",
+        "search",
+        "indexed",
+        "podcast",
+        "speakers",
+        "clip"
+      ],
+      "path": "skills/arcmira-find-quotes/SKILL.md"
     },
     {
       "id": "argocd-gitops",
@@ -41103,6 +41138,41 @@
         "register"
       ],
       "path": "skills/invoices-billing/SKILL.md"
+    },
+    {
+      "id": "invokely-statistics",
+      "canonical_id": "invokely-statistics",
+      "name": "invokely-statistics",
+      "description": "Use Invokely MCP to find official statistics, retrieve values and series, compare or rank places, and report each figure with its period, unit, and source citation.",
+      "category": "data",
+      "risk": "safe",
+      "source": "https://github.com/estevecastells/awesome-copilot/blob/9d96d33228f753cf26d7da5115598da2c19ad900/skills/invokely-statistics/SKILL.md",
+      "source_type": "community",
+      "source_repo": "estevecastells/awesome-copilot",
+      "license": "MIT",
+      "license_source": "https://github.com/estevecastells/awesome-copilot/blob/9d96d33228f753cf26d7da5115598da2c19ad900/LICENSE",
+      "tags": [
+        "invokely",
+        "mcp",
+        "statistics",
+        "official-data",
+        "citations"
+      ],
+      "triggers": [
+        "invokely",
+        "mcp",
+        "statistics",
+        "official-data",
+        "citations",
+        "find",
+        "official",
+        "retrieve",
+        "values",
+        "series",
+        "compare",
+        "rank"
+      ],
+      "path": "skills/invokely-statistics/SKILL.md"
     },
     {
       "id": "ios-debugger-agent",

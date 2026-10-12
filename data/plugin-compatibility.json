@@ -3887,6 +3887,25 @@
       "runtime_files": []
     },
     {
+      "id": "arcmira-find-quotes",
+      "path": "skills/arcmira-find-quotes",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "argocd-gitops",
       "path": "skills/argocd-gitops",
       "targets": {
@@ -26507,6 +26526,25 @@
     {
       "id": "invoices-billing",
       "path": "skills/invoices-billing",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "invokely-statistics",
+      "path": "skills/invokely-statistics",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -51514,10 +51552,10 @@
     }
   ],
   "summary": {
-    "total_skills": 2685,
+    "total_skills": 2687,
     "supported": {
-      "codex": 2598,
-      "claude": 2623
+      "codex": 2600,
+      "claude": 2625
     },
     "blocked": {
       "codex": 87,

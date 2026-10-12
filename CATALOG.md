@@ -2,7 +2,7 @@
 
 Generated at: 2026-10-11T17:57:03.000Z
 
-Total skills: 2685
+Total skills: 2687
 
 ## agent-behavior (5)
 
@@ -1081,7 +1081,7 @@ Total skills: 2685
 | `liuguang-banlan-ui` | Builds two parameterized UI modes—流光溢彩白 (iridescent white) and 五彩斑斓黑 (colorful black)—with OKLCH, WebGL/CSS fallback, vision gating, screenshot QA, and total... | critical | self | ui, frontend, oklch, webgl, accessibility | ui, frontend, oklch, webgl, accessibility, liuguang, banlan, two, parameterized, modes, iridescent, white |
 | `modellix` | Integrate the Modellix API/CLI for async AI image, video, and speech generation or transcription (model run --wait, task download). | critical | Modellix/modellix-plugin | image-generation, video-generation, audio-generation, text-to-speech, speech-to-text, speech-to-speech, modellix, cli, api | image-generation, video-generation, audio-generation, text-to-speech, speech-to-text, speech-to-speech, modellix, cli, api, integrate, async, ai |
 
-## data (43)
+## data (44)
 
 | Skill | Description | Risk | Source | Tags | Triggers |
 | --- | --- | --- | --- | --- | --- |
@@ -1097,6 +1097,7 @@ Total skills: 2685
 | `firecrawl-scraper` | Deep web scraping, screenshots, PDF parsing, and website crawling using Firecrawl API. Use when you need deep content extraction from web pages, page interac... | critical | community | firecrawl, scraper | firecrawl, scraper, deep, web, scraping, screenshots, pdf, parsing, website, crawling, api, content |
 | `glasser` | Search, inspect, and run third-party data APIs through one CLI when the environment has no suitable integration. | critical | self | api, data, search, enrichment, marketing, research, cli | api, data, search, enrichment, marketing, research, cli, glasser, inspect, run, third, party |
 | `huggingface-datasets` | Use this skill for Hugging Face Dataset Viewer API workflows that fetch subset/split metadata, paginate rows, search text, apply filters, download parquet UR... | unknown | huggingface/skills | huggingface, datasets | huggingface, datasets, skill, hugging, face, dataset, viewer, api, fetch, subset, split, metadata |
+| `invokely-statistics` | Use Invokely MCP to find official statistics, retrieve values and series, compare or rank places, and report each figure with its period, unit, and source ci... | safe | estevecastells/awesome-copilot | invokely, mcp, statistics, official-data, citations | invokely, mcp, statistics, official-data, citations, find, official, retrieve, values, series, compare, rank |
 | `looot` | Search, price and run 2,500+ data API endpoints (work emails, company search, SERP, web pages) from one prepaid balance via the looot MCP server. | critical | loootai/looot-skills | data-api, enrichment, email-finder, seo, mcp | data-api, enrichment, email-finder, seo, mcp, looot, search, price, run, 500, data, api |
 | `mixpanel-automation` | Automate Mixpanel tasks via Rube MCP (Composio): events, segmentation, funnels, cohorts, user profiles, JQL queries. Always search tools first for current sc... | critical | community | mixpanel | mixpanel, automation, automate, tasks, via, rube, mcp, composio, events, segmentation, funnels, cohorts |
 | `monte-carlo-asset-health` | Curated upstream guidance for Monte Carlo Asset Health; use when the workflow matches the user goal. | critical | monte-carlo-data/mc-agent-toolkit | monte, carlo, asset, health | monte, carlo, asset, health, curated, upstream, guidance, matches, user, goal |
@@ -2561,10 +2562,11 @@ Total skills: 2685
 | `tune-monitor` | Analyze a Monte Carlo monitor and recommend config changes to reduce alert noise. Supports metric, custom SQL, validation, and table monitors. Fetches the re... | critical | monte-carlo-data/mc-agent-toolkit | tune, monitor | tune, monitor, analyze, monte, carlo, recommend, config, changes, reduce, alert, noise, supports |
 | `windows-shell-reliability` | Reliable command execution on Windows: paths, encoding, and common binary pitfalls. | safe | community | windows, shell, reliability | windows, shell, reliability, reliable, command, execution, paths, encoding, common, binary, pitfalls |
 
-## research (24)
+## research (25)
 
 | Skill | Description | Risk | Source | Tags | Triggers |
 | --- | --- | --- | --- | --- | --- |
+| `arcmira-find-quotes` | Search indexed YouTube and podcast transcripts for quotes, speakers and clip boundaries with timestamped source links using Arcmira. | safe | arcmira/mcp | youtube, transcripts, quotes, research, timestamps | youtube, transcripts, quotes, research, timestamps, arcmira, find, search, indexed, podcast, speakers, clip |
 | `ask-human-expert` | Ask real executives and domain experts a question through Instant Expert for a written answer or short call: practitioner knowledge, customer discovery. Free... | critical | Instant-Expert/skills | experts, expert-network, human-in-the-loop, customer-discovery, user-research, interviews, mcp, paid-api | experts, expert-network, human-in-the-loop, customer-discovery, user-research, interviews, mcp, paid-api, ask, human, real, executives |
 | `deep-research-framework` | Framework for deep research reports: define the question and tier sources first, cross-verify, then write conclusion-first reports with explicit uncertainty ... | safe | alapha888/agent-skills-en | research-reports, source-verification, analysis | research-reports, source-verification, analysis, deep, research, framework, reports, define, question, tier, sources, first |
 | `deepapi` | Use DeepAPI for supported scraping, research, and email workflows with explicit credentials and approval. | critical | davidondrej/skills | deepapi, scraping, email, api | deepapi, scraping, email, api, supported, research, explicit, credentials, approval |

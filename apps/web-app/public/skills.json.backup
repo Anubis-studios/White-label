@@ -5109,6 +5109,39 @@
     "license": "AGPL-3.0-only"
   },
   {
+    "id": "arcmira-find-quotes",
+    "path": "skills/arcmira-find-quotes",
+    "category": "research",
+    "name": "arcmira-find-quotes",
+    "description": "Search indexed YouTube and podcast transcripts for quotes, speakers and clip boundaries with timestamped source links using Arcmira.",
+    "risk": "safe",
+    "source": "https://github.com/arcmira/mcp/tree/v0.10.6/plugins/arcmira/skills/find-quotes",
+    "date_added": "2026-10-12",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    },
+    "source_type": "official",
+    "source_repo": "arcmira/mcp",
+    "license": "Apache-2.0",
+    "license_source": "https://github.com/arcmira/mcp/blob/v0.10.6/plugins/arcmira/LICENSE",
+    "tags": [
+      "youtube",
+      "transcripts",
+      "quotes",
+      "research",
+      "timestamps"
+    ]
+  },
+  {
     "id": "argocd-gitops",
     "path": "skills/argocd-gitops",
     "category": "devops",
@@ -34848,6 +34881,39 @@
       "notion",
       "sql",
       "operate"
+    ]
+  },
+  {
+    "id": "invokely-statistics",
+    "path": "skills/invokely-statistics",
+    "category": "data",
+    "name": "invokely-statistics",
+    "description": "Use Invokely MCP to find official statistics, retrieve values and series, compare or rank places, and report each figure with its period, unit, and source citation.",
+    "risk": "safe",
+    "source": "https://github.com/estevecastells/awesome-copilot/blob/9d96d33228f753cf26d7da5115598da2c19ad900/skills/invokely-statistics/SKILL.md",
+    "date_added": "2026-10-12",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    },
+    "source_type": "community",
+    "source_repo": "estevecastells/awesome-copilot",
+    "license": "MIT",
+    "license_source": "https://github.com/estevecastells/awesome-copilot/blob/9d96d33228f753cf26d7da5115598da2c19ad900/LICENSE",
+    "tags": [
+      "invokely",
+      "mcp",
+      "statistics",
+      "official-data",
+      "citations"
     ]
   },
   {
