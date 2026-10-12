@@ -331,6 +331,7 @@ Key source families include:
 
 ### Community Contributors
 
+- **[Kadajett/cockney](https://github.com/Kadajett/cockney)**: MIT source for the `cockney` skill - terse Cockney-voiced replies and the smallest correct change (reuse, stdlib before dependencies, no speculative abstraction), switching to plain English for security and destructive-action warnings.
 - **[morluto/rea](https://github.com/morluto/rea)**: MIT source for the `reverse-engineer-anything` skill - evidence-led native, managed, JavaScript/Electron, packaged, and browser investigations with explicit provider limits.
 
 - **[stas4000/what-could-break](https://github.com/stas4000/what-could-break)**: MIT source for the `what-could-break` skill - find what a change breaks outside its own diff and prove the one fact that makes it safe by running real code. Includes material adapted from pstack by Lauren Tan (MIT).
