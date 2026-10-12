@@ -1718,6 +1718,25 @@
       "runtime_files": []
     },
     {
+      "id": "ai-headshot-studio",
+      "path": "skills/ai-headshot-studio",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "ai-image-generation-studio",
       "path": "skills/ai-image-generation-studio",
       "targets": {
@@ -9053,6 +9072,25 @@
       "runtime_files": []
     },
     {
+      "id": "build-ui",
+      "path": "skills/build-ui",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "building-native-ui",
       "path": "skills/building-native-ui",
       "targets": {
@@ -10920,6 +10958,25 @@
     {
       "id": "co-marketing",
       "path": "skills/co-marketing",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "cockney",
+      "path": "skills/cockney",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -26507,6 +26564,25 @@
     {
       "id": "ios-redteam-pipeline",
       "path": "skills/ios-redteam-pipeline",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "ios-screens",
+      "path": "skills/ios-screens",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -46691,6 +46767,25 @@
       "runtime_files": []
     },
     {
+      "id": "tokenleak",
+      "path": "skills/tokenleak",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "tokenwise",
       "path": "skills/tokenwise",
       "targets": {
@@ -47387,6 +47482,25 @@
       "runtime_files": []
     },
     {
+      "id": "ui-from-screenshot",
+      "path": "skills/ui-from-screenshot",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "ui-lint",
       "path": "skills/ui-lint",
       "targets": {
@@ -47541,6 +47655,25 @@
     {
       "id": "ui-skills-root",
       "path": "skills/ui-skills-root",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "ui-states",
+      "path": "skills/ui-states",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -50652,6 +50785,25 @@
       "runtime_files": []
     },
     {
+      "id": "write-design-md",
+      "path": "skills/write-design-md",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "write-in-my-voice",
       "path": "skills/write-in-my-voice",
       "targets": {
@@ -51362,10 +51514,10 @@
     }
   ],
   "summary": {
-    "total_skills": 2677,
+    "total_skills": 2685,
     "supported": {
-      "codex": 2590,
-      "claude": 2615
+      "codex": 2598,
+      "claude": 2623
     },
     "blocked": {
       "codex": 87,
