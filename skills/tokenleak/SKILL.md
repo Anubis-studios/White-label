@@ -54,3 +54,26 @@ Every tool result an agent pulls into context is re-sent on every later call unt
 - The benchmark covers two models and four small tasks on a synthetic repo, and runs vary 2 to 4x.
 - The rules cost about 850 tokens of context themselves; on very short sessions they may not pay for themselves.
 - The companion transcript audit (`tokenleak.py`) lives in the source repo and is not included here.
+
+## Examples
+
+Locate before reading, and hand the agent only what the next decision needs:
+
+```bash
+wc -l app/service.py          # size, alongside the search
+rg -n "def handle_" app/      # find the region first
+sed -n '120,180p' app/service.py
+```
+
+Bound a noisy build and keep the failure visible:
+
+```bash
+L="${TMPDIR:-/tmp}/out.log"; npm test > "$L" 2>&1; echo "exit=$?"; tail -n 40 "$L"
+grep -n -m 20 -E 'error|FAIL' "$L"
+```
+
+Count instead of pasting data into context:
+
+```bash
+python3 -c "import json;print(len(json.load(open('events.json'))))"
+```
