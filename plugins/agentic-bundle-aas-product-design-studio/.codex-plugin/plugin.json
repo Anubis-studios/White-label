@@ -20,7 +20,7 @@
   "interface": {
     "displayName": "AAS Product Design Studio",
     "shortDescription": "Shape product UI through design critique, visual direction, accessibility, responsive UX, motion, and asset generation.",
-    "longDescription": "Shape product UI through design critique, visual direction, accessibility, responsive UX, motion, and asset generation. Turn a product brief into a coherent visual direction, responsive interface and actionable design review. Recommended for: Product designers, Frontend teams, Founders polishing a product surface. Not for: Complete application delivery and browser regression coverage: use Web App Builder, A dedicated accessibility audit: use Accessibility & Inclusive UX. Covers UI UX Pro Max, High End Visual Design, and 8 more skills.",
+    "longDescription": "Shape product UI through design critique, visual direction, accessibility, responsive UX, motion, and asset generation. Turn a brief or supplied screenshot into a coherent visual direction, documented design rules and responsive interface states. Recommended for: Product designers, Frontend teams, Founders polishing a product surface. Not for: Complete application delivery and browser regression coverage: use Web App Builder, A dedicated accessibility audit: use Accessibility & Inclusive UX. Covers UI UX Pro Max, High End Visual Design, and 11 more skills.",
     "developerName": "sickn33 and contributors",
     "category": "Specialized Product Plugins",
     "capabilities": [
@@ -34,7 +34,8 @@
     "defaultPrompt": [
       "Review this product brief and existing interface. Propose a visual direction, implement one representative responsive screen, and check typography, spacing, contrast and motion. Add 3D or custom artwork only if the brief calls for it.",
       "Use this plugin to design a responsive accessible product screen and handoff notes for implementation.",
-      "Use this plugin to improve the visual polish, motion, and accessibility of this interface."
+      "Use this plugin to improve the visual polish, motion, and accessibility of this interface.",
+      "Review this project for the added coverage: Record visual decisions and reusable interface rules in a design document; Translate a supplied screenshot into an interface with explicit assumptions; Design loading, empty, error and success states with accessible feedback. Use only the relevant skills and existing stack. Report observed checks and limitations; prepare drafts before external or production actions."
     ]
   }
 }

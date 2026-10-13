@@ -2,7 +2,7 @@
 
 Generated at: 2026-10-12T19:15:49.000Z
 
-Total skills: 2687
+Total skills: 2688
 
 ## agent-behavior (5)
 
@@ -132,7 +132,7 @@ Total skills: 2687
 
 | Skill | Description | Risk | Source | Tags | Triggers |
 | --- | --- | --- | --- | --- | --- |
-| `advanced-evaluation` | This skill should be used when the user asks to "implement LLM-as-judge", "compare model outputs", "create evaluation rubrics", "mitigate evaluation bias", o... | safe | community | advanced, evaluation | advanced, evaluation, skill, should, used, user, asks, llm, judge, compare, model, outputs |
+| `advanced-evaluation` | Design LLM-as-judge rubrics, direct scores and pairwise comparisons. Use for judge models, evals, position bias and calibration against human labels. | safe | community | advanced, evaluation | advanced, evaluation, llm, judge, rubrics, direct, scores, pairwise, comparisons, models, evals, position |
 | `agent-creator` | Create custom AI subagents with proper plugin structure, persona generation, and companion routing skills. | critical | community | agent, creator | agent, creator, custom, ai, subagents, proper, plugin, structure, persona, generation, companion, routing |
 | `agent-framework-azure-ai-py` | Build persistent agents on Azure AI Foundry using the Microsoft Agent Framework Python SDK. | critical | community | agent, framework, azure, ai, py | agent, framework, azure, ai, py, persistent, agents, foundry, microsoft, python, sdk |
 | `agent-memory` | A hybrid memory system that provides persistent, searchable knowledge management for AI agents. | critical | webzler/agentMemory | agent, memory | agent, memory, hybrid, provides, persistent, searchable, knowledge, ai, agents |
@@ -1332,13 +1332,14 @@ Total skills: 2687
 | `skill-porter` | Preview conservative tool-name translations and copy complete local skill bundles for manual adaptation to Google Antigravity. | critical | Pranav-Nexus/antigravity-skill-porter | antigravity, claude, skills, migration, agent | antigravity, claude, skills, migration, agent, skill, porter, preview, conservative, name, translations, copy |
 | `tokenwise` | Measurement-driven model router for Claude Code. Routes Haiku/Sonnet/Opus per task class, logs every routed task with real $ numbers, and A/B tests cheaper t... | critical | CodeShuX/tokenwise | model-routing, token-optimization, cost-reduction, anthropic, haiku, sonnet, opus, claude-code, ab-testing, measurement | model-routing, token-optimization, cost-reduction, anthropic, haiku, sonnet, opus, claude-code, ab-testing, measurement, tokenwise, driven |
 
-## development (223)
+## development (224)
 
 | Skill | Description | Risk | Source | Tags | Triggers |
 | --- | --- | --- | --- | --- | --- |
 | `agent-harness-fault-injection` | Use when an agent workflow needs deterministic recovery evidence for sandbox, MCP/tool, worker, checkpoint, memory, or orchestration failures. | safe | self | agent-harness, fault-injection, recovery, state-machine, mcp, multi-agent | agent-harness, fault-injection, recovery, state-machine, mcp, multi-agent, agent, harness, fault, injection, deterministic, evidence |
 | `agents-md` | Create, revise, or audit AGENTS.md files from repository evidence, verified commands, and correctly scoped instructions without overwriting maintainer intent. | critical | community | agents, md | agents, md, revise, audit, files, repository, evidence, verified, commands, correctly, scoped, instructions |
 | `agenttrace-session-audit` | Audit local AI coding-agent sessions with agenttrace for cost, tool failures, latency, anomalies, health, diffs, and CI gates. | safe | luoyuctl/agenttrace | ai-coding, observability, cost-tracking, session-analysis | ai-coding, observability, cost-tracking, session-analysis, agenttrace, session, audit, local, ai, coding, agent, sessions |
+| `api-contract-testing` | Design and review API contract tests across providers and consumers. Use for schema changes, compatibility regressions and client integration failures. | safe | self | api, contracts, testing, compatibility | api, contracts, testing, compatibility, contract, review, tests, providers, consumers, schema, changes, regressions |
 | `api-endpoint-builder` | Builds production-ready REST API endpoints with validation, error handling, authentication, and documentation. Follows best practices for security and scalab... | safe | community | api, endpoint, builder | api, endpoint, builder, rest, endpoints, validation, error, handling, authentication, documentation, follows, security |
 | `api-rate-limit-handler` | Implement bounded, idempotency-aware API throttling, backoff, and retry handling for 429 and transient 5xx responses. | safe | self | rate-limiting, retry, backoff, api, resilience, throttle, 429 | rate-limiting, retry, backoff, api, resilience, throttle, 429, rate, limit, handler, bounded, idempotency |
 | `arm-cortex-expert` | Senior embedded software engineer specializing in firmware and driver development for ARM Cortex-M microcontrollers (Teensy, STM32, nRF52, SAMD). | critical | community | arm, cortex | arm, cortex, senior, embedded, software, engineer, specializing, firmware, driver, development, microcontrollers, teensy |

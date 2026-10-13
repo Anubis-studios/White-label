@@ -1,6 +1,6 @@
 {
   "generatedAt": "2026-10-12T19:15:49.000Z",
-  "total": 2687,
+  "total": 2688,
   "skills": [
     {
       "id": "00-andruia-consultant",
@@ -1032,7 +1032,7 @@
       "id": "advanced-evaluation",
       "canonical_id": "advanced-evaluation",
       "name": "advanced-evaluation",
-      "description": "This skill should be used when the user asks to \"implement LLM-as-judge\", \"compare model outputs\", \"create evaluation rubrics\", \"mitigate evaluation bias\", or mentions direct scoring, pairwise comparison, position bias, evaluation pipelines, or automated quality assessment.",
+      "description": "Design LLM-as-judge rubrics, direct scores and pairwise comparisons. Use for judge models, evals, position bias and calibration against human labels.",
       "category": "ai-ml",
       "risk": "safe",
       "source": "community",
@@ -1043,16 +1043,16 @@
       "triggers": [
         "advanced",
         "evaluation",
-        "skill",
-        "should",
-        "used",
-        "user",
-        "asks",
         "llm",
         "judge",
-        "compare",
-        "model",
-        "outputs"
+        "rubrics",
+        "direct",
+        "scores",
+        "pairwise",
+        "comparisons",
+        "models",
+        "evals",
+        "position"
       ],
       "path": "skills/advanced-evaluation/SKILL.md"
     },
@@ -4667,6 +4667,38 @@
         "creating"
       ],
       "path": "skills/api-and-interface-design/SKILL.md"
+    },
+    {
+      "id": "api-contract-testing",
+      "canonical_id": "api-contract-testing",
+      "name": "api-contract-testing",
+      "description": "Design and review API contract tests across providers and consumers. Use for schema changes, compatibility regressions and client integration failures.",
+      "category": "development",
+      "risk": "safe",
+      "source": "self",
+      "source_type": "self",
+      "license": "MIT",
+      "tags": [
+        "api",
+        "contracts",
+        "testing",
+        "compatibility"
+      ],
+      "triggers": [
+        "api",
+        "contracts",
+        "testing",
+        "compatibility",
+        "contract",
+        "review",
+        "tests",
+        "providers",
+        "consumers",
+        "schema",
+        "changes",
+        "regressions"
+      ],
+      "path": "skills/api-contract-testing/SKILL.md"
     },
     {
       "id": "api-design-principles",

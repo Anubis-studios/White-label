@@ -393,6 +393,9 @@ _Frontend and full-stack developers shipping modern web apps._
 - [`form-cro`](../../skills/form-cro/): Improve form conversion and usability.
 - [`seo-audit`](../../skills/seo-audit/): Audit technical SEO and discoverability.
 - [`ui-a11y`](../../skills/ui-a11y/): Audit WCAG, contrast, focus, labels, motion, and semantic HTML.
+- [`build-ui`](../../skills/build-ui/): Implement the chosen UI from a concrete brief and existing project conventions.
+- [`ui-states`](../../skills/ui-states/): Design loading, empty, error and success states with accessible feedback.
+- [`frontend-api-integration-patterns`](../../skills/frontend-api-integration-patterns/): Connect client UI to APIs with explicit state, validation and error handling.
 
 ### 🎨 The "AAS Product Design Studio" Plugin
 
@@ -410,6 +413,9 @@ _Builders who want richer UI, brand, portfolio, and visual product work._
 - [`interactive-portfolio`](../../skills/interactive-portfolio/): Create compelling interactive portfolios.
 - [`ui-a11y`](../../skills/ui-a11y/): Audit WCAG, contrast, focus, labels, motion, and semantic HTML.
 - [`ui-review`](../../skills/ui-review/): Review UI quality, usability, and product fit.
+- [`write-design-md`](../../skills/write-design-md/): Record visual decisions and reusable interface rules in a design document.
+- [`ui-from-screenshot`](../../skills/ui-from-screenshot/): Translate a supplied screenshot into an interface with explicit assumptions.
+- [`ui-states`](../../skills/ui-states/): Design loading, empty, error and success states with accessible feedback.
 
 ### 🛡️ The "AAS Security Engineer" Plugin
 
@@ -427,6 +433,8 @@ _Authorized security testing, audit, and hardening teams._
 - [`vulnerability-scanner`](../../skills/vulnerability-scanner/): Analyze and validate vulnerability findings.
 - [`sast-configuration`](../../skills/sast-configuration/): Configure static application security testing.
 - [`web-security-testing`](../../skills/web-security-testing/): Test web application security defensively.
+- [`threat-modeling-expert`](../../skills/threat-modeling-expert/): Map trust boundaries, threats and mitigations before active assessment.
+- [`skill-security-audit`](../../skills/skill-security-audit/): Inspect agent skill instructions and bundled files for unsafe authority or data flows.
 
 ### 🔐 The "AAS Secure App Builder" Plugin
 
@@ -443,6 +451,8 @@ _Application developers who want security embedded while building features._
 - [`sast-configuration`](../../skills/sast-configuration/): Configure static application security testing.
 - [`secrets-management`](../../skills/secrets-management/): Manage application and CI/CD secrets with least privilege and rotation.
 - [`django-access-review`](../../skills/django-access-review/): Review Django access control and authorization behavior.
+- [`security-requirement-extraction`](../../skills/security-requirement-extraction/): Turn identified threats into testable security requirements.
+- [`threat-modeling-expert`](../../skills/threat-modeling-expert/): Map trust boundaries, threats and mitigations before active assessment.
 
 ### 📄 The "AAS Documents & Presentations" Plugin
 
@@ -459,6 +469,8 @@ _Users creating, editing, converting, and automating office documents._
 - [`google-docs-automation`](../../skills/google-docs-automation/): Automate Google Docs creation and updates.
 - [`google-sheets-automation`](../../skills/google-sheets-automation/): Automate Google Sheets reads and writes.
 - [`google-slides-automation`](../../skills/google-slides-automation/): Automate Google Slides updates.
+- [`doc-coauthoring`](../../skills/doc-coauthoring/): Develop document structure through drafting and reader review.
+- [`copy-editing`](../../skills/copy-editing/): Edit supplied content for clarity, consistency and supported claims.
 
 ### 📊 The "AAS Data Analytics" Plugin
 
@@ -476,6 +488,8 @@ _Operators, analysts, and builders working with product analytics, SQL, dashboar
 - [`kpi-dashboard-design`](../../skills/kpi-dashboard-design/): Design dashboards for decision-making.
 - [`ab-test-setup`](../../skills/ab-test-setup/): Plan and validate experiments.
 - [`business-analyst`](../../skills/business-analyst/): Analyze business context, requirements, and tradeoffs.
+- [`sql-optimization-patterns`](../../skills/sql-optimization-patterns/): Review analytical query performance without changing metric semantics.
+- [`data-storytelling`](../../skills/data-storytelling/): Explain verified analytical results with context, uncertainty and clear visuals.
 
 ### 🤖 The "AAS Agent & MCP Builder" Plugin
 
@@ -493,6 +507,9 @@ _Developers building agentic apps, MCP tools, RAG systems, and evaluation loops.
 - [`langfuse`](../../skills/langfuse/): Trace, evaluate, and monitor LLM apps.
 - [`context-window-management`](../../skills/context-window-management/): Manage long context effectively.
 - [`prompt-engineering`](../../skills/prompt-engineering/): Design effective prompts and LLM interaction patterns.
+- [`skill-security-audit`](../../skills/skill-security-audit/): Inspect agent skill instructions and bundled files for unsafe authority or data flows.
+- [`agent-harness-fault-injection`](../../skills/agent-harness-fault-injection/): Exercise bounded agent failures with controlled fault scenarios.
+- [`agent-evaluation-reporting`](../../skills/agent-evaluation-reporting/): Report observed agent results, limitations and reproduction evidence.
 
 ### 🧪 The "AAS QA & Test Automation" Plugin
 
@@ -510,6 +527,9 @@ _Engineers and QA teams writing, debugging, and stabilizing test suites._
 - [`test-fixing`](../../skills/test-fixing/): Fix failing tests systematically.
 - [`code-review-checklist`](../../skills/code-review-checklist/): Catch common bugs in reviews.
 - [`screen-reader-testing`](../../skills/screen-reader-testing/): Test interfaces with screen-reader expectations.
+- [`testing-patterns`](../../skills/testing-patterns/): Write isolated unit tests and correctly await asynchronous outcomes.
+- [`api-contract-testing`](../../skills/api-contract-testing/): Test provider and consumer runtime contracts, invalid fixtures and version compatibility.
+- [`python-testing-patterns`](../../skills/python-testing-patterns/): Build Python fixtures, parametrized cases and async regression tests.
 
 ### ☁️ The "AAS DevOps & Cloud" Plugin
 
@@ -527,6 +547,7 @@ _Teams shipping infrastructure, deployments, and operational workflows._
 - [`bash-linux`](../../skills/bash-linux/): Use Linux shell workflows effectively.
 - [`incident-responder`](../../skills/incident-responder/): Respond to incidents with clear procedure.
 - [`devops-troubleshooter`](../../skills/devops-troubleshooter/): Diagnose infrastructure and deployment issues.
+- [`secrets-management`](../../skills/secrets-management/): Plan least-privilege secret storage, access and rotation without exposing values.
 
 
 ---
@@ -549,6 +570,9 @@ _Founders and growth teams creating content, SEO systems, experiments, and email
 - [`email-sequence`](../../skills/email-sequence/): Write automated email campaigns.
 - [`copywriting`](../../skills/copywriting/): Write conversion-focused copy.
 - [`schema-markup`](../../skills/schema-markup/): Add structured data for search visibility.
+- [`product-marketing-context`](../../skills/product-marketing-context/): Capture verified audience, product and positioning inputs for channel work.
+- [`copy-editing`](../../skills/copy-editing/): Edit supplied content for clarity, consistency and supported claims.
+- [`content-strategy`](../../skills/content-strategy/): Prioritize audience-relevant content and define an editorial plan.
 
 ### ⚙️ The "AAS Automation Builder" Plugin
 
@@ -566,6 +590,8 @@ _Teams designing reliable automations across tools, data stores, and communicati
 - [`googlesheets-automation`](../../skills/googlesheets-automation/): Automate Google Sheets operations.
 - [`github-automation`](../../skills/github-automation/): Automate GitHub issues and repository work.
 - [`n8n-workflow-patterns`](../../skills/n8n-workflow-patterns/): Choose proven architectures for webhook, sync, scheduled, and AI-agent workflows.
+- [`api-integration`](../../skills/api-integration/): Design API adapters and authenticated webhook handling with explicit boundaries.
+- [`api-rate-limit-handler`](../../skills/api-rate-limit-handler/): Implement replay-safe bounded retries that respect provider wait hints.
 
 ### 📡 The "AAS Observability IR" Plugin
 
@@ -583,6 +609,8 @@ _Engineering teams monitoring systems, debugging production issues, and writing 
 - [`devops-troubleshooter`](../../skills/devops-troubleshooter/): Diagnose infrastructure and deployment issues.
 - [`postmortem-writing`](../../skills/postmortem-writing/): Write clear blameless postmortems.
 - [`langfuse`](../../skills/langfuse/): Trace, evaluate, and monitor LLM apps.
+- [`on-call-handoff-patterns`](../../skills/on-call-handoff-patterns/): Draft an evidence-based shift handoff with owners and unresolved risks.
+- [`ai-sre-incident-response`](../../skills/ai-sre-incident-response/): Investigate AI service incidents with latency, cost and fallback constraints.
 
 ### 🐍 The "AAS Python API Builder" Plugin
 
@@ -600,6 +628,9 @@ _Python developers building APIs, services, and tests._
 - [`api-design-principles`](../../skills/api-design-principles/): Design clear and maintainable APIs.
 - [`pydantic-models-py`](../../skills/pydantic-models-py/): Design Pydantic models for Python APIs.
 - [`openapi-spec-generation`](../../skills/openapi-spec-generation/): Generate and maintain OpenAPI specifications.
+- [`api-security-best-practices`](../../skills/api-security-best-practices/): Apply authorization, validation and security checks to service boundaries.
+- [`sql-optimization-patterns`](../../skills/sql-optimization-patterns/): Review analytical query performance without changing metric semantics.
+- [`api-rate-limit-handler`](../../skills/api-rate-limit-handler/): Implement replay-safe bounded retries that respect provider wait hints.
 
 ### 📱 The "AAS Mobile App Builder" Plugin
 
@@ -617,6 +648,8 @@ _Mobile teams shipping Expo, React Native, Flutter, and iOS apps._
 - [`ios-developer`](../../skills/ios-developer/): Develop iOS apps with Swift.
 - [`app-store-optimization`](../../skills/app-store-optimization/): Improve App Store and Play Store visibility.
 - [`multi-platform-apps-multi-platform`](../../skills/multi-platform-apps-multi-platform/): Plan and build multi-platform app experiences.
+- [`ios-screens`](../../skills/ios-screens/): Build native iOS screens using the existing navigation and UI conventions.
+- [`frontend-api-integration-patterns`](../../skills/frontend-api-integration-patterns/): Connect client UI to APIs with explicit state, validation and error handling.
 
 
 ---
@@ -867,6 +900,8 @@ _Design, frontend, QA, and product teams improving accessible user experiences._
 - [`ui-a11y`](../../skills/ui-a11y/): Audit WCAG, contrast, focus, labels, motion, and semantic HTML.
 - [`webapp-testing`](../../skills/webapp-testing/): Use webapp-testing in this workflow.
 - [`playwright-skill`](../../skills/playwright-skill/): Use playwright-skill in this workflow. _(manual setup)_
+- [`wcag-audit-patterns`](../../skills/wcag-audit-patterns/): Map accessibility findings to criteria and verify fixes manually and with tools.
+- [`ui-states`](../../skills/ui-states/): Design loading, empty, error and success states with accessible feedback.
 
 ### 🔌 The "AAS API Platform Builder" Plugin
 
@@ -884,6 +919,9 @@ _Backend and platform teams designing APIs, contracts, auth, security, load test
 - [`backend-architect`](../../skills/backend-architect/): Architect backend services and platform boundaries.
 - [`k6-load-testing`](../../skills/k6-load-testing/): Run API and service load tests.
 - [`observability-engineer`](../../skills/observability-engineer/): Design monitoring and observability systems.
+- [`api-contract-testing`](../../skills/api-contract-testing/): Test provider and consumer runtime contracts, invalid fixtures and version compatibility.
+- [`api-rate-limit-handler`](../../skills/api-rate-limit-handler/): Implement replay-safe bounded retries that respect provider wait hints.
+- [`deprecation-and-migration`](../../skills/deprecation-and-migration/): Plan consumer migration and verified removal of obsolete API behavior.
 
 ### 💸 The "AAS SaaS Launch & Revenue" Plugin
 
@@ -901,6 +939,9 @@ _Founders and product teams launching, pricing, monetizing, measuring, and impro
 - [`referral-program`](../../skills/referral-program/): Design referral and growth loops.
 - [`email-sequence`](../../skills/email-sequence/): Write automated lifecycle email campaigns.
 - [`seo-audit`](../../skills/seo-audit/): Audit technical SEO and discoverability.
+- [`usage-based-pricing`](../../skills/usage-based-pricing/): Model usage meters, unit economics and cost limits with verified inputs.
+- [`onboarding-cro`](../../skills/onboarding-cro/): Review activation journeys while preserving verification and consent controls.
+- [`product-marketing-context`](../../skills/product-marketing-context/): Capture verified audience, product and positioning inputs for channel work.
 
 ### 🧠 The "AAS AI Product & Evaluation Ops" Plugin
 
@@ -918,6 +959,9 @@ _PMs, founders, and AI product teams defining, measuring, and improving AI featu
 - [`product-manager`](../../skills/product-manager/): Apply product management judgment and planning.
 - [`ab-test-setup`](../../skills/ab-test-setup/): Plan and validate experiments.
 - [`hugging-face-evaluation`](../../skills/hugging-face-evaluation/): Evaluate AI models and datasets with Hugging Face workflows.
+- [`advanced-evaluation`](../../skills/advanced-evaluation/): Design judge rubrics, position swaps and human-calibrated evaluation.
+- [`skill-security-audit`](../../skills/skill-security-audit/): Inspect agent skill instructions and bundled files for unsafe authority or data flows.
+- [`agent-evaluation-reporting`](../../skills/agent-evaluation-reporting/): Report observed agent results, limitations and reproduction evidence.
 
 
 ---
@@ -940,6 +984,7 @@ _Data and AI platform teams building pipelines, warehouses, transforms, embeddin
 - [`rag-engineer`](../../skills/rag-engineer/): Build retrieval-augmented generation systems.
 - [`sql-pro`](../../skills/sql-pro/): Query and model data with modern SQL.
 - [`data-quality-frameworks`](../../skills/data-quality-frameworks/): Implement data contracts, validation, dbt tests, and quality monitoring.
+- [`warehouse`](../../skills/warehouse/): Review read-only warehouse analysis for grain, privacy and provenance.
 
 ### 🧾 The "AAS Privacy & Compliance Engineering" Plugin
 
@@ -952,6 +997,7 @@ _Teams building privacy-aware and compliance-sensitive SaaS, AI, finance, and cl
 - [`pci-compliance`](../../skills/pci-compliance/): Handle payment security and PCI expectations.
 - [`fsi-compliance-checker`](../../skills/fsi-compliance-checker/): Check financial-services compliance requirements.
 - [`cc-skill-security-review`](../../skills/cc-skill-security-review/): Review features with a security checklist.
+- [`data-privacy-controls`](../../skills/data-privacy-controls/): Draft empty control registers with owners and unresolved policy decisions.
 
 ### 🌍 The "AAS Localization & International Growth" Plugin
 
@@ -969,6 +1015,8 @@ _Growth, content, and product teams expanding sites and products across language
 - [`copywriting`](../../skills/copywriting/): Write conversion-focused copy.
 - [`analytics-tracking`](../../skills/analytics-tracking/): Set up reliable product analytics.
 - [`apify-market-research`](../../skills/apify-market-research/): Research markets and competitors with Apify workflows.
+- [`copy-editing`](../../skills/copy-editing/): Edit supplied content for clarity, consistency and supported claims.
+- [`seo-content-refresher`](../../skills/seo-content-refresher/): Refresh verified locale-specific claims without inventing freshness signals.
 
 ## 📚 How to Use Bundles
 
@@ -1062,4 +1110,4 @@ Found a skill that should be in a bundle? Or want to create a new bundle? [Open 
 
 ---
 
-_Last updated: June 2026 | Total Skills: 2,687+ | Total Bundles: 58_
+_Last updated: June 2026 | Total Skills: 2,688+ | Total Bundles: 58_

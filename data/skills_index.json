@@ -949,7 +949,7 @@
     "path": "skills/advanced-evaluation",
     "category": "ai-ml",
     "name": "advanced-evaluation",
-    "description": "This skill should be used when the user asks to \"implement LLM-as-judge\", \"compare model outputs\", \"create evaluation rubrics\", \"mitigate evaluation bias\", or mentions direct scoring, pairwise comparison, position bias, evaluation pipelines, or automated quality assessment.",
+    "description": "Design LLM-as-judge rubrics, direct scores and pairwise comparisons. Use for judge models, evals, position bias and calibration against human labels.",
     "risk": "safe",
     "source": "community",
     "date_added": "2026-03-18",
@@ -3981,6 +3981,36 @@
     "source_repo": "addyosmani/agent-skills",
     "license": "MIT",
     "license_source": "https://github.com/addyosmani/agent-skills/blob/main/LICENSE"
+  },
+  {
+    "id": "api-contract-testing",
+    "path": "skills/api-contract-testing",
+    "category": "development",
+    "name": "api-contract-testing",
+    "description": "Design and review API contract tests across providers and consumers. Use for schema changes, compatibility regressions and client integration failures.",
+    "risk": "safe",
+    "source": "self",
+    "date_added": "2026-10-13",
+    "plugin": {
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": []
+    },
+    "source_type": "self",
+    "license": "MIT",
+    "tags": [
+      "api",
+      "contracts",
+      "testing",
+      "compatibility"
+    ]
   },
   {
     "id": "api-design-principles",

@@ -20,7 +20,7 @@
   "interface": {
     "displayName": "AAS Python API Builder",
     "shortDescription": "Build Python APIs and services with FastAPI, Django, Pydantic, OpenAPI, async patterns, tests, and API design.",
-    "longDescription": "Build Python APIs and services with FastAPI, Django, Pydantic, OpenAPI, async patterns, tests, and API design. Implement Python service endpoints with schema validation, async boundaries and automated tests. Recommended for: Python backend teams, FastAPI and Django builders, API maintainers. Not for: Framework-neutral platform design: use API Platform Builder, Installing both FastAPI and Django for a single-framework project. Covers Python Pro, Python Patterns, and 8 more skills.",
+    "longDescription": "Build Python APIs and services with FastAPI, Django, Pydantic, OpenAPI, async patterns, tests, and API design. Implement Python service endpoints with schema validation, authorization checks, query performance and bounded external API retries. Recommended for: Python backend teams, FastAPI and Django builders, API maintainers. Not for: Framework-neutral platform design: use API Platform Builder, Installing both FastAPI and Django for a single-framework project. Covers Python Pro, Python Patterns, and 11 more skills.",
     "developerName": "sickn33 and contributors",
     "category": "Specialized Product Plugins - Next Wave",
     "capabilities": [
@@ -34,7 +34,8 @@
     "defaultPrompt": [
       "Inspect this Python service and use its existing FastAPI or Django stack. Implement the requested endpoint with Pydantic or framework-native validation, authentication boundaries, error responses and tests. Update the API contract and report the checks actually run.",
       "Use this plugin to review this Django API for structure, performance, OpenAPI coverage, and test coverage.",
-      "Use this plugin to refactor this Python service toward clearer API and async patterns."
+      "Use this plugin to refactor this Python service toward clearer API and async patterns.",
+      "Review this project for the added coverage: Apply authorization, validation and security checks to service boundaries; Review analytical query performance without changing metric semantics; Implement replay-safe bounded retries that respect provider wait hints. Use only the relevant skills and existing stack. Report observed checks and limitations; prepare drafts before external or production actions."
     ]
   }
 }
