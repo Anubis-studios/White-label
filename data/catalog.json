@@ -8170,7 +8170,7 @@
       "id": "azd-deployment",
       "canonical_id": "azd-deployment",
       "name": "azd-deployment",
-      "description": "Deploy containerized frontend + backend applications to Azure Container Apps with remote builds, managed identity, and idempotent infrastructure.",
+      "description": "Prepare and verify authorized Azure Container Apps deployments with azd. Use for azure.yaml, Bicep, remote builds, managed identity and post-deploy checks.",
       "category": "cloud",
       "risk": "critical",
       "source": "community",
@@ -8181,16 +8181,16 @@
       "triggers": [
         "azd",
         "deployment",
-        "deploy",
-        "containerized",
-        "frontend",
-        "backend",
-        "applications",
+        "prepare",
+        "verify",
+        "authorized",
         "azure",
         "container",
         "apps",
-        "remote",
-        "managed"
+        "deployments",
+        "yaml",
+        "bicep",
+        "remote"
       ],
       "path": "skills/azd-deployment/SKILL.md"
     },
