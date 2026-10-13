@@ -76,7 +76,7 @@ Digests below bind ordered relative file paths and SHA-256 file digests in the r
 | `ui-states` | 1 | `287685f7ea94c67194236777c0db67e454130e4672ebd81ebdeaf55ba69710d5` |
 | `usage-based-pricing` | 3 | `bb33d50c6ef8ba3b435b691c4128167b0fab14127c1c340359acf7374d9d7cef` |
 | `warehouse` | 1 | `1ba9fe666a286d6829c565c843cfa022f2ef381ac4c85b4ea8444625c4a4926d` |
-| `wcag-audit-patterns` | 2 | `49925d8847d16264577020fe53186cf9ae6bfd6f8f960c7e6486ea4f1cd3c1d8` |
+| `wcag-audit-patterns` | 2 | `fa5e3b2258274ec260b07fee10fa4e111be64d58a861233216856a53d02f953f` |
 | `write-design-md` | 1 | `454bb08bcd5709df78e1a51e9ef75cd0666e169dc411f867f4c4e753f6ae824b` |
 
 ## Content repairs
@@ -85,7 +85,7 @@ The reviewed cohort needed concrete repairs before promotion: correct async asse
 
 The HTTP wait guidance follows [RFC 9110 §10.2.3](https://www.rfc-editor.org/rfc/rfc9110.html#section-10.2.3). The contrast regression uses [WCAG contrast guidance](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html). Pure example tests execute published snippets with fake responses and inert values; they do not prove live provider integration or full accessibility conformance.
 
-Changed canonical trees: `advanced-evaluation`.
+Changed canonical trees: `advanced-evaluation`, `ai-sre-incident-response`, `antigravity-maintainer-batch-release`, `api-contract-testing`, `api-integration`, `api-rate-limit-handler`, `content-strategy`, `data-privacy-controls`, `data-storytelling`, `deprecation-and-migration`, `on-call-handoff-patterns`, `onboarding-cro`, `python-testing-patterns`, `seo-content-refresher`, `testing-patterns`, `usage-based-pricing`, `wcag-audit-patterns`.
 
 ## Candidates deferred or intentionally omitted
 
@@ -122,10 +122,12 @@ These observations justify not adding a candidate to another focused pack. They 
 
 ## Verification and publication boundary
 
-Required validation, references, documentation security, warning budget, source credits, complete unsharded script tests, web coverage/build, specialized source/packaging/resource tests and compatibility checks run on this branch. Observed local outcomes: 134 unsharded test groups and 313 web tests in 53 files passed. Coverage was 88.90% statements / 81.93% branches / 91.69% functions / 93.68% lines. Build/prerender and 27-guide verification passed, validation warning budget was 0/0, and dependency audit reported zero vulnerabilities. Plugin compatibility/bundle checks were drift-free. Source credits reported seven inherited attribution skips without blockers. Final exact-head CI and semantic/advisory outcomes are recorded in the PR. New negative tests reject oversized/duplicate membership, premature/unsafe API retries, invalid webhook signatures, missing async UI outcomes and malformed evaluator JSON. Arithmetic and contrast tests consume the published examples.
+Required validation, references, documentation security, warning budget, source credits, complete unsharded script tests, web coverage/build, specialized source/packaging/resource tests and compatibility checks run on this branch. Their exact outcomes are recorded in the PR after completion. New negative tests reject oversized/duplicate membership, premature/unsafe API retries, invalid webhook signatures, missing async UI outcomes and malformed evaluator JSON. Arithmetic and contrast tests consume the published examples.
 
 Regenerate mirrors and marketplaces for local inspection, but commit editorial sources and canonical repairs only. The protected canonical-sync PR owns generated files and final byte parity. This change does not bump package versions, publish npm, update installed plugins/MCP hosts or authorize a Pages deployment. Verify resulting protected main CI and CodeQL after synchronization; release-bound catalog links continue to point at the published version until a release is requested.
 
-### Automated review follow-up
+### Review follow-up
 
-Tessl returned 71/80 for the initial advanced-evaluation tree and stopped before reviewing the remaining changed trees. Addressed actionable feedback with concise pipeline guidance, an explicit held-out human-calibration workflow, a direct trigger description and removal of ambiguous internal-reference titles. Remaining score/style concerns require truthful exact-head manual review rather than claiming a passing automated result.
+Tessl returned 71/80 on the first advanced-evaluation revision and stopped before subsequent trees. Concrete feedback was addressed with an explicit held-out human-calibration workflow, compact pipeline, direct description and removal of ambiguous internal references. Final automated results and any manual exact-head attestation are recorded in the PR.
+
+The first static advisory report inspected 17 trees: eleven reported complete, five were partial, and the maintainer guide had a nonzero result with partial coverage. Inspected all 22 findings individually: documented endpoints, mocked calls/temp-file examples, HTML good/bad comments, warning descriptions and maintainer scanner-reference limitations were contextual. Two unpinned accessibility CLI invocations were actionable; replaced them with existing project-local binaries on an authorized local/test target and added a negative regression. No baseline or suppression was introduced. The final report must be bound to the final PR head before merge.

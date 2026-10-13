@@ -434,11 +434,13 @@ test('should have no accessibility violations', async ({ page }) => {
 });
 ````
 
+Use CLI tools only if the project already has reviewed, lockfile-pinned installations. Run from that project and replace the example URL with its authorized local/test target. If a binary is absent, report the missing prerequisite; do not download or install a moving package to complete an audit. Browser testing may load third-party resources, so keep real credentials and sensitive records out of test fixtures.
+
 ```bash
-# CLI tools
-npx @axe-core/cli https://example.com
-npx pa11y https://example.com
-lighthouse https://example.com --only-categories=accessibility
+# Existing project-local CLI tools; choose the tool already used by this project.
+./node_modules/.bin/axe http://localhost:3000
+./node_modules/.bin/pa11y http://localhost:3000
+./node_modules/.bin/lighthouse http://localhost:3000 --only-categories=accessibility
 ```
 
 ## Remediation Patterns

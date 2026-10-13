@@ -106,6 +106,13 @@ class ExpansionExamples(unittest.TestCase):
         # A synthetic $0.01/second cost must exceed a $0.50/minute threshold.
         self.assertGreater(60 * .01, .50)
 
+    def test_accessibility_cli_uses_existing_project_tools(self):
+        guide = read('wcag-audit-patterns', 'resources/implementation-playbook.md')
+        self.assertNotIn('npx @axe-core/cli', guide)
+        self.assertNotIn('npx pa11y', guide)
+        self.assertIn('./node_modules/.bin/axe http://localhost:3000', guide)
+        self.assertIn('do not download or install a moving package', guide)
+
     def test_evaluation_json_is_machine_readable(self):
         for block in re.findall(r'```json\n(.*?)```', read('advanced-evaluation'), re.S):
             self.assertIsInstance(json.loads(block), dict)
