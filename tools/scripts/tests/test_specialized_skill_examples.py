@@ -1,4 +1,7 @@
 """Execute the repaired pure examples without SDKs, network or model downloads."""
+import subprocess
+import sys
+import tempfile
 import ast
 import re
 import sqlite3
@@ -97,6 +100,17 @@ class Examples(unittest.TestCase):
             detector.check_for_regression({'accuracy': 0.1})
         detector = namespace['RegressionDetector']({'accuracy': 0.8})
         self.assertTrue(detector.check_for_regression({'accuracy': 0.6})['has_regression'])
+
+    def test_fullstack_skeletons_never_report_a_successful_audit(self):
+        with tempfile.TemporaryDirectory() as directory:
+            for name in ['code_quality_analyzer', 'fullstack_scaffolder', 'project_scaffolder']:
+                script = ROOT / 'skills/senior-fullstack/scripts' / f'{name}.py'
+                result = subprocess.run([sys.executable, str(script), '.', '--json'],
+                                        cwd=directory, capture_output=True, text=True)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn('unimplemented skeleton', result.stdout)
+                self.assertNotIn('Completed successfully', result.stdout)
+                self.assertEqual(list(Path(directory).iterdir()), [])
 
     def test_slo_alerts_do_not_reference_missing_recording_rules(self):
         source = (ROOT / 'skills/slo-implementation/SKILL.md').read_text()
