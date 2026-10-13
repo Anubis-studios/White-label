@@ -855,3 +855,7 @@ Reviewed the 2,687-entry metadata inventory and all 21 specialized compositions.
 ## Maintenance and release 19.6.0
 
 Reviewed and repaired the three open contribution PRs, prepared tag-diff-based release notes, and retained protected merge, canonical sync and release flows. See [batch review](docs/maintainers/maintenance-19.6.0.md) for source scope, checks, attribution and full release-alignment requirements.
+
+## Release preparation alignment
+
+The real 19.6.0 candidate exposed an unstaged Codex guide and sitemap dates that changed after the candidate commit. Classify both setup guides as mixed, settle HEAD-dependent metadata before the first push, and reject missing-guide or persistent drift. Real Git fixtures cover convergence and fail-closed behavior.

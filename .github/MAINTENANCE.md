@@ -684,3 +684,7 @@ If a skill is found to be harmful or broken:
 ### Specialized plugin composition expansions
 
 Keep specialized compositions within 5–20 distinct canonical skills. Additions must fill an identified workflow gap and receive complete skill-tree review; equal counts are not a goal. Verify candidate/editorial parity, unknown IDs, duplicate and out-of-range rejection, complete web expansion and generated resource bytes. Commit source definitions only and let protected canonical synchronization own mirrors. See [expansion review](../docs/maintainers/specialized-plugin-expansion-review-2026-10-13.md).
+
+### Prepared-release convergence
+
+Codex and Claude setup guides contain generated exact-version command blocks and are mixed files in `tools/config/generated-files.json`. The release script stages both. After the first candidate commit, `release:prepare` regenerates HEAD-dependent metadata, makes at most one local amendment before any push, then requires a no-drift regeneration. Unmanaged or persistent changes stop preparation before publication. Published commits and tags are never amended by this path.

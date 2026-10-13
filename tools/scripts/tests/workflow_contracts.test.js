@@ -713,3 +713,11 @@ for (const [label, record, reason] of [
   const tooLarge = classifyChangeRecords(records, { maxTotalBlobBytes: 700 });
   assert.ok(tooLarge.reasons.includes("oversized_total_diff"));
 }
+
+// Both generated setup guides must participate in canonical sync and scripted release staging.
+const actualContract = require("../../lib/workflow-contract").loadWorkflowContract(__dirname);
+const releaseManaged = require("../../lib/workflow-contract").getManagedFiles(actualContract, { includeMixed: true, includeReleaseManaged: true });
+for (const guide of ["docs/users/codex-cli-skills.md", "docs/users/claude-code-skills.md"]) {
+  assert.ok(actualContract.mixedFiles.includes(guide), `${guide} must be classified as mixed`);
+  assert.ok(releaseManaged.includes(guide), `${guide} must be included in release staging`);
+}
