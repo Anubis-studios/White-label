@@ -2,7 +2,7 @@
 
 Generated at: 2026-10-12T19:15:49.000Z
 
-Total skills: 2688
+Total skills: 2689
 
 ## agent-behavior (5)
 
@@ -324,7 +324,7 @@ Total skills: 2688
 | `postman-collection-generator` | Generate complete, import-ready Postman Collection v2.1 JSON files from natural language API descriptions or cURL commands. | critical | LambdaTest/agent-skills | postman, collection, generator | postman, collection, generator, generate, complete, import, v2, json, files, natural, language, api |
 | `postman-openapi-converter` | Convert OpenAPI 3.x or Swagger 2.0 specs (YAML or JSON) into complete, import-ready Postman Collection v2.1 JSON files. | critical | LambdaTest/agent-skills | postman, openapi, converter | postman, openapi, converter, convert, swagger, specs, yaml, json, complete, import, collection, v2 |
 | `postmark-automation` | Automate Postmark email delivery tasks via Rube MCP (Composio): send templated emails, manage templates, monitor delivery stats and bounces. Always search to... | critical | community | postmark | postmark, automation, automate, email, delivery, tasks, via, rube, mcp, composio, send, templated |
-| `riffkit` | Riff a winning TikTok into your own short video — study a proven video's emotion formula and regenerate it with your product, character, and language (9 supp... | critical | riffkit/skill | video, short-form, tiktok, ai-video, marketing, ads, ecommerce, api-integration | video, short-form, tiktok, ai-video, marketing, ads, ecommerce, api-integration, riffkit, riff, winning, own |
+| `riffkit` | Create short videos with Riffkit: Adapt a source formula, Swap approved footage, or generate from an idea. Use for UGC ads and localized video; requires an a... | critical | riffkit/skill | video, short-form, tiktok, ai-video, marketing, ads, ecommerce, api-integration | video, short-form, tiktok, ai-video, marketing, ads, ecommerce, api-integration, riffkit, short, videos, adapt |
 | `salesforce-automation` | Automate Salesforce tasks via Rube MCP (Composio): leads, contacts, accounts, opportunities, SOQL queries. Always search tools first for current schemas. | critical | community | salesforce | salesforce, automation, automate, tasks, via, rube, mcp, composio, leads, contacts, accounts, opportunities |
 | `salesforce-development` | Expert patterns for Salesforce platform development including Lightning Web Components (LWC), Apex triggers and classes, REST/Bulk APIs, External Client Apps... | safe | vibeship-spawner-skills (Apache 2.0) | salesforce | salesforce, development, platform, including, lightning, web, components, lwc, apex, triggers, classes, rest |
 | `sdk-dx` | Design SDKs that developers love to use—APIs that feel native, error messages that guide, and experiences that reduce friction. This skill covers creating SD... | critical | jonathimer/devmarketing-skills | sdk, dx | sdk, dx, sdks, developers, love, apis, feel, native, error, messages, experiences, reduce |
@@ -2428,7 +2428,7 @@ Total skills: 2688
 | --- | --- | --- | --- | --- | --- |
 | `idea-os` | Five-phase pipeline (triage → clarify → research → PRD → plan) that turns a raw idea into four linked files: clarifying questions, deep research, a PRD with ... | safe | Slashworks-biz/idea-os | product-management, prd, market-research, mvp, idea-validation, jtbd, swot, competitor-analysis, founder, non-technical | product-management, prd, market-research, mvp, idea-validation, jtbd, swot, competitor-analysis, founder, non-technical, idea, os |
 
-## productivity (51)
+## productivity (52)
 
 | Skill | Description | Risk | Source | Tags | Triggers |
 | --- | --- | --- | --- | --- | --- |
@@ -2465,6 +2465,7 @@ Total skills: 2688
 | `json-canvas` | Create and edit JSON Canvas files (.canvas) with nodes, edges, groups, and connections. Use when working with .canvas files, creating visual canvases, mind m... | critical | https://github.com/kepano/obsidian-skills | json, canvas | json, canvas, edit, files, nodes, edges, groups, connections, working, creating, visual, canvases |
 | `kernel-prompt` | Use when composing or improving an LLM prompt or agent instruction. Asks one round of questions, then returns only the prompt; never performs the task. | safe | codegiveness/kernel-prompt | prompt-engineering, meta-prompting, prompt-optimization, agent-handoff | prompt-engineering, meta-prompting, prompt-optimization, agent-handoff, kernel, prompt, composing, improving, llm, agent, instruction, asks |
 | `markdown-rendering` | Open Markdown reliably in cmux panes and recover from blank rendered surfaces. | safe | davidondrej/skills | markdown, cmux, rendering | markdown, cmux, rendering, open, reliably, panes, recover, blank, rendered, surfaces |
+| `mcd-secret-menu-lab` | Plan McDonald's China recipe combinations using an authorized MCP connection for current store menus, prices and nutrition. Use for recreating food hacks or ... | safe | Reak-Z/mcd-secret-menu-lab | mcdonalds, hidden-menu, food, recipe, mcp, price-check, nutrition, lifehack | mcdonalds, hidden-menu, food, recipe, mcp, price-check, nutrition, lifehack, mcd, secret, menu, lab |
 | `mdpr-skill` | Review MDPR Markdown presentation workflows with semantic hints, visual checks, and deterministic renderer boundaries. | safe | ch040602/mdpr-skill | mdpr, presentations, markdown, powerpoint, codex, visual-review, agent-hints | mdpr, presentations, markdown, powerpoint, codex, visual-review, agent-hints, skill, review, presentation, semantic, hints |
 | `meeting-distiller-pro` | Transform messy meeting notes and transcripts into structured action items, decisions, and follow-ups. Never lose a meeting insight again. | unknown | demo112/yunqu-ai-skills | meeting, productivity, notes, action-items, summary, corporate | meeting, productivity, notes, action-items, summary, corporate, distiller, pro, transform, messy, transcripts, structured |
 | `meeting-notes` | Turns raw meeting notes into structured minutes: conclusion first, then decisions / action items / open questions; every action item must have an owner and a... | safe | alapha888/agent-skills-en | meetings, minutes, action-items | meetings, minutes, action-items, meeting, notes, turns, raw, structured, conclusion, first, then, decisions |

@@ -1,6 +1,6 @@
 {
   "generatedAt": "2026-10-12T19:15:49.000Z",
-  "total": 2688,
+  "total": 2689,
   "skills": [
     {
       "id": "00-andruia-consultant",
@@ -47778,6 +47778,44 @@
       "path": "skills/maxia/SKILL.md"
     },
     {
+      "id": "mcd-secret-menu-lab",
+      "canonical_id": "mcd-secret-menu-lab",
+      "name": "mcd-secret-menu-lab",
+      "description": "Plan McDonald's China recipe combinations using an authorized MCP connection for current store menus, prices and nutrition. Use for recreating food hacks or exploring combinations within a budget.",
+      "category": "productivity",
+      "risk": "safe",
+      "source": "community",
+      "source_type": "community",
+      "source_repo": "Reak-Z/mcd-secret-menu-lab",
+      "license": "MIT",
+      "license_source": "https://github.com/Reak-Z/mcd-secret-menu-lab/blob/main/LICENSE",
+      "tags": [
+        "mcdonalds",
+        "hidden-menu",
+        "food",
+        "recipe",
+        "mcp",
+        "price-check",
+        "nutrition",
+        "lifehack"
+      ],
+      "triggers": [
+        "mcdonalds",
+        "hidden-menu",
+        "food",
+        "recipe",
+        "mcp",
+        "price-check",
+        "nutrition",
+        "lifehack",
+        "mcd",
+        "secret",
+        "menu",
+        "lab"
+      ],
+      "path": "skills/mcd-secret-menu-lab/SKILL.md"
+    },
+    {
       "id": "mcp-builder",
       "canonical_id": "mcp-builder",
       "name": "mcp-builder",
@@ -61733,7 +61771,7 @@
       "id": "riffkit",
       "canonical_id": "riffkit",
       "name": "riffkit",
-      "description": "Riff a winning TikTok into your own short video — study a proven video's emotion formula and regenerate it with your product, character, and language (9 supported). Also makes UGC ad creative.",
+      "description": "Create short videos with Riffkit: Adapt a source formula, Swap approved footage, or generate from an idea. Use for UGC ads and localized video; requires an account and render approval.",
       "category": "api-integration",
       "risk": "critical",
       "source": "community",
@@ -61761,9 +61799,9 @@
         "ecommerce",
         "api-integration",
         "riffkit",
-        "riff",
-        "winning",
-        "own"
+        "short",
+        "videos",
+        "adapt"
       ],
       "path": "skills/riffkit/SKILL.md"
     },
