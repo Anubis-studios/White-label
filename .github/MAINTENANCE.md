@@ -680,3 +680,7 @@ If a skill is found to be harmful or broken:
 ## 6. 📁 Data directory note
 
 `data/package.json` exists for historical reasons; the build and catalog scripts run from the repo root and use root `node_modules`. You can ignore or remove `data/package.json` and `data/node_modules` if present.
+
+### Specialized plugin composition expansions
+
+Keep specialized compositions within 5–20 distinct canonical skills. Additions must fill an identified workflow gap and receive complete skill-tree review; equal counts are not a goal. Verify candidate/editorial parity, unknown IDs, duplicate and out-of-range rejection, complete web expansion and generated resource bytes. Commit source definitions only and let protected canonical synchronization own mirrors. See [expansion review](../docs/maintainers/specialized-plugin-expansion-review-2026-10-13.md).

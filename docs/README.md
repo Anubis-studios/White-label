@@ -56,3 +56,5 @@ Current operational guidance lives in `users/`, `contributors/`, and the current
 - [`sources/sources.md`](sources/sources.md)
 - [`sources/LICENSE-MICROSOFT`](sources/LICENSE-MICROSOFT)
 - [`sources/microsoft-skills-attribution.json`](sources/microsoft-skills-attribution.json)
+
+- [Specialized plugin coverage review (2026-10-13)](maintainers/specialized-plugin-expansion-review-2026-10-13.md): all 21 compositions, selected additions, omissions and validation scope.

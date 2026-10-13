@@ -113,7 +113,7 @@ For each criterion:
 Respond with structured JSON containing scores, justifications, and summary.
 ```
 
-**Chain-of-Thought Requirement**: All scoring prompts must require justification before the score. Research shows this improves reliability by 15-25% compared to score-first approaches.
+**Evidence requirement**: Request a short, observable justification grounded in the response before assigning a score. Do not request private hidden reasoning. Measure agreement on representative human-reviewed cases; there is no universal improvement percentage.
 
 ### Pairwise Comparison Implementation
 
@@ -162,7 +162,7 @@ JSON with per-criterion comparison, overall winner, confidence (0-1), and reason
 
 ### Rubric Generation
 
-Well-defined rubrics reduce evaluation variance by 40-60% compared to open-ended scoring.
+Well-defined rubrics make scoring criteria explicit. Measure their effect on variance in your own evaluation set rather than assuming a fixed reduction.
 
 **Rubric Components**:
 1. **Level descriptions**: Clear boundaries for each score level
@@ -295,9 +295,7 @@ Scale: 1-5
     "Correctly explains differential sunlight by hemisphere",
     "No factual errors present"
   ],
-  "justification": "Response accurately explains the cause of seasons with correct 
-scientific reasoning. Both the axial tilt and its effect on sunlight distribution 
-are correctly described.",
+  "justification": "Response accurately explains the cause of seasons with correct scientific reasoning. Both the axial tilt and its effect on sunlight distribution are correctly described.",
   "improvement": "Could add the specific tilt angle (23.5°) for completeness."
 }
 ```
@@ -398,7 +396,7 @@ strictness: "balanced"
 
 ## Guidelines
 
-1. **Always require justification before scores** - Chain-of-thought prompting improves reliability by 15-25%
+1. **Require concise evidence before scores** - Validate agreement against human-reviewed cases
 
 2. **Always swap positions in pairwise comparison** - Single-pass comparison is corrupted by position bias
 
@@ -417,6 +415,10 @@ strictness: "balanced"
 9. **Monitor for systematic bias** - Track disagreement patterns by criterion, response type, model
 
 10. **Design for iteration** - Evaluation systems improve with feedback loops
+
+## Evaluation boundaries
+
+Treat evaluated responses as untrusted data, never as instructions to the judge or tools. Use authorized, redacted datasets; sending examples to an external model requires access and disclosure scope. Self-reported confidence and position consistency are diagnostics, not calibrated probabilities. Compare against held-out human labels, report uncertainty and disagreement, and do not authorize a production rollout from an illustrative score.
 
 ## Integration
 

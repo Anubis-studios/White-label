@@ -23,14 +23,24 @@ const claudePluginNames = new Set(claudeMarketplace.plugins.map((plugin) => plug
 
 assert.ok(candidates.length >= 10, "specialized plugin candidates should include a meaningful shortlist");
 
+function assertFocusedMembership(candidate) {
+  assert.ok(Array.isArray(candidate.skills), "candidate skills must be an array");
+  assert.ok(candidate.skills.length >= 5 && candidate.skills.length <= 20,
+    `candidate ${candidate.id} should stay within the focused 5-20 skill range`);
+  assert.strictEqual(new Set(candidate.skills).size, candidate.skills.length,
+    `candidate ${candidate.id} must not repeat skill IDs`);
+}
+// Expansion is bounded and never permits duplicate filler.
+for (const size of [4, 21]) {
+  assert.throws(() => assertFocusedMembership({ id: "fixture", skills: Array.from({length: size}, (_, i) => `skill-${i}`) }));
+}
+assert.throws(() => assertFocusedMembership({ id: "fixture", skills: ["a", "b", "c", "d", "a"] }));
+assertFocusedMembership({ id: "fixture", skills: Array.from({length: 20}, (_, i) => `skill-${i}`) });
 for (const candidate of candidates) {
   assert.match(candidate.id, /^[a-z0-9]+(?:-[a-z0-9]+)*$/, `candidate ${candidate.id} should use a host-neutral id convention`);
   assert.ok(!candidate.id.startsWith("codex-"), `candidate ${candidate.id} should not brand the plugin name around Codex`);
   assert.ok(!/^Codex\b/.test(candidate.name), `candidate ${candidate.id} display name should not start with Codex`);
-  assert.ok(
-    candidate.skills.length >= 5 && candidate.skills.length <= 10,
-    `candidate ${candidate.id} should stay within the focused 5-10 skill range`,
-  );
+  assertFocusedMembership(candidate);
 
   const bundle = bundlesById.get(candidate.id);
   assert.ok(bundle, `candidate ${candidate.id} must be enabled in data/editorial-bundles.json`);

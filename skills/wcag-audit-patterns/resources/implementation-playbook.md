@@ -464,14 +464,16 @@ lighthouse https://example.com --only-categories=accessibility
 ### Fix: Insufficient Color Contrast
 
 ```css
-/* Before: 2.5:1 contrast */
+/* Before: #999999 on white is about 2.85:1 */
 .text {
-  color: #767676;
+  color: #999999;
+  background: #fff;
 }
 
-/* After: 4.5:1 contrast */
+/* After: #595959 on white is about 7.00:1 */
 .text {
   color: #595959;
+  background: #fff;
 }
 
 /* Or add background */
@@ -521,7 +523,7 @@ class AccessibleDropdown extends HTMLElement {
 
 - **Start early** - Accessibility from design phase
 - **Test with real users** - Disabled users provide best feedback
-- **Automate what you can** - 30-50% issues detectable
+- **Automate what you can** - Automated checks cover only part of accessibility; retain manual and assistive-technology checks.
 - **Use semantic HTML** - Reduces ARIA needs
 - **Document patterns** - Build accessible component library
 

@@ -56,7 +56,8 @@ describe('canonical specialized plugin definitions', () => {
     fireEvent.change(screen.getByLabelText('Filter plugins'), { target: { value: 'aas-web-app-builder' } });
     expect(screen.getByRole('status')).toHaveTextContent('1 plugin');
     const row = screen.getByText('AAS Web App Builder').closest('[role="row"]')! as HTMLElement;
-    fireEvent.click(within(row).getByText('Show all 10 skills'));
+    const plugin = specializedPlugins.find((entry) => entry.id === 'aas-web-app-builder')!;
+    fireEvent.click(within(row).getByText(`Show all ${plugin.skills.length} skills`));
     expect(within(row).getByRole('link', { name: '@browser-automation' })).toBeVisible();
     expect(within(row).queryByRole('link', { name: '@nextjs-best-practices' })).not.toBeInTheDocument();
     fireEvent.click(within(row).getByText('Scope and starting prompt'));
@@ -64,5 +65,19 @@ describe('canonical specialized plugin definitions', () => {
     expect(within(row).getByRole('link', { name: 'View plugin' })).toHaveAttribute('href', expect.stringContaining(`/tree/v${catalogVersion}/plugins/`));
     fireEvent.change(screen.getByLabelText('Filter plugins'), { target: { value: 'no-such-plugin-unique' } });
     expect(screen.getByText(/No plugins match/)).toBeVisible();
+  });
+
+  it('exposes every expanded member for every specialized composition', () => {
+    renderWithRouter(<Plugins />, { route: '/plugins', path: '/plugins', useProvider: false });
+    for (const plugin of specializedPlugins) {
+      fireEvent.change(screen.getByLabelText('Filter plugins'), { target: { value: plugin.id } });
+      const row = screen.getByText(plugin.name).closest('[role="row"]')! as HTMLElement;
+      const expanded = within(row).getByText(`Show all ${plugin.skills.length} skills`);
+      fireEvent.click(expanded);
+      for (const id of plugin.skills) {
+        expect(within(row).getByRole('link', { name: `@${id}` })).toBeVisible();
+      }
+      if (plugin.skills.length !== 10) expect(within(row).queryByText('Show all 10 skills')).not.toBeInTheDocument();
+    }
   });
 });
