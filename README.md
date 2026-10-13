@@ -715,3 +715,7 @@ Original code and tooling are licensed under the MIT License. See [LICENSE](LICE
 Original documentation and other non-code written content are licensed under [CC BY 4.0](LICENSE-CONTENT), unless a more specific upstream notice says otherwise. See [docs/sources/sources.md](docs/sources/sources.md) for attributions and third-party license details.
 
 ---
+
+### Consolidated plugin packs
+
+The focused offer unifies overlapping historical bundles with the AAS packs. Use the [plugin migration guide](docs/users/plugin-migration.md) to find replacements. Existing installations require a manual switch after verifying the destination; activation aliases do not create duplicate marketplace plugins. Changes on main become available through the next published release.

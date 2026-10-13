@@ -92,3 +92,16 @@ for (const candidate of candidates) {
 }
 
 console.log("ok");
+
+// Retired packs must not survive as duplicate installable listings or payloads.
+const migrations = JSON.parse(fs.readFileSync(bundlesPath, "utf8")).migrations || [];
+for (const migration of migrations) {
+  assert.ok(!bundlesById.has(migration.from), `${migration.from} must be retired`);
+  assert.ok(!codexPluginNames.has(`aasb-${migration.from}`));
+  assert.ok(!claudePluginNames.has(`agentic-bundle-${migration.from}`));
+  assert.ok(!fs.existsSync(path.join(projectRoot, "plugins", `agentic-bundle-${migration.from}`)));
+  const target = bundlesById.get(migration.to);
+  assert.ok(target);
+  const targetSkills = new Set(target.skills.map((skill) => skill.id));
+  for (const id of migration.preservedSkills) assert.ok(targetSkills.has(id), `${migration.from} lost ${id}`);
+}

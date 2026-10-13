@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source_catalog": "skills_index.json",
-  "evaluated_skill_count": 2688,
+  "evaluated_skill_count": 2689,
   "selection_rules": [
     "Prefer focused plugins with a clear user job over broad library replicas.",
     "Include only skill IDs present in skills_index.json.",
@@ -15,11 +15,11 @@
   ],
   "candidates": [
     {
-      "id": "aas-web-app-builder",
+      "id": "web-app",
       "name": "AAS Web App Builder",
       "priority": "tier-1",
       "audience": "Frontend and full-stack developers shipping modern web apps.",
-      "why": "Implement a web user journey from UI brief to API integration, including accessible loading, empty and failure states and browser verification.",
+      "why": "Build web interfaces in JavaScript or TypeScript, connect APIs and verify accessible interface states in the browser.",
       "skills": [
         "frontend-developer",
         "frontend-design",
@@ -33,15 +33,21 @@
         "ui-a11y",
         "build-ui",
         "ui-states",
-        "frontend-api-integration-patterns"
+        "frontend-api-integration-patterns",
+        "react-patterns",
+        "nextjs-best-practices",
+        "accessibility-compliance-accessibility-audit",
+        "typescript-expert",
+        "javascript-pro",
+        "nodejs-best-practices"
       ]
     },
     {
-      "id": "aas-product-design-studio",
+      "id": "design-studio",
       "name": "AAS Product Design Studio",
       "priority": "tier-1",
       "audience": "Builders who want richer UI, brand, portfolio, and visual product work.",
-      "why": "Turn a brief or supplied screenshot into a coherent visual direction, documented design rules and responsive interface states.",
+      "why": "Turn a visual brief into design rules, creative assets, edited content and responsive interface states before implementation.",
       "skills": [
         "ui-ux-pro-max",
         "high-end-visual-design",
@@ -55,7 +61,11 @@
         "ui-review",
         "write-design-md",
         "ui-from-screenshot",
-        "ui-states"
+        "ui-states",
+        "accessibility-compliance-accessibility-audit",
+        "content-creator",
+        "copy-editing",
+        "algorithmic-art"
       ]
     },
     {
@@ -96,7 +106,8 @@
         "secrets-management",
         "django-access-review",
         "security-requirement-extraction",
-        "threat-modeling-expert"
+        "threat-modeling-expert",
+        "dependency-management-deps-audit"
       ]
     },
     {
@@ -121,10 +132,10 @@
     },
     {
       "id": "aas-data-analytics",
-      "name": "AAS Data Analytics",
+      "name": "AAS Data Analytics & Business Intelligence",
       "priority": "tier-1",
       "audience": "Operators, analysts, and builders working with product analytics, SQL, dashboards, and experiments.",
-      "why": "Validate data and metric definitions, optimize analytical queries, and explain dashboard or experiment results with traceable evidence.",
+      "why": "Validate business metrics and data, analyze SQL and experiments, and explain dashboards, market sizing and financial models with traceable assumptions.",
       "skills": [
         "analytics-tracking",
         "analytics-product",
@@ -137,7 +148,11 @@
         "ab-test-setup",
         "business-analyst",
         "sql-optimization-patterns",
-        "data-storytelling"
+        "data-storytelling",
+        "database-architect",
+        "startup-metrics-framework",
+        "startup-financial-modeling",
+        "market-sizing-analysis"
       ]
     },
     {
@@ -159,7 +174,11 @@
         "prompt-engineering",
         "skill-security-audit",
         "agent-harness-fault-injection",
-        "agent-evaluation-reporting"
+        "agent-evaluation-reporting",
+        "agent-memory-systems",
+        "rag-implementation",
+        "prompt-caching",
+        "llm-evaluation"
       ]
     },
     {
@@ -181,7 +200,8 @@
         "screen-reader-testing",
         "testing-patterns",
         "api-contract-testing",
-        "python-testing-patterns"
+        "python-testing-patterns",
+        "ci-cd-and-automation"
       ]
     },
     {
@@ -189,7 +209,7 @@
       "name": "AAS DevOps & Cloud",
       "priority": "tier-1",
       "audience": "Teams shipping infrastructure, deployments, and operational workflows.",
-      "why": "Prepare infrastructure, delivery and secret-management changes with validation, rollback steps and explicit deployment boundaries.",
+      "why": "Prepare AWS or Azure infrastructure, containers, CI/CD, identity and secrets with validation, rollback and explicit deployment boundaries.",
       "skills": [
         "docker-expert",
         "aws-serverless",
@@ -201,7 +221,14 @@
         "bash-linux",
         "incident-responder",
         "devops-troubleshooter",
-        "secrets-management"
+        "secrets-management",
+        "ci-cd-and-automation",
+        "azd-deployment",
+        "azure-functions",
+        "azure-ai-openai-dotnet",
+        "azure-search-documents-py",
+        "azure-identity-py",
+        "azure-monitor-opentelemetry-ts"
       ]
     },
     {
@@ -223,7 +250,11 @@
         "schema-markup",
         "product-marketing-context",
         "copy-editing",
-        "content-strategy"
+        "content-strategy",
+        "seo-content-writer",
+        "seo-structure-architect",
+        "seo-cannibalization-detector",
+        "seo-content-auditor"
       ]
     },
     {
@@ -231,7 +262,7 @@
       "name": "AAS Automation Builder",
       "priority": "tier-2",
       "audience": "Teams designing reliable automations across tools, data stores, and communication platforms.",
-      "why": "Design automations with authenticated API boundaries, explicit triggers and mappings, replay-safe retries and a reviewable test run.",
+      "why": "Build workflow and CRM automations with explicit triggers, authenticated integrations, bounded retries and reviewable test runs.",
       "skills": [
         "workflow-automation",
         "mcp-builder",
@@ -244,12 +275,20 @@
         "github-automation",
         "n8n-workflow-patterns",
         "api-integration",
-        "api-rate-limit-handler"
+        "api-rate-limit-handler",
+        "browser-automation",
+        "hubspot-automation",
+        "sendgrid-automation",
+        "zendesk-automation",
+        "google-calendar-automation",
+        "outlook-calendar-automation",
+        "stripe-automation",
+        "shopify-automation"
       ]
     },
     {
       "id": "aas-observability-ir",
-      "name": "AAS Observability IR",
+      "name": "AAS Observability & Incident Response",
       "priority": "tier-2",
       "audience": "Engineering teams monitoring systems, debugging production issues, and writing postmortems.",
       "why": "Connect logs, metrics and traces to incident diagnosis, including AI service costs and approved fallbacks, then prepare recovery checks and shift handoff.",
@@ -270,10 +309,10 @@
     },
     {
       "id": "aas-python-api-builder",
-      "name": "AAS Python API Builder",
+      "name": "AAS Python Development",
       "priority": "tier-2",
       "audience": "Python developers building APIs, services, and tests.",
-      "why": "Implement Python service endpoints with schema validation, authorization checks, query performance and bounded external API retries.",
+      "why": "Implement and test Python code, async workflows and FastAPI or Django services with schema validation and bounded external API retries.",
       "skills": [
         "python-pro",
         "python-patterns",
@@ -295,7 +334,7 @@
       "name": "AAS Mobile App Builder",
       "priority": "tier-2",
       "audience": "Mobile teams shipping Expo, React Native, Flutter, and iOS apps.",
-      "why": "Implement a mobile feature in the chosen stack, connect API and interface states, and prepare platform-specific build and release checks.",
+      "why": "Build mobile features with React Native, Expo, Flutter or iOS, including platform design, API states and release checks.",
       "skills": [
         "mobile-developer",
         "react-native-architecture",
@@ -308,7 +347,14 @@
         "app-store-optimization",
         "multi-platform-apps-multi-platform",
         "ios-screens",
-        "frontend-api-integration-patterns"
+        "frontend-api-integration-patterns",
+        "expo-tailwind-setup",
+        "hig-foundations",
+        "hig-patterns",
+        "hig-components-layout",
+        "hig-inputs",
+        "hig-components-system",
+        "hig-platforms"
       ]
     },
     {
@@ -332,10 +378,10 @@
     },
     {
       "id": "aas-api-platform-builder",
-      "name": "AAS API Platform Builder",
+      "name": "AAS Backend & API Platform",
       "priority": "tier-1",
       "audience": "Backend and platform teams designing APIs, contracts, auth, security, load tests, and observability.",
-      "why": "Define API contracts and authorization, trace changes across consumers, and plan bounded retries and safe deprecation.",
+      "why": "Design backend services and API contracts, integrate databases, authentication and payments, and validate consumers, performance and safe migration.",
       "skills": [
         "api-design-principles",
         "api-patterns",
@@ -349,7 +395,13 @@
         "observability-engineer",
         "api-contract-testing",
         "api-rate-limit-handler",
-        "deprecation-and-migration"
+        "deprecation-and-migration",
+        "senior-fullstack",
+        "frontend-developer",
+        "backend-dev-guidelines",
+        "database-design",
+        "stripe-integration",
+        "e2e-testing-patterns"
       ]
     },
     {
@@ -371,7 +423,11 @@
         "seo-audit",
         "usage-based-pricing",
         "onboarding-cro",
-        "product-marketing-context"
+        "product-marketing-context",
+        "product-manager-toolkit",
+        "competitive-landscape",
+        "competitor-alternatives",
+        "copywriting"
       ]
     },
     {

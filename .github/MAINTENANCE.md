@@ -152,6 +152,8 @@ Manifest-to-installer preparation must preserve the exact agent selection and em
 
 ### Specialized plugin updates
 
+For offer consolidation, use editorial `migrations` to bind each retired ID to one active target and its complete preserved skill inventory. Validate missing targets, active or repeated retired IDs, lost skills and ambiguous aliases. Keep retired IDs out of generated marketplaces and plugin directories; activation lookup aliases are not marketplace redirects. Document manual installation migration in `docs/users/plugin-migration.md`. Derive the public plugin list, prerender and live-verifier counts from all active editorial bundles, not just the specialized candidate subset. Keep source maintenance distinct from release availability.
+
 Specialized membership comes from `data/specialized-plugin-candidates.json`; installable composition and product copy come from `data/editorial-bundles.json`. These are editorial source inputs. Validate selected IDs against canonical `skills_index.json`, derive the web list and prerender/live-check counts from the source inputs, and test stale-count rejection and complete skill-list access. Keep prose-declared local resources present and byte-identical in generated specialized bundles; the resource regression checks entrypoints, while fenced application examples require semantic review. Exercise documented calculation and chunking fixes with the pure-example regressions. Run bundle generation for validation, then exclude generated plugin folders, marketplaces and bundle docs from the source commit. The protected canonical-sync PR owns those outputs; no release or deployment is implied.
 
 ### B. When You Merge a PR (Step-by-Step)

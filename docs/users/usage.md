@@ -66,9 +66,9 @@ Bundles provide editorial shortlists. You can either select individual skills fr
 ❌ Something most users need to activate during normal install
 ❌ A replacement for invoking the individual skills inside the bundle
 
-### Example: The "Web Wizard" Bundle
+### Example: The "AAS Web App Builder" Plugin
 
-When you see the [Web Wizard bundle](bundles.md#-the-web-wizard-pack), it lists:
+When you see the [AAS Web App Builder pack](bundles.md#-the-aas-web-app-builder-plugin), it lists:
 
 - `frontend-design`
 - `react-best-practices`

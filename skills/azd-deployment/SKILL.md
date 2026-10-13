@@ -10,6 +10,10 @@ date_added: "2026-02-27"
 
 Deploy containerized frontend + backend applications to Azure Container Apps with remote builds, managed identity, and idempotent infrastructure.
 
+## Authorization and preparation
+
+Inspect existing project files and the active tenant, subscription and environment first. Provisioning, deployment, role assignments and hook execution change cloud resources and may incur costs. Prepare the exact diff, target, estimated impact and rollback plan; execute only when the user explicitly authorizes that deployment. Do not print environment values or credentials into shared logs.
+
 ## Quick Start
 
 ```bash
@@ -255,13 +259,13 @@ hooks:
         --assignee-object-id "$PRINCIPAL_ID" \
         --assignee-principal-type ServicePrincipal \
         --role "Cognitive Services OpenAI User" \
-        --scope "$OPENAI_RESOURCE_ID" 2>/dev/null || true
+        --scope "$OPENAI_RESOURCE_ID"
       
       # Azure AI Search access
       az role assignment create \
         --assignee-object-id "$PRINCIPAL_ID" \
         --role "Search Index Data Reader" \
-        --scope "$SEARCH_RESOURCE_ID" 2>/dev/null || true
+        --scope "$SEARCH_RESOURCE_ID"
 ```
 
 ## Common Commands
@@ -284,11 +288,9 @@ azd show                            # Show project status
 az containerapp logs show -n <app> -g <rg> --follow  # Stream logs
 ```
 
-## Reference Files
+## Local Resources
 
-- **Bicep patterns**: See references/bicep-patterns.md for Container Apps modules
-- **Troubleshooting**: See references/troubleshooting.md for common issues
-- **azure.yaml schema**: See references/azure-yaml-schema.md for full options
+No additional Bicep patterns, troubleshooting guide or schema file is bundled. Validate the project configuration against the installed Azure Developer CLI and current official Azure documentation before preparing deployment.
 
 ## Critical Reminders
 
@@ -296,7 +298,7 @@ az containerapp logs show -n <app> -g <rg> --follow  # Stream logs
 2. **Bicep outputs auto-populate .azure/<env>/.env** - Don't manually edit
 3. **Use `azd env set` for secrets** - Not main.parameters.json defaults
 4. **Service tags (`azd-service-name`)** - Required for azd to find Container Apps
-5. **`|| true` in hooks** - Prevent RBAC "already exists" errors from failing deploy
+5. **Handle RBAC failures explicitly** - Verify an existing assignment before treating a duplicate as success; never suppress permission or configuration failures.
 
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
