@@ -163,6 +163,8 @@ review, immutable PR/workflow binding and strict branch protection all remain
 mandatory. Missing or malformed ledger data fails closed. Further exceptions or
 policy expansions need explicit maintainer authorization and protected review.
 
+Tessl setup is bounded to two minutes, separately from the ten-minute review invocation. Failed or timed-out setup skips automated review and routes to `manual-review-required`; it never produces a passing review. Exact-head maintainer attestation and all protected checks remain required.
+
 ## Workflow Contract Change Gate
 
 When changing maintainer scripts, workflows, or policy, update the canonical skill, maintainer documentation, and regression tests in the same source PR. Add a negative test for every failure mode being fixed, run the relevant dry-run path, and reject any implementation/documentation mismatch. Source PRs must exclude generated registries and plugin mirrors; the protected canonical-sync PR owns that derived state, except for files intentionally staged by the scripted protected-release flow.

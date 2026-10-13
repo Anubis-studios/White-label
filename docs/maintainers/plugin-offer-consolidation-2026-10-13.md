@@ -19,3 +19,7 @@ The senior-fullstack references now contain concrete boundary/checklist guidance
 Required: full unsharded root suite, web coverage and build, validation chain, references, docs-security, warning budget, source credits, changed-skill evidence, generated plugin/bundle parity, and the exact-head protected merge. Tests reject skill loss, missing migration targets, duplicate/live retired IDs, ambiguous aliases, stale public counts and reappearance of retired marketplace/payload entries. Compare canonical support bytes with every specialized generated bundle. Generated files are inspected locally but committed only by protected canonical synchronization.
 
 Semantic review authority is the actual CI Tessl outcome or manual maintainer attestation to the exact full head SHA; structural tests and advisory scans are not semantic approval. Source merge is separate from release/publication availability.
+
+## Review bootstrap repair
+
+The live PR exposed Tessl setup stuck before its ten-minute review timeout could begin. Bound setup separately to two minutes, skip review execution when setup fails and route to the existing exact-head manual attestation gate. Negative tests execute the actual outcome resolver with failed/cancelled setup, success and cache reuse. This changes no required check or approval authority.
