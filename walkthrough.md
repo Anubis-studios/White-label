@@ -851,3 +851,7 @@ Restore the existing locally hosted 40-second introduction video after Core setu
 ## Specialized plugin expansion — 2026-10-13
 
 Reviewed the 2,687-entry metadata inventory and all 21 specialized compositions. Added 48 focused memberships from 33 existing canonical skills and one new API contract testing skill, keeping plugin IDs stable, and repaired published examples before promotion. See [review evidence](docs/maintainers/specialized-plugin-expansion-review-2026-10-13.md) for exact trees, omissions and verification scope. Generated mirrors belong to protected canonical sync; no release or deployment is requested.
+
+## Maintenance and release 19.6.0
+
+Reviewed and repaired the three open contribution PRs, prepared tag-diff-based release notes, and retained protected merge, canonical sync and release flows. See [batch review](docs/maintainers/maintenance-19.6.0.md) for source scope, checks, attribution and full release-alignment requirements.
