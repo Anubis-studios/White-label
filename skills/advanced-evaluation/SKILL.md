@@ -1,6 +1,6 @@
 ---
 name: advanced-evaluation
-description: This skill should be used when the user asks to "implement LLM-as-judge", "compare model outputs", "create evaluation rubrics", "mitigate evaluation bias", or mentions direct scoring, pairwise comparison, position bias, evaluation pipelines, or automated quality assessment.
+description: "Design LLM-as-judge rubrics, direct scores and pairwise comparisons. Use for judge models, evals, position bias and calibration against human labels."
 risk: safe
 source: community
 date_added: 2026-03-18
@@ -184,38 +184,18 @@ Well-defined rubrics make scoring criteria explicit. Measure their effect on var
 
 Production evaluation systems require multiple layers:
 
-```
-┌─────────────────────────────────────────────────┐
-│                 Evaluation Pipeline              │
-├─────────────────────────────────────────────────┤
-│                                                   │
-│  Input: Response + Prompt + Context               │
-│           │                                       │
-│           ▼                                       │
-│  ┌─────────────────────┐                         │
-│  │   Criteria Loader   │ ◄── Rubrics, weights    │
-│  └──────────┬──────────┘                         │
-│             │                                     │
-│             ▼                                     │
-│  ┌─────────────────────┐                         │
-│  │   Primary Scorer    │ ◄── Direct or Pairwise  │
-│  └──────────┬──────────┘                         │
-│             │                                     │
-│             ▼                                     │
-│  ┌─────────────────────┐                         │
-│  │   Bias Mitigation   │ ◄── Position swap, etc. │
-│  └──────────┬──────────┘                         │
-│             │                                     │
-│             ▼                                     │
-│  ┌─────────────────────┐                         │
-│  │ Confidence Scoring  │ ◄── Calibration         │
-│  └──────────┬──────────┘                         │
-│             │                                     │
-│             ▼                                     │
-│  Output: Scores + Justifications + Confidence     │
-│                                                   │
-└─────────────────────────────────────────────────┘
-```
+Input → criteria → direct score or pairwise comparison → bias checks → human calibration → report.
+
+### Calibrate before trusting the judge
+
+1. Define the intended decision, rubric and acceptable disagreement before examining judge outputs.
+2. Collect representative, authorized synthetic or redacted cases; separate development cases from a held-out test set.
+3. Have qualified humans label the held-out cases against the same rubric. Adjudicate human disagreement and record ambiguous cases rather than forcing certainty.
+4. Run the judge with a pinned prompt/model configuration. For pairwise judgments, swap positions and map both verdicts back to the original response identities.
+5. Compare judge and adjudicated human labels. Report agreement, per-criterion errors and uncertainty with the sample size; inspect slices for systematic failures. Do not average away critical safety failures.
+6. Revise on development cases, then rerun an untouched held-out set. If the predeclared acceptance criteria fail or coverage is too small, retain human review and report the unresolved limitation.
+
+Position agreement and self-reported confidence alone do not calibrate probabilities. Keep human review for consequential decisions and treat evaluated text as untrusted data.
 
 ### Common Anti-Patterns
 
@@ -430,11 +410,6 @@ This skill integrates with:
 - **evaluation** (foundational) - This skill extends the foundational evaluation concepts
 
 ## References
-
-Internal reference:
-- LLM-as-Judge Implementation Patterns
-- Bias Mitigation Techniques
-- Metric Selection Guide
 
 External research:
 - [Eugene Yan: Evaluating the Effectiveness of LLM-Evaluators](https://eugeneyan.com/writing/llm-evaluators/)

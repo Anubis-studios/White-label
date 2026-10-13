@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source_catalog": "skills_index.json",
-  "evaluated_skill_count": 2687,
+  "evaluated_skill_count": 2688,
   "selection_rules": [
     "Prefer focused plugins with a clear user job over broad library replicas.",
     "Include only skill IDs present in skills_index.json.",
@@ -456,6 +456,7 @@
   "review_scope": {
     "date": "2026-10-13",
     "inventory": "Metadata inventory of all canonical skills; manual review of selected additions and repaired skill trees, not an execution audit of the whole corpus.",
-    "evidence": "docs/maintainers/specialized-plugin-expansion-review-2026-10-13.md"
+    "evidence": "docs/maintainers/specialized-plugin-expansion-review-2026-10-13.md",
+    "baseline_skill_count": 2687
   }
 }

@@ -44,7 +44,7 @@ Digests below bind ordered relative file paths and SHA-256 file digests in the r
 
 | Skill | Tracked files | Review tree SHA-256 |
 | --- | ---: | --- |
-| `advanced-evaluation` | 1 | `a6fe904a33be7cc754640fd95bd84cd484e53e40b86d7facaa9f6c39b2c5eada` |
+| `advanced-evaluation` | 1 | `511e90aef99c1aefcc8d17b1c0762d3bd974a4b8d11ef6fa21a4f2653743f147` |
 | `agent-evaluation-reporting` | 1 | `9af818fb4104f3c50fce508c8fa07ed8eb217edf8a658bdaaf7532056df877ce` |
 | `agent-harness-fault-injection` | 1 | `814364560f021181b430a331b1ee08ff9924e7cf28f2cd10b50100c720d09cda` |
 | `ai-sre-incident-response` | 1 | `1c4817b87392712c269f87ff2b8ede2b4cfbc143371f80d400c4eaac3bade097` |
@@ -85,7 +85,7 @@ The reviewed cohort needed concrete repairs before promotion: correct async asse
 
 The HTTP wait guidance follows [RFC 9110 §10.2.3](https://www.rfc-editor.org/rfc/rfc9110.html#section-10.2.3). The contrast regression uses [WCAG contrast guidance](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html). Pure example tests execute published snippets with fake responses and inert values; they do not prove live provider integration or full accessibility conformance.
 
-Changed canonical trees: `advanced-evaluation`, `ai-sre-incident-response`, `antigravity-maintainer-batch-release`, `api-contract-testing`, `api-integration`, `api-rate-limit-handler`, `content-strategy`, `data-privacy-controls`, `data-storytelling`, `deprecation-and-migration`, `on-call-handoff-patterns`, `onboarding-cro`, `python-testing-patterns`, `seo-content-refresher`, `testing-patterns`, `usage-based-pricing`, `wcag-audit-patterns`.
+Changed canonical trees: `advanced-evaluation`.
 
 ## Candidates deferred or intentionally omitted
 
@@ -122,6 +122,10 @@ These observations justify not adding a candidate to another focused pack. They 
 
 ## Verification and publication boundary
 
-Required validation, references, documentation security, warning budget, source credits, complete unsharded script tests, web coverage/build, specialized source/packaging/resource tests and compatibility checks run on this branch. Observed local outcomes: all 134 unsharded test groups passed; 313 web tests in 53 files passed; coverage was 88.90% statements / 81.93% branches / 91.69% functions / 93.68% lines. Web build/prerender and 27-guide verification passed. Validation and warning budget were 0/0, docs security and references passed, root dependency audit reported zero vulnerabilities, and plugin/bundle checks reported no drift. Specialized declared-resource checks covered 189 distinct entrypoints and all new payloads matched the portable-frontmatter generation contract. Source-credit and exact-head CI evidence are recorded in the PR. New negative tests reject oversized/duplicate membership, premature/unsafe API retries, invalid webhook signatures, missing async UI outcomes and malformed evaluator JSON. Arithmetic and contrast tests consume the published examples.
+Required validation, references, documentation security, warning budget, source credits, complete unsharded script tests, web coverage/build, specialized source/packaging/resource tests and compatibility checks run on this branch. Observed local outcomes: 134 unsharded test groups and 313 web tests in 53 files passed. Coverage was 88.90% statements / 81.93% branches / 91.69% functions / 93.68% lines. Build/prerender and 27-guide verification passed, validation warning budget was 0/0, and dependency audit reported zero vulnerabilities. Plugin compatibility/bundle checks were drift-free. Source credits reported seven inherited attribution skips without blockers. Final exact-head CI and semantic/advisory outcomes are recorded in the PR. New negative tests reject oversized/duplicate membership, premature/unsafe API retries, invalid webhook signatures, missing async UI outcomes and malformed evaluator JSON. Arithmetic and contrast tests consume the published examples.
 
 Regenerate mirrors and marketplaces for local inspection, but commit editorial sources and canonical repairs only. The protected canonical-sync PR owns generated files and final byte parity. This change does not bump package versions, publish npm, update installed plugins/MCP hosts or authorize a Pages deployment. Verify resulting protected main CI and CodeQL after synchronization; release-bound catalog links continue to point at the published version until a release is requested.
+
+### Automated review follow-up
+
+Tessl returned 71/80 for the initial advanced-evaluation tree and stopped before reviewing the remaining changed trees. Addressed actionable feedback with concise pipeline guidance, an explicit held-out human-calibration workflow, a direct trigger description and removal of ambiguous internal-reference titles. Remaining score/style concerns require truthful exact-head manual review rather than claiming a passing automated result.
