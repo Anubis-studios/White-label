@@ -112,6 +112,37 @@ class Examples(unittest.TestCase):
                 self.assertNotIn('Completed successfully', result.stdout)
                 self.assertEqual(list(Path(directory).iterdir()), [])
 
+    def test_azure_hook_requires_all_resource_inputs_before_role_mutation(self):
+        source = (ROOT / 'skills/azd-deployment/SKILL.md').read_text()
+        section = source.split('### Post-Provision RBAC Assignment', 1)[1].split('## Common Commands', 1)[0]
+        import yaml
+        hook = yaml.safe_load(re.search(r'```yaml\n(.*?)```', section, re.S).group(1))['hooks']['postprovision']['run']
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            calls = root / 'calls'
+            mock = root / 'az'
+            mock.write_text('#!/bin/sh\nprintf "%s\\n" "$*" >> "$CALLS"\n')
+            mock.chmod(0o700)
+            base = {'PATH': directory + ':/usr/bin:/bin', 'CALLS': str(calls),
+                    'BACKEND_PRINCIPAL_ID': 'principal-fixture',
+                    'OPENAI_RESOURCE_ID': '/approved/openai',
+                    'SEARCH_RESOURCE_ID': '/approved/search'}
+            for missing in ['BACKEND_PRINCIPAL_ID', 'OPENAI_RESOURCE_ID', 'SEARCH_RESOURCE_ID']:
+                env = dict(base)
+                del env[missing]
+                run = subprocess.run(['bash', '-c', hook], cwd=directory, env=env,
+                                     capture_output=True, text=True)
+                self.assertNotEqual(run.returncode, 0)
+                self.assertIn(missing, run.stderr)
+                self.assertFalse(calls.exists(), 'No role command may run with incomplete inputs')
+            run = subprocess.run(['bash', '-c', hook], cwd=directory, env=base,
+                                 capture_output=True, text=True)
+            self.assertEqual(run.returncode, 0, run.stderr)
+            commands = calls.read_text().splitlines()
+            self.assertEqual(len(commands), 2)
+            self.assertIn('--scope /approved/openai', commands[0])
+            self.assertIn('--scope /approved/search', commands[1])
+
     def test_slo_alerts_do_not_reference_missing_recording_rules(self):
         source = (ROOT / 'skills/slo-implementation/SKILL.md').read_text()
         defined = set(re.findall(r'- record: (slo:[\w:]+)', source))

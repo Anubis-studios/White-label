@@ -863,3 +863,7 @@ The real 19.6.0 candidate exposed an unstaged Codex guide and sitemap dates that
 ## Plugin offer consolidation
 
 Unify 28 overlapping packs into existing destinations: 30 focused packs plus the full-library plugin. Preserve every retired pack membership, keep activation lookup aliases, and show the entire active offer from one editorial source. See [migration and scope](docs/users/plugin-migration.md). Publication requires a new release; v19.6.0 stays immutable.
+
+### Azure plugin review follow-up
+
+Address the actual Tessl feedback from the consolidation: require every RBAC hook input, add post-deployment verification and remove unsupported custom-domain preservation guarantees. Validate examples without executing Azure operations.

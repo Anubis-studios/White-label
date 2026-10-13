@@ -23,3 +23,9 @@ Semantic review authority is the actual CI Tessl outcome or manual maintainer at
 ## Review bootstrap repair
 
 The live PR exposed Tessl setup stuck before its ten-minute review timeout could begin. Bound setup separately to two minutes, skip review execution when setup fails and route to the existing exact-head manual attestation gate. Negative tests execute the actual outcome resolver with failed/cancelled setup, success and cache reuse. This changes no required check or approval authority.
+
+## Exact-head review outcomes and Azure follow-up
+
+For source head `341155bee69b24ca00634eba8a5d0b045542e4bd`, Tessl scored the maintainer skill 81 and Azure deployment 73, then stopped at the first non-passing score; the other eight trees were not automatically reviewed in that attempt. The required outcome was manual review, attested to that exact head. Address the actionable Azure feedback with explicit required hook inputs, post-deployment verification and removal of misleading custom-domain preservation claims.
+
+The static advisory report for that head covered ten roots: seven complete reports, two partial reports and one nonzero/incomplete report, with 17 contextual findings. Maintainer findings describe the scanner/repository contract and quoted attack examples; Azure findings concern documented environment locations; the fullstack finding concerns absent optional tool-scope metadata. These are manually contextualized, not suppressed or called a clean scan. No cloud operations were executed.
