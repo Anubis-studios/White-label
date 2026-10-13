@@ -1,7 +1,7 @@
 {
   "name": "aasb-aas-observability-ir",
   "version": "19.6.0",
-  "description": "Install the \"AAS Observability IR\" workflow plugin from Agentic Awesome Skills.",
+  "description": "Install the \"AAS Observability & Incident Response\" workflow plugin from Agentic Awesome Skills.",
   "author": {
     "name": "sickn33 and contributors",
     "url": "https://github.com/sickn33/agentic-awesome-skills"
@@ -18,7 +18,7 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "AAS Observability IR",
+    "displayName": "AAS Observability & Incident Response",
     "shortDescription": "Design observability, SLOs, traces, dashboards, monitoring, incident response, troubleshooting, and postmortem workflows.",
     "longDescription": "Design observability, SLOs, traces, dashboards, monitoring, incident response, troubleshooting, and postmortem workflows. Connect logs, metrics and traces to incident diagnosis, including AI service costs and approved fallbacks, then prepare recovery checks and shift handoff. Recommended for: SRE teams, Backend teams owning production, Incident responders. Not for: Initial infrastructure delivery: use DevOps & Cloud, Changing production without the required operational authorization. Covers Observability Engineer, Observability And Instrumentation, and 10 more skills.",
     "developerName": "sickn33 and contributors",

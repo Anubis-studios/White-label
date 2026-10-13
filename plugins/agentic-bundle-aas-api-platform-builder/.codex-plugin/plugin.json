@@ -1,7 +1,7 @@
 {
   "name": "aasb-aas-api-platform-builder",
   "version": "19.6.0",
-  "description": "Install the \"AAS API Platform Builder\" workflow plugin from Agentic Awesome Skills.",
+  "description": "Install the \"AAS Backend & API Platform\" workflow plugin from Agentic Awesome Skills.",
   "author": {
     "name": "sickn33 and contributors",
     "url": "https://github.com/sickn33/agentic-awesome-skills"
@@ -18,9 +18,9 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "AAS API Platform Builder",
-    "shortDescription": "Design language-agnostic API platforms with contracts, docs, endpoints, auth, security, load testing, and observability.",
-    "longDescription": "Design language-agnostic API platforms with contracts, docs, endpoints, auth, security, load testing, and observability. Define API contracts and authorization, trace changes across consumers, and plan bounded retries and safe deprecation. Recommended for: Backend teams, Platform teams, Full-stack teams designing shared APIs. Not for: Python framework implementation as the main need: use Python API Builder, Client interface and visual design: use Web App Builder. Covers API Design Principles, API Patterns, and 11 more skills.",
+    "displayName": "AAS Backend & API Platform",
+    "shortDescription": "Backend service design and cross-stack API lifecycle.",
+    "longDescription": "Backend service design and cross-stack API lifecycle. Design backend services and API contracts, integrate databases, authentication and payments, and validate consumers, performance and safe migration. Recommended for: Backend teams, Platform teams, Full-stack teams designing shared APIs. Not for: Python syntax and framework-specific implementation: use Python Development., Frontend visual design and browser interface implementation: use Web App Builder.. Covers API Design Principles, API Patterns, and 17 more skills.",
     "developerName": "sickn33 and contributors",
     "category": "Specialized Product Plugins",
     "capabilities": [

@@ -19,8 +19,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "AAS Automation Builder",
-    "shortDescription": "Design reliable automations across apps, MCP tools, Make/Zapier, Airtable, Notion, Slack, Sheets, GitHub, and n8n.",
-    "longDescription": "Design reliable automations across apps, MCP tools, Make/Zapier, Airtable, Notion, Slack, Sheets, GitHub, and n8n. Design automations with authenticated API boundaries, explicit triggers and mappings, replay-safe retries and a reviewable test run. Recommended for: Ops teams, Automation builders, Teams connecting SaaS workflows. Not for: Accounts or connectors installed and authenticated by this skill bundle, Production infrastructure provisioning: use DevOps & Cloud. Covers Workflow Automation, MCP Builder, and 10 more skills.",
+    "shortDescription": "Workflow automation, CRM and operational integrations.",
+    "longDescription": "Workflow automation, CRM and operational integrations. Build workflow and CRM automations with explicit triggers, authenticated integrations, bounded retries and reviewable test runs. Recommended for: Ops teams, Automation builders, Teams connecting SaaS workflows. Not for: Accounts or connectors installed and authenticated by this skill bundle, Production infrastructure provisioning: use DevOps & Cloud. Covers Workflow Automation, MCP Builder, and 18 more skills.",
     "developerName": "sickn33 and contributors",
     "category": "Specialized Product Plugins - Next Wave",
     "capabilities": [

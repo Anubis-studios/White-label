@@ -19,8 +19,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "AAS Mobile App Builder",
-    "shortDescription": "Build and ship Expo, React Native, Flutter, iOS, and multi-platform apps with CI, deployment, and store readiness.",
-    "longDescription": "Build and ship Expo, React Native, Flutter, iOS, and multi-platform apps with CI, deployment, and store readiness. Implement a mobile feature in the chosen stack, connect API and interface states, and prepare platform-specific build and release checks. Recommended for: Mobile teams, Expo and React Native builders, Cross-platform app maintainers. Not for: Desktop-only applications, App-store submission, signing credentials or device testing supplied by the plugin. Covers Mobile Developer, React Native Architecture, and 10 more skills.",
+    "shortDescription": "Mobile implementation and platform interface guidance.",
+    "longDescription": "Mobile implementation and platform interface guidance. Build mobile features with React Native, Expo, Flutter or iOS, including platform design, API states and release checks. Recommended for: Mobile teams, Expo and React Native builders, Cross-platform app maintainers. Not for: Desktop-only applications, App-store submission, signing credentials or device testing supplied by the plugin. Covers Mobile Developer, React Native Architecture, and 17 more skills.",
     "developerName": "sickn33 and contributors",
     "category": "Specialized Product Plugins - Next Wave",
     "capabilities": [

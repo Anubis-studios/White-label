@@ -19,8 +19,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "AAS DevOps & Cloud",
-    "shortDescription": "Ship infrastructure, deployments, CI, environments, rollback plans, troubleshooting, and incident-ready operations.",
-    "longDescription": "Ship infrastructure, deployments, CI, environments, rollback plans, troubleshooting, and incident-ready operations. Prepare infrastructure, delivery and secret-management changes with validation, rollback steps and explicit deployment boundaries. Recommended for: Platform teams, Startup engineers owning deployment, Cloud and DevOps maintainers. Not for: An active incident as the primary task: use Observability IR, Cloud accounts, credentials or managed infrastructure supplied by the plugin. Covers Docker Expert, AWS Serverless, and 9 more skills.",
+    "shortDescription": "Cloud delivery, infrastructure and operational recovery.",
+    "longDescription": "Cloud delivery, infrastructure and operational recovery. Prepare AWS or Azure infrastructure, containers, CI/CD, identity and secrets with validation, rollback and explicit deployment boundaries. Recommended for: Platform teams, Startup engineers owning deployment, Cloud and DevOps maintainers. Not for: An active incident as the primary task: use Observability IR, Cloud accounts, credentials or managed infrastructure supplied by the plugin. Covers Docker Expert, AWS Serverless, and 16 more skills.",
     "developerName": "sickn33 and contributors",
     "category": "Specialized Product Plugins",
     "capabilities": [

@@ -20,7 +20,7 @@
   "interface": {
     "displayName": "AAS Secure App Builder",
     "shortDescription": "Build application features with auth, access control, API security, PCI, SAST, and defensive review baked in.",
-    "longDescription": "Build application features with auth, access control, API security, PCI, SAST, and defensive review baked in. Translate threats into security requirements and implement authentication, access control and data protection with negative tests. Recommended for: Application developers, Product engineering teams, Security-conscious backend and frontend builders. Not for: Offensive security assessment: use Security Engineer, Formal compliance certification or legal advice. Covers API Security Best Practices, Auth Implementation Patterns, and 9 more skills.",
+    "longDescription": "Build application features with auth, access control, API security, PCI, SAST, and defensive review baked in. Translate threats into security requirements and implement authentication, access control and data protection with negative tests. Recommended for: Application developers, Product engineering teams, Security-conscious backend and frontend builders. Not for: Offensive security assessment: use Security Engineer, Formal compliance certification or legal advice. Covers API Security Best Practices, Auth Implementation Patterns, and 10 more skills.",
     "developerName": "sickn33 and contributors",
     "category": "Specialized Product Plugins",
     "capabilities": [

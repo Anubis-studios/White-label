@@ -20,7 +20,7 @@
   "interface": {
     "displayName": "AAS QA & Test Automation",
     "shortDescription": "Plan test strategy, automate browser checks, debug failures, stabilize suites, and verify accessibility regressions.",
-    "longDescription": "Plan test strategy, automate browser checks, debug failures, stabilize suites, and verify accessibility regressions. Reproduce failures, test provider and consumer contracts and add meaningful unit, async, Python and browser regression coverage. Recommended for: QA engineers, Frontend and full-stack teams, Maintainers fixing flaky CI. Not for: Visual direction and branding: use Product Design Studio, Claiming coverage from tests that were not executed. Covers Test Driven Development, Systematic Debugging, and 11 more skills.",
+    "longDescription": "Plan test strategy, automate browser checks, debug failures, stabilize suites, and verify accessibility regressions. Reproduce failures, test provider and consumer contracts and add meaningful unit, async, Python and browser regression coverage. Recommended for: QA engineers, Frontend and full-stack teams, Maintainers fixing flaky CI. Not for: Visual direction and branding: use Product Design Studio, Claiming coverage from tests that were not executed. Covers Test Driven Development, Systematic Debugging, and 12 more skills.",
     "developerName": "sickn33 and contributors",
     "category": "Specialized Product Plugins",
     "capabilities": [
