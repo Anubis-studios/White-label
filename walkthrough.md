@@ -1,3 +1,7 @@
+## Individual report skill repairs, batch one (October 14, 2026)
+
+Corrected 31 canonical skill trees identified in the prior setup/expansion/consolidation reports, including deferred security, migration, billing, memory, networking and delivery candidates. The [batch-one review](docs/maintainers/report-skill-repairs-batch-one-2026-10-14.md) records each repair and the ten inert regressions consuming actual examples. Remaining named trees and the complete review receipt follow in the second source batch. Plugin membership, public releases and user host configurations are outside this source correction.
+
 ## Complete agent setup and skill-page corrections (October 12, 2026)
 
 Completed the Codex and Claude Code guides through configuration preview, digest-bound approval with backups, client connection checks, first agent-owned selection, validation/plan review and a separate direct-installer preview. Shared command generation keeps both guides pinned to the same release. Corrected 18 template descriptions without changing their bodies or IDs and added a narrow regression gate to the existing validator.
