@@ -34,13 +34,13 @@
     {
       "id": "10-andruia-skill-smith",
       "status": "repair-prepared",
-      "verdict": "Read sole full entrypoint: practical authoring flow retained; concrete activation/example/output, repo-specific names, no mandatory private reasoning, publication boundary and truthful limitations corrected. Awaiting gates.",
+      "verdict": "Read sole full entrypoint: practical authoring flow retained; concrete activation/example/output, repo-specific names, no mandatory private reasoning, publication boundary and truthful limitations corrected. Awaiting gates. Second Tessl attempt scored71 here after consultant82; concrete current-base validation commands/failure-retry loop and activation description improved. No provenance/canonical-sync boundary removed.",
       "base": "119af813d0ee0571d7c6e1fb5d0aa342ec4ee9f0",
       "files": [
         {
           "path": "skills/10-andruia-skill-smith/SKILL.md",
           "git_mode": "100644",
-          "sha256": "1155f42f3b8f2c6b4797f35609b5692b48ca437275dc62a0331f51056da62a68"
+          "sha256": "0c207cea2ea482e8235125016001351a6f25ee92f0f0e194da387934200d3cf3"
         }
       ],
       "original_report": {
@@ -68,7 +68,7 @@
         {
           "path": "skills/20-andruia-niche-intelligence/SKILL.md",
           "git_mode": "100644",
-          "sha256": "3366dbaf43efa6870366ee4ca525dba351016ed0f52881241893caa429e6cc01"
+          "sha256": "c10655eafd1c130ed9b4d61d8e36c737e5e4fe8dc2cb2d8433ff4c9a023044e1"
         }
       ],
       "original_report": {
@@ -164,7 +164,7 @@
         {
           "path": "skills/3d-web-experience/SKILL.md",
           "git_mode": "100644",
-          "sha256": "af4026262e6fb96e81e48172b2f6aa6a73129e8bb9906d537495de905d2b2139"
+          "sha256": "08858ea704a0075cbe9897c8c29de29191d3f98f7ebed14ff65fcc1a43f06ad9"
         }
       ],
       "original_report": {

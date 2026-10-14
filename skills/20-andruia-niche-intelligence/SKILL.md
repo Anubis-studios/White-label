@@ -1,7 +1,7 @@
 ---
 id: 20-andruia-niche-intelligence
 name: 20-andruia-niche-intelligence
-description: "Estratega de Inteligencia de Dominio de Andru.ia. Analiza el nicho específico de un proyecto para inyectar conocimientos, regulaciones y estándares únicos del sector. Actívalo tras definir el nicho."
+description: "Usar tras definir el sector de un proyecto: prepara un dossier en español con contexto, normas aplicables, patrones UX y riesgos, distinguiendo fuentes verificadas de hipótesis."
 category: andruia
 risk: safe
 source: personal
@@ -41,6 +41,14 @@ Generar un informe especializado que incluya:
 - **📜 Cumplimiento y Normativa:** Normas potencialmente aplicables, indicando jurisdicción, actividad, tipo de datos, fecha y fuente oficial. RGPD, HIPAA o facturación DIAN son ejemplos de regímenes distintos, no una lista universal de obligaciones. Separar aplicación confirmada, posible y pendiente de revisión experta.
 - **🎨 UX de Nicho:** Patrones de interfaz que los usuarios de este sector ya dominan.
 - **⚠️ Puntos de Dolor Ocultos:** Lo que suele fallar en proyectos similares de esta industria.
+
+### FASE 3: Verificación del dossier
+
+Comprobar que cada requisito corresponde al sector y jurisdicción del proyecto.
+Registrar fuente primaria y fecha para afirmaciones actuales; si una norma no se
+puede verificar o su aplicación depende de datos ausentes, marcarla pendiente.
+Revisar coherencia entre requisitos, UX y propuesta técnica; corregir contradicciones
+antes de entregar. No convertir autoridad del tono en evidencia.
 
 ## ⚠️ Reglas de Oro
 

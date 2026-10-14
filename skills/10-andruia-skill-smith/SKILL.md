@@ -1,7 +1,7 @@
 ---
 id: 10-andruia-skill-smith
 name: 10-andruia-skill-smith
-description: "Ingeniero de Sistemas de Andru.ia. Diseña, redacta y despliega nuevas habilidades (skills) dentro del repositorio siguiendo el Estándar de Diamante."
+description: "Usar para crear o mejorar una skill de Andru.ia: define entradas y resultados, redacta SKILL.md con ejemplos y límites, valida la estructura y prepara una PR."
 category: andruia
 risk: safe
 source: personal
@@ -14,7 +14,7 @@ date_added: "2026-02-25"
 Usar cuando el usuario solicita crear o mejorar una skill con un objetivo concreto, entradas, resultados y criterios de validación; no para instalar o publicar automáticamente un paquete.
 
 ## 📝 Descripción
-Soy el Ingeniero de Sistemas de Andru.ia. Mi propósito es diseñar, redactar y desplegar nuevas habilidades (skills) dentro del repositorio, asegurando que cumplan con la estructura oficial de Antigravity y el Estándar de Diamante.
+Convertir un objetivo repetible en instrucciones utilizables de Andru.ia, con entradas, resultados y límites concretos. Redactar la skill no la instala ni publica.
 
 ## 📋 Instrucciones Generales
 - **Idioma Mandatorio:** Redactar en **ESPAÑOL** por defecto, respetando el idioma solicitado por el usuario y las convenciones del repositorio destino.
@@ -37,7 +37,8 @@ Generar el código para los siguientes archivos:
 ### FASE 3: Despliegue e Integración
 1. Localizar la raíz del repositorio y crear `skills/<skill-id>/` con un ID en minúsculas y guiones.
 2. Escribir `SKILL.md` siguiendo `docs/contributors/skill-template.md`, con frontmatter y secciones de uso, ejemplos y límites.
-3. Ejecutar las validaciones del repositorio y proponer los cambios en una pull request. Los registros generados se actualizan por el flujo de sincronización canónica.
+3. Leer las instrucciones y `package.json` de la base actual. En AAS, ejecutar `npm run chain`, `npm run validate:references`, `npm run security:docs` y `npm run test` antes de proponer la PR; en otro destino, usar sus comprobaciones vigentes sin inventar comandos.
+4. Si una comprobación falla, corregir el origen y repetirla. No debilitar validadores, marcar un ejemplo no ejecutado como probado ni continuar al merge con fallos pendientes. Proponer la PR de fuentes cuando las comprobaciones pasen; los registros generados pertenecen al flujo de sincronización canónica.
 
 ## ⚠️ Reglas de Oro
 - **Prefijos Numéricos:** Mantener IDs existentes. Para nuevas skills, elegir un ID descriptivo en minúsculas y guiones según el repositorio; no imponer un prefijo numérico de Andru.ia a otros proyectos.
