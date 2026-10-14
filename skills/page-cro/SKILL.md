@@ -240,6 +240,12 @@ Fix fundamentals first.
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
 
+## Example
+
+**Request:** “Visitors reach our trial page but few submit. Review the copy and suggest a test.”
+
+**Output:** First record the actual page, audience, trial terms, observation period and funnel counts. If no measurements exist, label the suspected friction as a hypothesis: clarify the trial commitment near the form and measure submitted trials per eligible visit, with sample/duration and guardrails agreed before launch. Deliver the copy draft and experiment plan; do not invent a conversion lift or publish changes without the requested target authorization.
+
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
