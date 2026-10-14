@@ -1,7 +1,3 @@
-## Browser Bridge maintainer repair (October 14, 2026)
-
-Repaired PR #1911 with source credit, critical risk and explicit installation/privacy/action/output limitations. Corrected every tab argument against the pinned upstream CLI parser; AAS bundles the guide only. No browser, daemon, extension or host configuration was activated. Generated distribution state remains owned by protected canonical synchronization.
-
 ## Complete individual skill report review (October 14, 2026)
 
 Reviewed all 90 named canonical skill trees and their 177 tracked files (176 at the task base), including deferred candidates and unchanged helpers/references. Corrected 60 trees across two source batches; retained 30 after direct review. The [point-by-point ledger](docs/maintainers/individual-skill-review-2026-10-14.md) and complete path/mode/SHA-256 receipt record each disposition, original-source recovery and remaining runtime boundaries. Sixteen new inert regressions plus existing pure examples passed; the full unsharded repository suite passed all 139 groups, along with chain, references, documentation security, warning budget and documentation consistency. Exact-head protected CI and maintainer review remain required before merge; generated state follows the canonical-sync PR. No release or deployment was requested.
