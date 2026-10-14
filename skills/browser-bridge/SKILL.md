@@ -1,6 +1,6 @@
 ---
 name: browser-bridge
-description: "Inspect, control, and automate tasks in your real Microsoft Edge or Google Chrome browser via Chrome DevTools Protocol (CDP) with native tab grouping and self-healing daemon."
+description: "Inspect, control, and automate tasks in your real Microsoft Edge or Google Chrome browser via Chrome DevTools Protocol (CDP) with bilingual UI, native tab grouping, and self-healing daemon."
 category: automation
 risk: safe
 source: community
@@ -8,7 +8,7 @@ source_repo: AshenJyy/antigravity-browser-bridge
 source_type: community
 date_added: "2026-10-14"
 author: AshenJyy
-tags: [browser, automation, cdp, edge, chrome, antigravity, gemini]
+tags: [browser, automation, cdp, edge, chrome, antigravity, gemini, i18n]
 tools: [gemini, cursor, claude]
 license: "Apache-2.0"
 license_source: "https://github.com/AshenJyy/antigravity-browser-bridge/blob/main/LICENSE"
@@ -31,10 +31,12 @@ Unlike headless browsers that lose existing logins and trigger bot-detection bar
 
 ## Key Capabilities
 
-1. **Native Tab Grouping**: Automatically isolates AI-controlled tabs into a distinct purple `[Gemini]` tab group.
-2. **Interactive Snapshot & Control**: Provides numbered element snapshots (`#1`, `#2`) to click or fill inputs without manual coordinate guessing.
-3. **Self-Healing Background Daemon**: Automatically launches the local bridge service in the background if it is not currently active.
-4. **Privacy-First Architecture**: Binds strictly to `127.0.0.1`; no telemetry, no cloud relays, zero credential exposure.
+1. **Bilingual Adaptive UI**: Automatic browser language detection (English & Chinese) with an instant one-click toggle button (`[English / 中文]`) in the popup.
+2. **Concurrent Multi-Browser Routing**: Simultaneous connection support for both Microsoft Edge and Google Chrome with smart automatic routing to target tabs.
+3. **Native Tab Grouping**: Automatically isolates AI-controlled tabs into a distinct purple `[Gemini]` tab group for complete visual clarity.
+4. **Interactive Snapshot & Control**: Provides numbered element snapshots (`#1`, `#2`) to click or fill inputs without manual coordinate guessing.
+5. **Self-Healing Background Daemon**: Automatically launches the local bridge service in the background if it is not currently active.
+6. **Privacy-First Architecture**: Binds strictly to `127.0.0.1`; no telemetry, no cloud relays, zero credential exposure.
 
 ## Quick Usage Reference
 
@@ -50,7 +52,7 @@ py server/cli.py tabs
 py server/cli.py open "https://github.com"
 
 # Snapshot interactive elements
-py server/cli.py snapshot <tabId>
+py server/cli.py snap <tabId>
 
 # Click element (#index, text, or selector)
 py server/cli.py click <tabId> "#1"
@@ -60,19 +62,23 @@ py server/cli.py click <tabId> "Sign in"
 py server/cli.py type <tabId> "#search" "machine learning"
 ```
 
-### 3. Page Extraction & Evaluation
+### 3. Page Extraction, Evaluation & Raw CDP
 ```bash
 # Extract structured content
-py server/cli.py content <tabId>
+py server/cli.py text <tabId>
 
 # Take page screenshot
-py server/cli.py screenshot <tabId> -o "page.png"
+py server/cli.py screenshot <tabId> page.png
 
 # Execute JavaScript expression
 py server/cli.py eval <tabId> "document.title"
+
+# Execute raw Chrome DevTools Protocol (CDP) method
+py server/cli.py cdp <tabId> Page.captureScreenshot '{"format": "png"}'
 ```
 
 ## Source & Repository
 
 - **Repository**: [https://github.com/AshenJyy/antigravity-browser-bridge](https://github.com/AshenJyy/antigravity-browser-bridge)
+- **Latest Release**: v1.4.0 ([Releases](https://github.com/AshenJyy/antigravity-browser-bridge/releases/tag/v1.4.0))
 - **License**: Apache-2.0
