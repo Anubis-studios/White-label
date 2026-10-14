@@ -1,3 +1,9 @@
+## Full-catalog review: second 175-tree cohort (October 14, 2026)
+
+Individually reviewed 175 additional canonical skill trees against the original 2,689-tree report, including unchanged entries and their bundled files. Corrected examples, triggers, safety and permission boundaries, and unsupported claims; recovered missing Deep Research, Imagen and OSINT resources with immutable provenance and licenses. See the [cohort receipt](docs/maintainers/full-catalog-large-batch-02-2026-10-14.md) and its JSON file for every disposition and file fingerprint.
+
+Validation/generation, references, documentation security, the 0/0 warning budget and all 148 unsharded local test groups passed. Network/provider and native integration limitations are explicit; protected CI and semantic review remain pending. This source-only PR excludes generated distribution state. Further review and merging are paused after PR creation at the user’s request.
+
 ## Complete individual skill report review (October 14, 2026)
 
 Reviewed all 90 named canonical skill trees and their 177 tracked files (176 at the task base), including deferred candidates and unchanged helpers/references. Corrected 60 trees across two source batches; retained 30 after direct review. The [point-by-point ledger](docs/maintainers/individual-skill-review-2026-10-14.md) and complete path/mode/SHA-256 receipt record each disposition, original-source recovery and remaining runtime boundaries. Sixteen new inert regressions plus existing pure examples passed; the full unsharded repository suite passed all 139 groups, along with chain, references, documentation security, warning budget and documentation consistency. Exact-head protected CI and maintainer review remain required before merge; generated state follows the canonical-sync PR. No release or deployment was requested.

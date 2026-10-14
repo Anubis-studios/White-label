@@ -75,8 +75,8 @@
  * with no file as a usage error.
  */
 
-import {spawn, execSync, execFileSync, spawnSync } from "node:child_process";
-import { mkdirSync, writeFileSync, renameSync, readFileSync, readdirSync, existsSync, appendFileSync, statSync, readlinkSync, lstatSync, openSync, readSync, closeSync, realpathSync } from "node:fs";
+import {spawn, execFileSync, spawnSync } from "node:child_process";
+import { mkdtempSync, mkdirSync, writeFileSync, renameSync, readFileSync, readdirSync, existsSync, appendFileSync, statSync, readlinkSync, lstatSync, openSync, readSync, closeSync, realpathSync } from "node:fs";
 import {join, resolve, basename, dirname, sep, isAbsolute, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { constants, tmpdir, homedir } from "node:os";
@@ -378,45 +378,45 @@ function needsShell(target) {
   return process.platform === "win32" && /\.(?:cmd|bat)$/i.test(target.command);
 }
 
-/**
- * The command as the launcher must receive it. Under shell:true Node joins
- * [file, ...args] into one `cmd /c "..."` string WITHOUT quoting the file, so a
- * resolved shim under e.g. C:\Program Files\... splits at the space and cmd
- * reports "not recognized" — which zcodeVersion would then classify as "not
- * installed", sending the caller to reinstall a CLI that is already there.
- * Pre-quoting keeps the boundary intact. Only a shim needs it; a `node <bundle>`
- * launch is a real executable and must stay unquoted.
- */
-function launchCommand(target) {
-  return needsShell(target) ? `"${target.command}"` : target.command;
+/** Quote Windows shim inputs without interpreting expansion/control characters. */
+export function quoteWindowsShimValue(value) {
+  if (typeof value !== "string" || /["%!\r\n\0]/.test(value)) {
+    throw new Error("Windows shim paths/arguments cannot contain quotes, expansion or control characters; use the reviewed Node CLI bundle for such paths");
+  }
+  // The shim forwards argv to a native process; preserve a trailing backslash.
+  return `"${value.replace(/\\+$/, (tail) => tail + tail)}"`;
+}
+
+export function windowsShimInvocation(command, argv) {
+  const line = [command, ...argv].map(quoteWindowsShimValue).join(" ");
+  return { command: "cmd.exe", argv: ["/d", "/v:off", "/s", "/c", `"${line}"`] };
 }
 
 function spawnShellLaunch(command, argv, options, useShell) {
-  if (!useShell) return spawn(command, argv, options);
-  // Node 24 warns when shell:true is paired with an args array. The shim path
-  // and any spaceable argv values are quoted before they reach cmd.exe.
-  return spawn([command, ...argv].join(" "), { ...options, shell: true });
+  if (!useShell) return spawn(command, argv, { ...options, shell: false });
+  const invocation = windowsShimInvocation(command, argv);
+  return spawn(invocation.command, invocation.argv, { ...options, shell: false, windowsVerbatimArguments: true });
 }
 
 function zcodeVersion(target, probeTimeoutMs) {
   try {
-    // A .cmd shim on win32 needs shell:true — Node's CreateProcess only
-    // auto-appends .exe, never .cmd, so it would ENOENT on a working install.
+    // A .cmd shim needs an explicit cmd.exe interpreter; automatic shells are disabled.
     // A `node <bundle>` launch is a real executable and must NOT get the flag.
     const options = {
       encoding: "utf8",
-      shell: needsShell(target),
+      shell: false,
       timeout: probeTimeoutMs,
       killSignal: "SIGKILL",
       env: process.env,
     };
-    const version = (needsShell(target)
-      ? execSync([launchCommand(target), ...target.prefixArgs, "--version"].join(" "), options)
-      : execFileSync(launchCommand(target), [...target.prefixArgs, "--version"], options)).trim();
+    const invocation = needsShell(target)
+      ? windowsShimInvocation(target.command, [...target.prefixArgs, "--version"])
+      : { command: target.command, argv: [...target.prefixArgs, "--version"] };
+    const version = execFileSync(invocation.command, invocation.argv, { ...options, windowsVerbatimArguments: needsShell(target) }).trim();
     return { version: version || "unknown", error: null };
   } catch (error) {
     if (error?.code === "ENOENT") return { version: null, error: null };
-    // shell:true routes a missing binary through cmd.exe, which reports it as a non-zero
+    // The explicit shim interpreter reports a missing binary as a non-zero
     // exit rather than ENOENT; that is still "not installed", not a broken install.
     if (process.platform === "win32" &&
         /not recognized as an internal or external command/i.test(String(error?.stderr || ""))) {
@@ -698,11 +698,8 @@ function timestamp() {
 }
 
 function buildArgv(opts, target, briefPath) {
-  // Spaceable values reach cmd.exe unquoted when a .cmd shim forces shell:true
-  // (a temp path under C:\Users\First Last\... would otherwise split — issue #3),
-  // so quote exactly those there. A `node <bundle>` launch passes argv directly.
-  const shellQuoted = needsShell(target);
-  const quote = (value) => (shellQuoted ? `"${value}"` : value);
+  // Keep logical argv raw; quote and validate exactly once at the shim boundary.
+  const quote = (value) => value; // Quote exactly once at the shim invocation boundary.
   const argv = ["--cwd", quote(opts.cd), "--json", "--no-color", "--mode", opts.mode];
   if (opts.disallowedTools) argv.push("--disallowed-tools", quote(opts.disallowedTools));
   // ZCode's own resume terms: --resume takes a sess_ id, -c continues the latest
@@ -737,8 +734,11 @@ function prepareRunDir(opts, brief) {
   const startedAt = new Date().toISOString();
   // Default the run dir to system temp so the repo under review stays pristine —
   // the touched-files report must show only ZCode's edits, not relay's artifacts.
-  const outDir = opts.outDir || join(tmpdir(), "delegate-relay", `${basename(opts.cd) || "repo"}-${timestamp()}`);
-  mkdirSync(outDir, { recursive: true });
+  const outDir = opts.outDir || mkdtempSync(join(tmpdir(), "delegate-relay-"));
+  if (opts.outDir) {
+    if (existsSync(outDir) || (() => { try { return lstatSync(outDir).isSymbolicLink(); } catch { return false; } })()) fail("--out-dir must be a new path; existing artifacts are preserved");
+    mkdirSync(outDir, { recursive: true, mode: 0o700 });
+  }
   const run = {
     startedAt,
     outputPath: join(outDir, "output.json"),
@@ -747,7 +747,7 @@ function prepareRunDir(opts, brief) {
     briefPath: join(outDir, "brief.md"),
     resultPath: join(outDir, "result.json"),
   };
-  writeFileSync(run.briefPath, brief, "utf8");
+  writeFileSync(run.briefPath, brief, { encoding: "utf8", mode: 0o600, flag: "wx" });
   return run;
 }
 
@@ -818,13 +818,10 @@ function reportVersionFailure(opts, writeResult, run, error, probeTimeoutMs) {
 
 function dispatchToZcode(opts, run, target, writeResult, beforeTree, beforeFingerprints, relayArtifacts) {
   const argv = buildArgv(opts, target, run.briefPath);
-  // shell:true only for a .cmd/.bat shim on win32 (see zcodeVersion); a
-  // `node <bundle>` launch is a real executable and passes argv directly. Safe
-  // either way: the brief travels as an attached FILE — never as argv — and argv
-  // holds only the mode enum, a pattern-checked session id and tool denylist,
-  // and file paths, with spaceable values quoted when the shell is involved.
+  // Native launches pass argv directly. Windows shims use explicit cmd.exe with
+  // bounded, quoted inputs; unsafe expansion/control characters fail before dispatch.
   // detached on POSIX: the child leads a new process group so killChild can fell the whole tree
-  const child = spawnShellLaunch(launchCommand(target), [...target.prefixArgs, ...argv], {
+  const child = spawnShellLaunch(target.command, [...target.prefixArgs, ...argv], {
     cwd: opts.cd,
     stdio: ["ignore", "pipe", "pipe"],
     detached: process.platform !== "win32",
@@ -1068,4 +1065,4 @@ function printSummary(result, resultPath) {
   process.stdout.write(`${lines.join("\n")}\n`);
 }
 
-main();
+if (process.argv[1] && existsSync(process.argv[1]) && realpathSync(process.argv[1]) === fileURLToPath(import.meta.url)) main();

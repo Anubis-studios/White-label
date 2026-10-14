@@ -87,3 +87,7 @@ Rate the overall permission profile:
 | **Slightly Overpermissioned** | 1-2 tools not clearly needed; low risk |
 | **Overpermissioned** | Multiple unnecessary tools; medium risk |
 | **Dangerously Overpermissioned** | Unrestricted access or many high-tier tools without justification |
+
+## Host and evidence boundary
+
+These tiers are advisory descriptions, not enforced permissions. Read-only tools can expose private data, and broad tool count alone does not prove maliciousness. Confirm actual host enforcement and the target scope; delegation and external writes require authorization. No numeric tier or wildcard finding can approve installation or a merge.

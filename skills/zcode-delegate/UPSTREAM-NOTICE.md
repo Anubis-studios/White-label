@@ -8,6 +8,6 @@ License wording is unchanged; text-only trailing whitespace and EOF blank lines 
 
 | Local file | Original upstream path | Original Git blob SHA | Import changes |
 | --- | --- | --- | --- |
-| `scripts/relay.mjs` | `skills/zcode-delegate/scripts/relay.mjs` | `edd888755afe9c2202443267e6dff09289168b06` | content unchanged |
+| `scripts/relay.mjs` | `skills/zcode-delegate/scripts/relay.mjs` | `edd888755afe9c2202443267e6dff09289168b06` | AAS patches Windows shim launch: explicit interpreter, checked quoting and no automatic shell; import-safe pure argument helpers for regression review. Original source remains linked for comparison. |
 
 The relay launches the user-installed, authenticated agent CLI. Write-capable modes can approve child tools automatically; they are not a host sandbox. Invoke only for explicitly authorized delegation, keep credentials out of task briefs, and review the child output and project changes before landing them. This import does not run the CLI.
