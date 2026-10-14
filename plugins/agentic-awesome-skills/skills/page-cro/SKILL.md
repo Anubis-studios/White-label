@@ -238,7 +238,7 @@ Fix fundamentals first.
 * **ab-test-setup** – For test execution and instrumentation
 
 ## When to Use
-This skill is applicable to execute the workflow or actions described in the overview.
+Use when evaluating a specific landing or product page against its audience, conversion goal and observed funnel evidence.
 
 ## Example
 

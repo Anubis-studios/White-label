@@ -55,7 +55,7 @@ Before designing schema:
 ❌ Ignore N+1 queries
 
 ## When to Use
-This skill is applicable to execute the workflow or actions described in the overview.
+Use when selecting a database model, reviewing schema relationships and indexes, or assessing a proposed schema with the bundled advisory tools.
 
 ## Schema helper
 

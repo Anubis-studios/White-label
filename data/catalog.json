@@ -380,7 +380,7 @@
       "name": "acceptance-orchestrator",
       "description": "Use when a coding task should be driven end-to-end from issue intake through implementation, review, deployment, and acceptance verification with minimal human re-intervention.",
       "category": "workflow",
-      "risk": "safe",
+      "risk": "critical",
       "source": "community",
       "tags": [
         "acceptance",
@@ -558,7 +558,7 @@
       "name": "accesslint-scan",
       "description": "Audit a live page for accessibility issues, locate each WCAG violation precisely, and return a selector-grounded fix worklist without editing.",
       "category": "design",
-      "risk": "safe",
+      "risk": "critical",
       "source": "https://github.com/AccessLint/skills",
       "tags": [
         "accesslint",
@@ -1331,7 +1331,7 @@
       "id": "agent-manager-skill",
       "canonical_id": "agent-manager-skill",
       "name": "agent-manager-skill",
-      "description": "Manage multiple local CLI agents via tmux sessions (start/stop/monitor/assign) with cron-friendly scheduling.",
+      "description": "Manage multiple local CLI agents via tmux sessions (start/stop/monitor/assign) in an explicitly authorized workspace.",
       "category": "ai-agents",
       "risk": "critical",
       "source": "community",
@@ -1572,7 +1572,7 @@
       "name": "agent-orchestrator",
       "description": "Meta-skill que orquestra todos os agentes do ecossistema. Scan automatico de skills, match por capacidades, coordenacao de workflows multi-skill e registry management.",
       "category": "ai-ml",
-      "risk": "safe",
+      "risk": "critical",
       "source": "community",
       "tags": [
         "orchestration",
@@ -2453,7 +2453,7 @@
       "id": "ai-agent-tool-routing",
       "canonical_id": "ai-agent-tool-routing",
       "name": "ai-agent-tool-routing",
-      "description": "Autonomous AI agent tool router register: schema registration, runtime parameter coercion, idempotency keys, and error recovery policies.",
+      "description": "Use when designing or reviewing an AI agent tool registry or MCP router: document parameter schemas, caller authorization, execution limits, replay-safe retries and verification evidence.",
       "category": "engineering",
       "risk": "safe",
       "source": "self",
@@ -2478,9 +2478,9 @@
         "python",
         "agent",
         "routing",
-        "autonomous",
-        "router",
-        "register"
+        "designing",
+        "reviewing",
+        "registry"
       ],
       "path": "skills/ai-agent-tool-routing/SKILL.md"
     },
@@ -2534,7 +2534,7 @@
       "id": "ai-code-generation-guardrails",
       "canonical_id": "ai-code-generation-guardrails",
       "name": "ai-code-generation-guardrails",
-      "description": "Autonomous AI code generation safety guardrail register: static AST analysis, forbidden import filters, and zero-day vulnerability checks.",
+      "description": "Use when reviewing AI-generated code before merge or execution: plan AST/security checks, isolated behavior tests and evidence, with language-specific coverage limits.",
       "category": "engineering",
       "risk": "safe",
       "source": "self",
@@ -2557,10 +2557,10 @@
         "devsecops",
         "code",
         "generation",
-        "autonomous",
-        "safety",
-        "guardrail",
-        "register"
+        "reviewing",
+        "generated",
+        "before",
+        "merge"
       ],
       "path": "skills/ai-code-generation-guardrails/SKILL.md"
     },
@@ -3119,7 +3119,7 @@
       "id": "ai-prompt-regression-testing",
       "canonical_id": "ai-prompt-regression-testing",
       "name": "ai-prompt-regression-testing",
-      "description": "Prompt engineering regression test matrix register: baseline outputs, semantic drift thresholds, judge evaluations, and golden dataset.",
+      "description": "Use when comparing prompt changes against a fixed evaluation set: record actual model settings, required checks, missing results, judge limitations and case-level regression evidence.",
       "category": "engineering",
       "risk": "safe",
       "source": "self",
@@ -3142,10 +3142,10 @@
         "benchmarking",
         "prompt",
         "regression",
-        "engineering",
-        "test",
-        "matrix",
-        "register"
+        "comparing",
+        "changes",
+        "against",
+        "fixed"
       ],
       "path": "skills/ai-prompt-regression-testing/SKILL.md"
     },
@@ -3429,7 +3429,7 @@
       "name": "akf-trust-metadata",
       "description": "The AI native file format. EXIF for AI — stamps every file with trust scores, source provenance, and compliance metadata. Embeds into 20+ formats (DOCX, PDF, images, code). EU AI Act, SOX, HIPAA auditing.",
       "category": "security",
-      "risk": "safe",
+      "risk": "critical",
       "source": "community",
       "tags": [
         "trust",
@@ -7354,8 +7354,8 @@
       "id": "avoid-ai-writing",
       "canonical_id": "avoid-ai-writing",
       "name": "avoid-ai-writing",
-      "description": "Audit and rewrite content to remove 21 categories of AI writing patterns with a 43-entry replacement table",
-      "category": "content",
+      "description": "Audit and rewrite prose for repetitive, vague, or formulaic wording while preserving meaning, evidence, and the writer's voice.",
+      "category": "uncategorized",
       "risk": "none",
       "source": "https://github.com/conorbronsdon/avoid-ai-writing",
       "tags": [
@@ -7369,13 +7369,13 @@
         "writing",
         "audit",
         "rewrite",
-        "content",
-        "remove",
-        "21",
-        "categories",
-        "43",
-        "entry",
-        "replacement"
+        "prose",
+        "repetitive",
+        "vague",
+        "formulaic",
+        "wording",
+        "while",
+        "preserving"
       ],
       "path": "skills/avoid-ai-writing/SKILL.md"
     },
@@ -8733,7 +8733,7 @@
       "id": "azure-ai-transcription-py",
       "canonical_id": "azure-ai-transcription-py",
       "name": "azure-ai-transcription-py",
-      "description": "Azure AI Transcription SDK for Python. Use for real-time and batch speech-to-text transcription with timestamps and diarization.",
+      "description": "Azure AI Transcription SDK for Python. Use for audio-file transcription with timestamps; distinguish this client from streaming and asynchronous batch Speech APIs.",
       "category": "cloud",
       "risk": "critical",
       "source": "community",
@@ -8750,12 +8750,12 @@
         "py",
         "sdk",
         "python",
-        "real",
-        "time",
-        "batch",
-        "speech",
-        "text",
-        "timestamps"
+        "audio",
+        "file",
+        "timestamps",
+        "distinguish",
+        "client",
+        "streaming"
       ],
       "path": "skills/azure-ai-transcription-py/SKILL.md"
     },
@@ -14241,7 +14241,7 @@
       "id": "build",
       "canonical_id": "build",
       "name": "build",
-      "description": "Develop major features through research, planning, implementation, and progress tracking.",
+      "description": "Use when developing a major feature: research the project, create a phased implementation plan, track progress and verify phase outcomes before declaring completion.",
       "category": "workflow",
       "risk": "critical",
       "source": "community",
@@ -14250,14 +14250,17 @@
       ],
       "triggers": [
         "build",
-        "develop",
+        "developing",
         "major",
-        "features",
-        "through",
+        "feature",
         "research",
-        "planning",
+        "phased",
+        "plan",
+        "track",
         "progress",
-        "tracking"
+        "verify",
+        "phase",
+        "outcomes"
       ],
       "path": "skills/build/SKILL.md"
     },
@@ -14692,7 +14695,7 @@
       "name": "busybox-on-windows",
       "description": "How to use a Win32 build of BusyBox to run many of the standard UNIX command line tools on Windows.",
       "category": "development",
-      "risk": "safe",
+      "risk": "critical",
       "source": "community",
       "tags": [
         "busybox",
@@ -14790,7 +14793,7 @@
       "id": "c-pro",
       "canonical_id": "c-pro",
       "name": "c-pro",
-      "description": "Write efficient C code with proper memory management, pointer",
+      "description": "Review and implement C systems code with explicit memory ownership, pointer bounds, error handling, and measured performance.",
       "category": "code",
       "risk": "critical",
       "source": "community",
@@ -14800,12 +14803,16 @@
       "triggers": [
         "c",
         "pro",
-        "write",
-        "efficient",
+        "review",
         "code",
-        "proper",
+        "explicit",
         "memory",
-        "pointer"
+        "ownership",
+        "pointer",
+        "bounds",
+        "error",
+        "handling",
+        "measured"
       ],
       "path": "skills/c-pro/SKILL.md"
     },
@@ -16091,7 +16098,7 @@
       "name": "claude-ally-health",
       "description": "A health assistant skill for medical information analysis, symptom tracking, and wellness guidance.",
       "category": "ai-ml",
-      "risk": "safe",
+      "risk": "critical",
       "source": "https://github.com/huifer/Claude-Ally-Health",
       "tags": [
         "claude",
@@ -16406,9 +16413,9 @@
       "id": "claude-win11-speckit-update-skill",
       "canonical_id": "claude-win11-speckit-update-skill",
       "name": "claude-win11-speckit-update-skill",
-      "description": "Windows 11 system management",
+      "description": "Review updates to GitHub SpecKit on Windows 11 with PowerShell, preserving local templates and customizations",
       "category": "ai-ml",
-      "risk": "safe",
+      "risk": "critical",
       "source": "https://github.com/NotMyself/claude-win11-speckit-update-skill",
       "tags": [
         "claude",
@@ -16423,8 +16430,13 @@
         "speckit",
         "update",
         "skill",
+        "review",
+        "updates",
+        "github",
         "windows",
-        "11"
+        "11",
+        "powershell",
+        "preserving"
       ],
       "path": "skills/claude-win11-speckit-update-skill/SKILL.md"
     },
@@ -18388,7 +18400,7 @@
       "id": "commit",
       "canonical_id": "commit",
       "name": "commit",
-      "description": "ALWAYS use this skill when committing code changes — never commit directly without it. Creates commits following Sentry conventions with proper conventional commit format and issue references. Trigger on any commit, git commit, save changes, or commit message task.",
+      "description": "Prepare or create commits using Sentry-style message conventions when the repository requests them; inspect staged scope and honor its protected branch workflow.",
       "category": "workflow",
       "risk": "critical",
       "source": "community",
@@ -18397,17 +18409,17 @@
       ],
       "triggers": [
         "commit",
-        "always",
-        "skill",
-        "committing",
-        "code",
-        "changes",
-        "never",
-        "directly",
-        "without",
-        "creates",
+        "prepare",
         "commits",
-        "following"
+        "sentry",
+        "style",
+        "message",
+        "conventions",
+        "repository",
+        "requests",
+        "them",
+        "inspect",
+        "staged"
       ],
       "path": "skills/commit/SKILL.md"
     },
@@ -22735,7 +22747,7 @@
       "name": "debugging-toolkit",
       "description": "Use when working with debugging toolkit smart debug (Alias for debugging-toolkit-smart-debug)",
       "category": "development",
-      "risk": "none",
+      "risk": "critical",
       "source": "alias",
       "tags": [
         "debugging"
@@ -22754,7 +22766,7 @@
       "id": "debugging-toolkit-smart-debug",
       "canonical_id": "debugging-toolkit-smart-debug",
       "name": "debugging-toolkit-smart-debug",
-      "description": "Use when working with debugging toolkit smart debug",
+      "description": "Diagnose failures from reproduction steps, traces, logs and code; test hypotheses and verify a scoped fix without inventing production evidence.",
       "category": "development",
       "risk": "critical",
       "source": "community",
@@ -22767,7 +22779,14 @@
         "debug",
         "toolkit",
         "smart",
-        "working"
+        "diagnose",
+        "failures",
+        "reproduction",
+        "steps",
+        "traces",
+        "logs",
+        "code",
+        "test"
       ],
       "path": "skills/debugging-toolkit-smart-debug/SKILL.md"
     },
@@ -26170,7 +26189,7 @@
       "id": "django-access-review",
       "canonical_id": "django-access-review",
       "name": "django-access-review",
-      "description": "Review Django and DRF authorization flows for IDOR, object permissions, query scoping, and tenant isolation.",
+      "description": "Use when reviewing Django or DRF access control: trace authorization flows, IDOR risks, object permissions, query scoping and tenant isolation before proposing a verified fix.",
       "category": "backend",
       "risk": "critical",
       "source": "community",
@@ -26182,15 +26201,15 @@
         "django",
         "access",
         "review",
+        "reviewing",
         "drf",
+        "control",
+        "trace",
         "authorization",
         "flows",
         "idor",
-        "object",
-        "permissions",
-        "query",
-        "scoping",
-        "tenant"
+        "risks",
+        "object"
       ],
       "path": "skills/django-access-review/SKILL.md"
     },
@@ -27463,9 +27482,9 @@
       "id": "eas-workflows",
       "canonical_id": "eas-workflows",
       "name": "eas-workflows",
-      "description": "Curated upstream guidance for Eas Workflows; use when the workflow matches the user goal.",
+      "description": "Use when writing or reviewing Expo EAS workflow YAML: inspect current schema and job syntax, validate configuration, and separate draft edits from launching builds or submissions.",
       "category": "mobile",
-      "risk": "unknown",
+      "risk": "critical",
       "source": "expo",
       "source_type": "official",
       "source_repo": "expo/skills",
@@ -27475,12 +27494,17 @@
       ],
       "triggers": [
         "eas",
-        "curated",
-        "upstream",
-        "guidance",
-        "matches",
-        "user",
-        "goal"
+        "writing",
+        "reviewing",
+        "expo",
+        "yaml",
+        "inspect",
+        "current",
+        "schema",
+        "job",
+        "syntax",
+        "validate",
+        "configuration"
       ],
       "path": "skills/eas-workflows/SKILL.md"
     },
@@ -28499,7 +28523,7 @@
       "id": "error-debugging-multi-agent-review",
       "canonical_id": "error-debugging-multi-agent-review",
       "name": "error-debugging-multi-agent-review",
-      "description": "Use when working with error debugging multi agent review",
+      "description": "Review a defined code diff from relevant correctness, authorization and performance perspectives; delegate only when authorized and reproduce findings centrally.",
       "category": "development",
       "risk": "safe",
       "source": "community",
@@ -28515,7 +28539,13 @@
         "multi",
         "agent",
         "review",
-        "working"
+        "defined",
+        "code",
+        "diff",
+        "relevant",
+        "correctness",
+        "authorization",
+        "performance"
       ],
       "path": "skills/error-debugging-multi-agent-review/SKILL.md"
     },
@@ -28608,7 +28638,7 @@
       "id": "error-diagnostics-smart-debug",
       "canonical_id": "error-diagnostics-smart-debug",
       "name": "error-diagnostics-smart-debug",
-      "description": "Use when working with error diagnostics smart debug",
+      "description": "Diagnose failures from reproduction steps, traces, logs and code; test hypotheses and verify a scoped fix without inventing production evidence.",
       "category": "development",
       "risk": "critical",
       "source": "community",
@@ -28622,7 +28652,14 @@
         "diagnostics",
         "debug",
         "smart",
-        "working"
+        "diagnose",
+        "failures",
+        "reproduction",
+        "steps",
+        "traces",
+        "logs",
+        "code",
+        "test"
       ],
       "path": "skills/error-diagnostics-smart-debug/SKILL.md"
     },
@@ -29881,7 +29918,7 @@
       "name": "fal-audio",
       "description": "Text-to-speech and speech-to-text using fal.ai audio models",
       "category": "voice-agents",
-      "risk": "safe",
+      "risk": "critical",
       "source": "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-audio/SKILL.md",
       "tags": [
         "fal",
@@ -29903,7 +29940,7 @@
       "name": "fal-generate",
       "description": "Generate images and videos using fal.ai AI models",
       "category": "ai-ml",
-      "risk": "safe",
+      "risk": "critical",
       "source": "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-generate/SKILL.md",
       "tags": [
         "fal",
@@ -29925,7 +29962,7 @@
       "name": "fal-image-edit",
       "description": "AI-powered image editing with style transfer and object removal",
       "category": "ai-ml",
-      "risk": "safe",
+      "risk": "critical",
       "source": "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-image-edit/SKILL.md",
       "tags": [
         "fal",
@@ -29952,7 +29989,7 @@
       "name": "fal-platform",
       "description": "Platform APIs for model management, pricing, and usage tracking",
       "category": "ai-ml",
-      "risk": "safe",
+      "risk": "critical",
       "source": "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-platform/SKILL.md",
       "tags": [
         "fal",
@@ -29975,7 +30012,7 @@
       "name": "fal-upscale",
       "description": "Upscale and enhance image and video resolution using AI",
       "category": "ai-ml",
-      "risk": "safe",
+      "risk": "critical",
       "source": "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-upscale/SKILL.md",
       "tags": [
         "fal",
@@ -29998,7 +30035,7 @@
       "name": "fal-workflow",
       "description": "Generate workflow JSON files for chaining AI models",
       "category": "ai-ml",
-      "risk": "safe",
+      "risk": "critical",
       "source": "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-workflow/SKILL.md",
       "tags": [
         "fal"
@@ -30402,7 +30439,7 @@
       "name": "ffuf-claude-skill",
       "description": "Web fuzzing with ffuf",
       "category": "security",
-      "risk": "safe",
+      "risk": "offensive",
       "source": "https://github.com/jthack/ffuf_claude_skill",
       "tags": [
         "ffuf",
@@ -34737,7 +34774,7 @@
       "name": "github-actions-debugger",
       "description": "Specialized skill for diagnosing, analyzing, and fixing failing GitHub Actions workflows by parsing run logs and pipeline definitions.",
       "category": "devops",
-      "risk": "safe",
+      "risk": "critical",
       "source": "community",
       "source_type": "community",
       "tags": [
@@ -40568,7 +40605,7 @@
       "id": "infinite-gratitude",
       "canonical_id": "infinite-gratitude",
       "name": "infinite-gratitude",
-      "description": "Multi-agent research skill for parallel research execution (10 agents, battle-tested with real case studies).",
+      "description": "Plan and synthesize multi-perspective research; use parallel agents only when authorized and verify findings against sources.",
       "category": "ai-ml",
       "risk": "safe",
       "source": "https://github.com/sstklen/infinite-gratitude",
@@ -40579,16 +40616,16 @@
       "triggers": [
         "infinite",
         "gratitude",
+        "plan",
+        "synthesize",
         "multi",
-        "agent",
+        "perspective",
         "research",
-        "skill",
         "parallel",
-        "execution",
-        "10",
         "agents",
-        "battle",
-        "tested"
+        "authorized",
+        "verify",
+        "findings"
       ],
       "path": "skills/infinite-gratitude/SKILL.md"
     },
@@ -50764,7 +50801,7 @@
       "name": "nanobanana-ppt-skills",
       "description": "AI-powered PPT generation with document analysis and styled images",
       "category": "presentation-processing",
-      "risk": "safe",
+      "risk": "critical",
       "source": "https://github.com/op7418/NanoBanana-PPT-Skills",
       "tags": [
         "nanobanana",
@@ -55540,7 +55577,7 @@
       "id": "performance-testing-review-multi-agent-review",
       "canonical_id": "performance-testing-review-multi-agent-review",
       "name": "performance-testing-review-multi-agent-review",
-      "description": "Use when working with performance testing review multi agent review",
+      "description": "Review a defined code diff from relevant correctness, authorization and performance perspectives; delegate only when authorized and reproduce findings centrally.",
       "category": "development",
       "risk": "critical",
       "source": "community",
@@ -55555,7 +55592,13 @@
         "agent",
         "testing",
         "review",
-        "working"
+        "defined",
+        "code",
+        "diff",
+        "relevant",
+        "correctness",
+        "authorization",
+        "perspectives"
       ],
       "path": "skills/performance-testing-review-multi-agent-review/SKILL.md"
     },
@@ -63214,9 +63257,9 @@
       "id": "score-eval",
       "canonical_id": "score-eval",
       "name": "score-eval",
-      "description": "Score a supplied evaluation diff against an explicit rubric and baseline fixture, retaining evidence for every detected or fixed finding.",
+      "description": "Use when scoring an evaluation diff against a supplied rubric and baseline fixture: retain evidence for detected/fixed findings and report unscorable or unexecuted checks.",
       "category": "testing",
-      "risk": "unknown",
+      "risk": "critical",
       "source": "neondatabase",
       "source_type": "official",
       "source_repo": "neondatabase/agent-skills",
@@ -63227,15 +63270,15 @@
       "triggers": [
         "score",
         "eval",
-        "supplied",
+        "scoring",
         "evaluation",
         "diff",
         "against",
-        "explicit",
+        "supplied",
         "rubric",
         "baseline",
         "fixture",
-        "retaining",
+        "retain",
         "evidence"
       ],
       "path": "skills/score-eval/SKILL.md"

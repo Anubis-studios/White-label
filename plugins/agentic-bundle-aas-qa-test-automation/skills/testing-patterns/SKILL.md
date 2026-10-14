@@ -262,7 +262,7 @@ npm test ComponentName.test.tsx
 - **systematic-debugging**: Write test that reproduces bug before fixing
 
 ## When to Use
-This skill is applicable to execute the workflow or actions described in the overview.
+Use when writing Jest unit tests, test factories and mocks, or diagnosing a failing test through a red-green-refactor cycle.
 
 ## Limitations
 - Use this skill only when the task clearly matches the scope described above.
