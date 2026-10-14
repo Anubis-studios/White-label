@@ -1,17 +1,28 @@
 """Exercise the actual reviewed AI-register examples, without calling models/tools."""
 import ast
 import json
+import hashlib
+import tempfile
+from unittest.mock import patch
 from pathlib import Path
 import re
 import subprocess
 import unittest
 
 ROOT = Path(__file__).resolve().parents[3]
+# Updating a documented executable example requires direct review of its bytes.
+# Ordinary Markdown changes cannot silently inject code into this test process.
+REVIEWED_EXAMPLE_DIGESTS = {
+    'ai-code-generation-guardrails': '05693aeb03c7fb621a5e19d07e85b4f1a4aff68161e8893e21700fefb020df0c',
+    'ai-prompt-regression-testing': '524eef49099a2708e629b3915ad9c2bfd12b565726adff9631742f7a9888b49b',
+}
 
 
 def load_example(skill):
     content = (ROOT / 'skills' / skill / 'SKILL.md').read_text()
     code = re.search(r'```python\n(.*?)```', content, re.S).group(1)
+    if hashlib.sha256(code.encode()).hexdigest() != REVIEWED_EXAMPLE_DIGESTS[skill]:
+        raise AssertionError("Example bytes changed: direct review required before execution")
     parsed = ast.parse(code)
     # Only the reviewed helper and stdlib imports; demonstration print calls omitted.
     statements = [node for node in parsed.body if isinstance(node, (ast.Import, ast.ImportFrom, ast.FunctionDef))]
@@ -21,6 +32,16 @@ def load_example(skill):
 
 
 class RegisterExamples(unittest.TestCase):
+    def test_changed_markdown_example_is_rejected_before_executing_definition(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            target = root / 'skills/ai-code-generation-guardrails/SKILL.md'
+            target.parent.mkdir(parents=True)
+            target.write_text('```python\ndef altered(value=1/0):\n    return value\n```\n')
+            with patch.dict(load_example.__globals__, ROOT=root):
+                with self.assertRaisesRegex(AssertionError, 'direct review required'):
+                    load_example('ai-code-generation-guardrails')
+
     def test_router_schema_rejects_wrong_types_extra_tenant_and_missing_id(self):
         content = (ROOT / 'skills/ai-agent-tool-routing/SKILL.md').read_text()
         record = json.loads(re.search(r'```json\n(.*?)```', content, re.S).group(1))
