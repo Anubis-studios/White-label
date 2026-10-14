@@ -1412,7 +1412,7 @@
         {
           "path": "skills/systematic-debugging/condition-based-waiting.md",
           "git_mode": "100644",
-          "sha256": "8ab34f68aabdf69954cf8ddf19fcec7b5a56b617c191bb529415842450c239fb"
+          "sha256": "8216dfa7b998a26db6e7d8a6ca402b54007e85935bbbce9d10dea5c85f6ef696"
         },
         {
           "path": "skills/systematic-debugging/defense-in-depth.md",
@@ -1450,7 +1450,7 @@
           "sha256": "980963c46434e54181b885998a4ec5640cb28a14b6dae86da108d5801b257366"
         }
       ],
-      "tree_sha256": "ce8f2c2c5f59aa9c602814d5d4a83c9af85724b870f2e7b37854493c30a91aa6"
+      "tree_sha256": "ed532866c4ab225033af32979aaaca8f11ab90b300e8d3a6440c09bf83e8f2f4"
     },
     {
       "skill": "testing-patterns",
