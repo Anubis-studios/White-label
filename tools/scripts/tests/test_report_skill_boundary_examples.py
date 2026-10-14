@@ -22,6 +22,9 @@ class BoundaryExamples(unittest.TestCase):
         self.assertTrue(cls({'latency':100}, directions={'latency':'lower'}).check_for_regression({'latency':120})['has_regression'])
         self.assertFalse(cls({'latency':100}, directions={'latency':'lower'}).check_for_regression({'latency':80})['has_regression'])
         with self.assertRaises(ValueError): cls({'accuracy':1}).check_for_regression({'accuracy':float('nan')})
+        with self.assertRaises(ValueError): cls({})
+        with self.assertRaises(ValueError): cls({'accuracy':1}, threshold=-0.1)
+        with self.assertRaises(ValueError): cls({'score':-1}).check_for_regression({'score':-2})
 
     def test_benchmark_rejects_empty_missing_and_duplicate_metrics(self):
         import math

@@ -394,6 +394,9 @@ class ABTest:
 ```python
 class RegressionDetector:
     def __init__(self, baseline_results, threshold=0.05, directions=None):
+        import math
+        if not baseline_results or not math.isfinite(threshold) or threshold < 0:
+            raise ValueError("Require baseline metrics and a finite nonnegative threshold")
         self.baseline = baseline_results
         self.threshold = threshold
         self.directions = directions or {}
@@ -415,8 +418,8 @@ class RegressionDetector:
                 raise ValueError("Metrics must be finite")
 
             # Calculate relative change
-            if baseline_score == 0:
-                raise ValueError("Relative regression requires a nonzero baseline; use an absolute threshold instead.")
+            if baseline_score <= 0:
+                raise ValueError("Relative regression requires a positive baseline; use an absolute threshold instead.")
             relative_change = (new_score - baseline_score) / baseline_score
 
             # Default is higher-is-better; explicitly mark latency/cost as lower.

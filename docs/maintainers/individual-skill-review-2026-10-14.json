@@ -719,7 +719,7 @@
         {
           "path": "skills/llm-evaluation/SKILL.md",
           "git_mode": "100644",
-          "sha256": "98e9e2a255b6634f1fd88e6f9b5360f46f73fa9b94fdbe59055b159e8b3e1ab9"
+          "sha256": "acbe10d984b9c141f71a4939abf2b5313d5fd855d99a082de3f0f8bc2e5c5501"
         },
         {
           "path": "skills/llm-evaluation/references/benchmarking.md",
@@ -727,7 +727,7 @@
           "sha256": "af9b16ab441e09eed0e46379cd7689778b82d24a9d5ff95ca92f726ef15689cb"
         }
       ],
-      "tree_sha256": "3b81e5b934359ee1cc431b3ada03680e86d52574b649107b865389e3371c0766"
+      "tree_sha256": "83307c8e9ebf57da7664af0a60ed89caa6b6261d3a13bf2c92c922a01612170d"
     },
     {
       "skill": "loss-aversion-designer",
