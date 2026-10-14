@@ -17,6 +17,21 @@ risk: offensive
 source: community
 date_added: "2026-09-04"
 ---
+## Supporting material availability
+
+This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
+
+- `tools/scripts/semantic_audit.py`
+- `tools/scripts/find_dangerous_apis.py`
+- `tools/scripts/check_mir_patterns.py`
+- `tools/scripts/check_llvm_patterns.py`
+- `tools/scripts/check_rust_asm.py`
+- `tools/scripts/check_rust_asm_x86.py`
+- `tools/scripts/check_rust_asm_aarch64.py`
+- `<support-root>/references/detection-strategy.md`
+
+Ask for the original supporting material or an existing installation before using a step that depends on these paths; this catalog does not identify a verified download source for them. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
+
 
 > **⚠️ AUTHORIZED USE ONLY**
 > This skill is for educational purposes or authorized security assessments only.

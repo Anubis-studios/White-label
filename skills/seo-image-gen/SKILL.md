@@ -14,6 +14,23 @@ allowed-tools:
   - WebFetch
   - Write
 ---
+## Supporting material availability
+
+This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
+
+- `<support-root>/references/prompt-engineering.md`
+- `.claude/skills/seo-image-gen/scripts/presets.py`
+- `<support-root>/references/seo-image-presets.md`
+- `.claude/skills/seo-image-gen/scripts/cost_tracker.py`
+- `.claude/skills/seo-image-gen/scripts/generate.py`
+- `<support-root>/references/gemini-models.md`
+- `<support-root>/references/mcp-tools.md`
+- `<support-root>/references/post-processing.md`
+- `<support-root>/references/cost-tracking.md`
+- `<support-root>/references/presets.md`
+
+Obtain the required material from the [declared upstream source](https://github.com/AgriciDaniel/claude-seo), or from a user-provided installation of that source. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
+
 
 # SEO Image Gen: AI Image Generation for SEO Assets (Extension)
 
