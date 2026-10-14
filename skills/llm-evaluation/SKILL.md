@@ -193,7 +193,7 @@ def calculate_factuality(claim, knowledge_base):
     """Verify factual claims against knowledge base."""
     # Implementation depends on your knowledge base
     # Could use retrieval + NLI, or fact-checking API
-    pass
+    raise NotImplementedError("A verified fact-checking adapter is required")
 ```
 
 ## LLM-as-Judge Patterns
@@ -347,23 +347,31 @@ class ABTest:
         a_scores = self.variant_a["scores"]
         b_scores = self.variant_b["scores"]
 
+        if len(a_scores) < 2 or len(b_scores) < 2:
+            raise ValueError("At least two observations per independent group are required")
+        if not np.all(np.isfinite(a_scores)) or not np.all(np.isfinite(b_scores)):
+            raise ValueError("Require finite observations")
+        # Illustrative independent-group analysis; use a paired design for matched tasks.
         # T-test
         t_stat, p_value = stats.ttest_ind(a_scores, b_scores)
 
         # Effect size (Cohen's d)
         pooled_std = np.sqrt((np.std(a_scores)**2 + np.std(b_scores)**2) / 2)
-        cohens_d = (np.mean(b_scores) - np.mean(a_scores)) / pooled_std
+        cohens_d = (np.mean(b_scores) - np.mean(a_scores)) / pooled_std if pooled_std > 0 else None
 
         return {
             "variant_a_mean": np.mean(a_scores),
             "variant_b_mean": np.mean(b_scores),
             "difference": np.mean(b_scores) - np.mean(a_scores),
-            "relative_improvement": (np.mean(b_scores) - np.mean(a_scores)) / np.mean(a_scores),
+            "relative_improvement": ((np.mean(b_scores) - np.mean(a_scores)) / np.mean(a_scores)
+                                     if np.mean(a_scores) != 0 else None),
             "p_value": p_value,
             "statistically_significant": p_value < alpha,
             "cohens_d": cohens_d,
-            "effect_size": self.interpret_cohens_d(cohens_d),
-            "winner": "B" if np.mean(b_scores) > np.mean(a_scores) else "A"
+            "effect_size": self.interpret_cohens_d(cohens_d) if cohens_d is not None else "undefined",
+            "winner": (("B" if np.mean(b_scores) > np.mean(a_scores) else "A")
+                       if np.isfinite(p_value) and p_value < alpha and np.mean(b_scores) != np.mean(a_scores)
+                       else "inconclusive")
         }
 
     @staticmethod
@@ -385,28 +393,39 @@ class ABTest:
 ### Regression Detection
 ```python
 class RegressionDetector:
-    def __init__(self, baseline_results, threshold=0.05):
+    def __init__(self, baseline_results, threshold=0.05, directions=None):
         self.baseline = baseline_results
         self.threshold = threshold
+        self.directions = directions or {}
 
     def check_for_regression(self, new_results):
         """Detect if new results show regression."""
+        import math
         regressions = []
+        missing_metrics = []
 
         for metric in self.baseline.keys():
             baseline_score = self.baseline[metric]
             new_score = new_results.get(metric)
 
             if new_score is None:
+                missing_metrics.append(metric)
                 continue
+            if not math.isfinite(baseline_score) or not math.isfinite(new_score):
+                raise ValueError("Metrics must be finite")
 
             # Calculate relative change
             if baseline_score == 0:
                 raise ValueError("Relative regression requires a nonzero baseline; use an absolute threshold instead.")
             relative_change = (new_score - baseline_score) / baseline_score
 
-            # Flag if significant decrease
-            if relative_change < -self.threshold:
+            # Default is higher-is-better; explicitly mark latency/cost as lower.
+            direction = self.directions.get(metric, "higher")
+            if direction not in {"higher", "lower"}:
+                raise ValueError("Unknown metric direction")
+            is_regression = (relative_change < -self.threshold if direction == "higher"
+                             else relative_change > self.threshold)
+            if is_regression:
                 regressions.append({
                     "metric": metric,
                     "baseline": baseline_score,
@@ -415,7 +434,9 @@ class RegressionDetector:
                 })
 
         return {
-            "has_regression": len(regressions) > 0,
+            "has_regression": True if regressions else (None if missing_metrics else False),
+            "analysis_complete": not missing_metrics,
+            "missing_metrics": missing_metrics,
             "regressions": regressions
         }
 ```
