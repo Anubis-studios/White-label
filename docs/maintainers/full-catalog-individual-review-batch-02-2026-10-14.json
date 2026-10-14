@@ -32,7 +32,7 @@
     {
       "id": "ai-code-generation-guardrails",
       "status": "repair-prepared",
-      "verdict": "Complete sole entrypoint and immutable PR1753 source compared byte-identical to base. Replace irrelevant reentrancy/CEI/RPC boilerplate and impossible zero-day claims with language/tool coverage, source-bound checks and bounded actual AST teaching helper. Static no-match remains review-required; unsupported/invalid inputs incomplete. Declared attribution unchanged.",
+      "verdict": "Complete sole entrypoint and immutable PR1753 source compared byte-identical to base. Replace irrelevant reentrancy/CEI/RPC boilerplate and impossible zero-day claims with language/tool coverage, source-bound checks and bounded actual AST teaching helper. Static no-match remains review-required; unsupported/invalid inputs incomplete. Declared attribution unchanged. Tessl75 identified missing activation-description wording despite executable tested example; metadata now explicitly states the review trigger, preserving all limitations.",
       "original_report": {
         "verdict": "fix",
         "severity": "major",
@@ -50,7 +50,7 @@
         {
           "path": "skills/ai-code-generation-guardrails/SKILL.md",
           "git_mode": "100644",
-          "sha256": "2aa28493bfec2e6b47bde82927c5882ced06d73101bc6bdd3f4401bf44fe7761"
+          "sha256": "7af53b6bbdfcea906f84ce3c7da8c299258c50aad3f85644d5cca5064ea67ad6"
         }
       ]
     },
@@ -98,7 +98,7 @@
         {
           "path": "skills/build/SKILL.md",
           "git_mode": "100644",
-          "sha256": "1d576a082ca33faeb70a359dcc77ba2d24f51f7e39019b819a5f78a84465e241"
+          "sha256": "61779c57fb5130379e62bbffa0ff6adc0086d612c14186b4053731d49d8e8f3e"
         },
         {
           "path": "skills/build/references/detailed-guide.md",
@@ -126,7 +126,7 @@
         {
           "path": "skills/django-access-review/SKILL.md",
           "git_mode": "100644",
-          "sha256": "7bc0337865ecab7eaa2fad585e31654a0fd65e0cf88301c1c3b793564026bad4"
+          "sha256": "4f9c7ce3d74f61e908752433c4d56f20085bc70b8d53e26eaea38867af5be52f"
         }
       ]
     },
@@ -150,7 +150,7 @@
         {
           "path": "skills/score-eval/SKILL.md",
           "git_mode": "100644",
-          "sha256": "748b29da27cc793eb752057f6b2f15c16362f33b538aad0fdc77e19f88e75654"
+          "sha256": "5353a4478d6ee57fbfe400e517013a64c49c2fd79451c51ace430ca0a817ec58"
         }
       ]
     },

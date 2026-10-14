@@ -1,6 +1,6 @@
 ---
 name: ai-code-generation-guardrails
-description: 'Define and review generated-code guardrails: language-specific static checks, isolated behavior tests, evidence coverage, and explicit merge or execution boundaries.'
+description: 'Use when reviewing AI-generated code before merge or execution: plan AST/security checks, isolated behavior tests and evidence, with language-specific coverage limits.'
 category: engineering
 risk: safe
 source: self

@@ -6,7 +6,7 @@ source_type: official
 source: neondatabase
 date_added: '2026-09-21'
 risk: critical
-description: "Score a supplied evaluation diff against an explicit rubric and baseline fixture, retaining evidence for every detected or fixed finding."
+description: "Use when scoring an evaluation diff against a supplied rubric and baseline fixture: retain evidence for detected/fixed findings and report unscorable or unexecuted checks."
 ---
 
 # Score an Evaluation Diff
