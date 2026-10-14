@@ -379,7 +379,7 @@ def check_obfuscation(content: str, filepath: str) -> list[dict[str, Any]]:
     return findings
 
 
-def check_secrets(content: str, filepath: str) -> list[dict[str, Any]]:
+def scan_masked_locations(content: str, filepath: str) -> list[dict[str, Any]]:
     """Detect hardcoded secrets."""
     findings: list[dict[str, Any]] = []
     lines = content.split("\n")
@@ -677,7 +677,7 @@ def scan_skill(skill_dir: Path) -> dict[str, Any]:
     all_findings.extend(check_obfuscation(content, "SKILL.md"))
 
     # 4. Secret detection in SKILL.md
-    all_findings.extend(check_secrets(content, "SKILL.md"))
+    all_findings.extend(scan_masked_locations(content, "SKILL.md"))
 
     # 5. URL extraction from SKILL.md
     all_urls.extend(extract_urls(content, "SKILL.md"))
@@ -702,7 +702,7 @@ def scan_skill(skill_dir: Path) -> dict[str, Any]:
         scanned_files.append(rel_path)
         all_findings.extend(check_prompt_injection(text, rel_path))
         all_findings.extend(check_obfuscation(text, rel_path))
-        all_findings.extend(check_secrets(text, rel_path))
+        all_findings.extend(scan_masked_locations(text, rel_path))
         all_urls.extend(extract_urls(text, rel_path))
         if path.suffix in (".py", ".sh", ".js", ".ts", ".mjs", ".cjs"):
             for finding in check_scripts(path):

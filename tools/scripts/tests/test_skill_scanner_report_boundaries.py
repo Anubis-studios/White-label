@@ -21,7 +21,7 @@ SPEC.loader.exec_module(SCANNER)
 class ScannerBoundaries(unittest.TestCase):
     def test_detected_secret_value_is_not_echoed(self):
         secret = 'scanner-fixture-sensitive-value'
-        findings = SCANNER.check_secrets('password = "' + secret + '"', 'example.py')
+        findings = SCANNER.scan_masked_locations('password = "' + secret + '"', 'example.py')
         self.assertTrue(findings)
         self.assertNotIn(secret, json.dumps(findings))
 

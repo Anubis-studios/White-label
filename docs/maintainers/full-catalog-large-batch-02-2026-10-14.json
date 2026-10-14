@@ -4875,7 +4875,7 @@
         },
         {
           "path": "skills/skill-scanner/scripts/scan_skill.py",
-          "sha256": "5acee72196c8646a25e117524f2fde228bb5d05d173e0e72625cc12f96c145b0"
+          "sha256": "b25949ec84141583b27ddf95dcd27395c84574e9f62e3213c984711e2756e517"
         }
       ],
       "post_repair_verification": "scanner10 targeted tests and validation/security docs pass; full-suite and exact-head evidence/CI/CodeQL pending"
