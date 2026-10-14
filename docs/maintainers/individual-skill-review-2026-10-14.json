@@ -8,12 +8,12 @@
     {
       "skill": "accessibility-compliance-accessibility-audit",
       "outcome": "corrected",
-      "disposition": "Remove audit exclusions, invented compliance scores and invented alt/label repairs; close browser on failure, escape report data; partial manual/contrast adapters remain explicitly unimplemented.",
+      "disposition": "Remove audit exclusions, invented compliance scores and invented alt/label repairs; close browser on failure, escape report data; partial manual/contrast adapters remain explicitly unimplemented. Entrypoint records actual scope/coverage instead of guaranteeing conformance, with a keyboard-checkout example.",
       "files": [
         {
           "path": "skills/accessibility-compliance-accessibility-audit/SKILL.md",
           "git_mode": "100644",
-          "sha256": "f0c76db2ccf2f2a0acca2f3384177eadbba83a499589d0b347914819210bd77a"
+          "sha256": "2a0de39f16d96cccb6da2950395e73d69d6de942a837779a64670c9005bb7ef1"
         },
         {
           "path": "skills/accessibility-compliance-accessibility-audit/resources/implementation-playbook.md",
@@ -21,7 +21,7 @@
           "sha256": "dd2898808f986c64c22be8d91c291902dc3a271d4fea78e55756edc3db690afd"
         }
       ],
-      "tree_sha256": "50d6b658dbe7afc1ae7604fe1d6b87e070bde28f91e9e065b69d7f83c7d54e1a"
+      "tree_sha256": "9b6db1931aae03fc479f39621031a99623150e021ca736229c23d2bad17a6496"
     },
     {
       "skill": "advanced-evaluation",
@@ -1619,8 +1619,9 @@
       "changed_trees": 31
     },
     {
-      "base_sha": "6e9ea293d0649b01a19a9369e062d3c1649b40b4",
-      "changed_trees": 29
+      "base_sha": "b187a9546d4ec43454dc87a181c55a12ab9e9399",
+      "changed_trees": 29,
+      "pr": 1920
     }
   ],
   "base_files": 176
