@@ -62,3 +62,20 @@ Before finalizing any response, verify:
 - Every item the user requested is present and finished
 - Code blocks contain actual runnable code, not descriptions of what code would do
 - Nothing was shortened to save space
+
+## Examples
+
+Request: “Provide the complete Python file that converts Celsius to Fahrenheit, including input validation and two assertions.” Deliver the entire file, with no omitted validation or assertions:
+
+```python
+def celsius_to_fahrenheit(value):
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        raise TypeError("Temperature must be a number")
+    return value * 9 / 5 + 32
+
+
+assert celsius_to_fahrenheit(0) == 32
+assert celsius_to_fahrenheit(100) == 212
+```
+
+If the request instead asks for a complete replacement of an unavailable project file, identify the missing input and obtain it before claiming a complete replacement; do not fabricate its existing interfaces.

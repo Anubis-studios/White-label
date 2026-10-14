@@ -18,6 +18,26 @@ class ScannerBoundaries(unittest.TestCase):
         self.assertTrue(findings)
         self.assertNotIn(secret, json.dumps(findings))
 
+    def test_multiline_private_keys_and_unterminated_blocks_are_redacted(self):
+        payload = 'synthetic-key-payload-not-a-real-key'
+        for label in ['PRIVATE KEY', 'RSA PRIVATE KEY', 'OPENSSH PRIVATE KEY', 'ENCRYPTED PRIVATE KEY']:
+            for ending in ['\n-----END ' + label + '-----', '']:
+                value = '-----BEGIN ' + label + '-----\n' + payload + ending
+                encoded = json.dumps(SCANNER.redact_report({'frontmatter': {'description': value}}))
+                self.assertNotIn(payload, encoded)
+                self.assertIn('REDACTED PRIVATE KEY', encoded)
+
+    def test_complete_scan_does_not_echo_private_key_body(self):
+        payload = 'synthetic-key-payload-not-a-real-key'
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'SKILL.md').write_text(
+                '---\nname: example\ndescription: |\n  -----BEGIN PRIVATE KEY-----\n  '
+                + payload + '\n  -----END PRIVATE KEY-----\n---\n', encoding='utf-8')
+            result = SCANNER.scan_skill(root)
+            self.assertTrue(result['scan_complete'])
+            self.assertNotIn(payload, json.dumps(result))
+
     def test_metadata_and_urls_redacted_without_trusting_hostname(self):
         value = SCANNER.redact_report({'frontmatter': {'api_key': 'fixture-private'},
             'url': 'https://user:fixture-password@github.com/example?token=fixture-query'})

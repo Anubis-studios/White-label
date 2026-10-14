@@ -11,3 +11,7 @@ Canonical validation/generation, reference checks, docs security, warning budget
 The security-doc fixture now requires isolated revision snapshots and preservation of the user's checkout/browser state instead of insisting on branch switching. The protection is strengthened, not bypassed.
 
 The review is limited to this cohort. Further review is paused at the user’s request after opening this PR; no merge or subsequent cohort is included.
+
+## Exact-head pre-merge repair
+
+Preserved historical provenance identity while retaining verified license/notice files. Replaced inline credential placeholders with approved-environment prerequisites and restored a substantive complete-output example. CodeQL findings prompted removal of shell-shim interpretation from the relay and complete private-key redaction in the scanner, including unterminated PEM blocks. Targeted regression tests and all 148 unsharded local test groups passed after regeneration. Exact-head evidence, CI and CodeQL remain separately required; no merge was performed.

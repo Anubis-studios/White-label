@@ -200,7 +200,7 @@ correct completion needs going beyond the brief, ask). The full treatment is in
 
 ## Limitations
 
-- Windows `.cmd`/`.bat` launches use explicit `cmd.exe` with automatic shell execution disabled. Paths/arguments containing quote, percent, exclamation, newline or NUL are rejected rather than expanded; use a reviewed native/Node CLI bundle when such input is necessary. Pure argument regressions do not prove execution on Windows.
+- `.cmd`/`.bat` shell shims are refused before version probing or dispatch. On Windows select a reviewed ZCode Node CLI entry (`.cjs`/`.mjs`/`.js`) or native executable using `--zcode-path`; arguments are passed directly with shell execution disabled. Local refusal regressions do not prove native Windows execution.
 
 - Runtime helper `scripts/relay.mjs` is bundled from the revision recorded in `UPSTREAM-NOTICE.md`. Requires the corresponding installed and authenticated CLI, Node 18+, and git.
 - Relay never commits — it only returns structured result JSON; you review and land the commit.

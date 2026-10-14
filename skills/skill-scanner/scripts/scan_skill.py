@@ -58,6 +58,12 @@ def read_inert_text(path: Path) -> str:
 
 
 def redact_text(text: str) -> str:
+    # Remove the complete private-key payload, not merely its BEGIN marker.
+    # An unterminated block consumes the remainder rather than exposing its body.
+    text = re.sub(
+        r"-----BEGIN (?:[A-Z0-9]+ )*PRIVATE KEY-----[\s\S]*?(?:-----END (?:[A-Z0-9]+ )*PRIVATE KEY-----|\Z)",
+        "[REDACTED PRIVATE KEY]", text,
+    )
     def sanitize_url(match):
         try:
             parsed = urlsplit(match.group())
@@ -388,7 +394,7 @@ def check_secrets(content: str, filepath: str) -> list[dict[str, Any]]:
         for pattern, description, severity in SECRET_PATTERNS:
             if re.search(pattern, line):
                 # Mask the actual secret in evidence
-                evidence = redact_text(line.strip())[:200]
+                evidence = "[REDACTED: credential detected; inspect the reported local location]"
                 findings.append({
                     "type": "Secret Detected",
                     "severity": severity,

@@ -1,7 +1,7 @@
 {
   "base": "d38c29b8765d535cdab55ba2a0ee09470b268d5a",
   "scope": "175 additional individual canonical skill trees from the original 2689 report",
-  "status": "working-review-complete; exact-head attestation and CI pending",
+  "status": "post-gate-repair targeted verification complete; full-suite and exact-head evidence/CI pending",
   "records": [
     {
       "id": "360-feedback-system",
@@ -1613,16 +1613,18 @@
         "note": "When to Use = boilerplate/placeholder in tutte le righe"
       },
       "report_disposition": {
-        "individual_semantic_review": "Full single-file tree read; replace generic When to Use with exact resource/workflow triggers and preserve existing declared critical risk except CallingServer now documents sensitive call/record capabilities. Quote environment templates; clarify async/application prerequisites, authorized account scopes, costs, least privilege, private payloads and cleanup only owned disposable resources. API findings: verified user_assigned_id/UserAssignedId::ClientId with missing imports; remove unsupported crate-specific tokio feature assumption. No cloud request, credential/account mutation or compiler/runtime test is claimed; dependency-version verification still being reconciled before final batch attestation."
+        "individual_semantic_review": "Full single-file tree read; replace generic When to Use with exact resource/workflow triggers and preserve existing declared critical risk except CallingServer now documents sensitive call/record capabilities. Quote environment templates; clarify async/application prerequisites, authorized account scopes, costs, least privilege, private payloads and cleanup only owned disposable resources. API findings: verified user_assigned_id/UserAssignedId::ClientId with missing imports; remove unsupported crate-specific tokio feature assumption. No cloud request, credential/account mutation or compiler/runtime test is claimed; dependency-version verification still being reconciled before final batch attestation.",
+        "pr1928_gate_repair": "PR1928 SEC009 repair: require nonempty secret supplied by approved host/CI; no literal credential assignment."
       },
       "batch": "large-batch-02",
       "working_review_workspace": "/private/tmp/aas-full-catalog-source-05-20261014",
       "working_review_files": [
         {
           "path": "skills/azure-identity-rust/SKILL.md",
-          "sha256": "f172134396d31bcc75e068980c6fb18c8b732b9b060e331450004580b73fd249"
+          "sha256": "0d462578ff5c2e373210b236b9083e19afe0d9a1f6f590c158a4aaf41dae266a"
         }
-      ]
+      ],
+      "post_repair_verification": "targeted checks pass; full-suite, exact-head evidence and CI/CodeQL rerun pending"
     },
     {
       "id": "azure-keyvault-keys-rust",
@@ -2342,32 +2344,18 @@
         "note": "Gemini deep research"
       },
       "report_disposition": {
-        "original_ok_reconciliation": "Original report OK missed absent research.py and requirements. Fully read canonical entry plus recovered24204byte script,35byte requirements and10755byte Apache license from281d88df199357e3091a3be5c743a0fca9a9ae1b (all blob hashes checked). Restore helper/license/manifest with notice; current official Google API confirms new agent and model_output steps/step.delta SSE. Repair explicit private cache/no secret autoload, query/input/ID/wait/stream/parsing boundaries, history private atomic/no rawquery, truthful terminal/empty/drop/local-cancel statuses and mutablecost/account/data approval. Five actual pure-function tests, CLIhelp and Python syntax pass; httpx absent locally, no provider call or full HTTPintegration claimed."
+        "original_ok_reconciliation": "Original report OK missed absent research.py and requirements. Fully read canonical entry plus recovered24204byte script,35byte requirements and10755byte Apache license from281d88df199357e3091a3be5c743a0fca9a9ae1b (all blob hashes checked). Restore helper/license/manifest with notice; current official Google API confirms new agent and model_output steps/step.delta SSE. Repair explicit private cache/no secret autoload, query/input/ID/wait/stream/parsing boundaries, history private atomic/no rawquery, truthful terminal/empty/drop/local-cancel statuses and mutablecost/account/data approval. Five actual pure-function tests, CLIhelp and Python syntax pass; httpx absent locally, no provider call or full HTTPintegration claimed.",
+        "pr1928_gate_repair": "PR1928 repair: require nonempty host-injected Gemini key, remove new provenance identity fields while retaining historical source plus immutable notice/license."
       },
       "batch": "large-batch-02",
       "working_review_workspace": "/private/tmp/aas-full-catalog-source-05-20261014",
       "working_review_files": [
         {
           "path": "skills/deep-research/SKILL.md",
-          "sha256": "e8cdbf1614c6ed6536afb4b401d037cbe9480e4fe2b6a935dbb13198c59c13a8"
-        },
-        {
-          "path": "skills/deep-research/UPSTREAM-LICENSE.txt",
-          "sha256": "7999c0fed82cce6afd734c4f64c6a1ebc0c05ba33eaf4191a72b68093b9dba6e"
-        },
-        {
-          "path": "skills/deep-research/UPSTREAM-NOTICE.md",
-          "sha256": "70fa0f45f81491dffd5759ca31465e0f0eb0af23a16ea456819eada40091c8cc"
-        },
-        {
-          "path": "skills/deep-research/requirements.txt",
-          "sha256": "78d90c96053685449a4fd58eae8785785662df136b2b0045f729c481718034d9"
-        },
-        {
-          "path": "skills/deep-research/scripts/research.py",
-          "sha256": "92af72287821b644a5153a1079452a93378c690f9bbaa3ddf287dab07d3ff050"
+          "sha256": "80f7c0f9a56bac586237707c5f84d3d352efa7561b2991cc23c956a3cb58793b"
         }
-      ]
+      ],
+      "post_repair_verification": "targeted checks pass; full-suite, exact-head evidence and CI/CodeQL rerun pending"
     },
     {
       "id": "delegating-to-agents",
@@ -3152,16 +3140,18 @@
         "note": "enforcement output completo, limiti token"
       },
       "report_disposition": {
-        "-": "Read full tree. Completeness follows actual user scope; remove artificial continue checkpoint and blanket ban on valid syntax/quoted-source/requested skeletons. Host limits remain truthful."
+        "-": "Read full tree. Completeness follows actual user scope; remove artificial continue checkpoint and blanket ban on valid syntax/quoted-source/requested skeletons. Host limits remain truthful.",
+        "pr1928_gate_repair": "PR1928 repair: substantive complete executable example added, plus unavailable-source limitation."
       },
       "batch": "large-batch-02",
       "working_review_workspace": "/private/tmp/aas-full-catalog-source-05-20261014",
       "working_review_files": [
         {
           "path": "skills/full-output-enforcement/SKILL.md",
-          "sha256": "2bfbfaea46bb3383f78e0cda2028a7d9f45c6c9eaab21c51e3ee708f80ce8e82"
+          "sha256": "12066ba0fcac69b4000eb85679a32a6a0158eea957b32c5be6124a27ed567a60"
         }
-      ]
+      ],
+      "post_repair_verification": "targeted checks pass; full-suite, exact-head evidence and CI/CodeQL rerun pending"
     },
     {
       "id": "game-development/2d-games",
@@ -3692,28 +3682,18 @@
         "note": "Imagen Gemini"
       },
       "report_disposition": {
-        "-": "Fullentry+original11453bytehelperblob5cc4d161c22b7aa0586f7be320a9be571a5d34a1read/recoveredfrom281d88df199357e3091a3be5c743a0fca9a9ae1b, fullApachelicensepreviouslyreadpreserved+notice. Explicitmodel/currentJSONschema/headerkey/noredirect/boundedresponse/prompt/base64PNG-MIME/exclusive0600output/no rawlogging. Fouractualpure/synthetictransporttests+help pass; no paidrender/fulldecoder/APIintegration claimed."
+        "-": "Fullentry+original11453bytehelperblob5cc4d161c22b7aa0586f7be320a9be571a5d34a1read/recoveredfrom281d88df199357e3091a3be5c743a0fca9a9ae1b, fullApachelicensepreviouslyreadpreserved+notice. Explicitmodel/currentJSONschema/headerkey/noredirect/boundedresponse/prompt/base64PNG-MIME/exclusive0600output/no rawlogging. Fouractualpure/synthetictransporttests+help pass; no paidrender/fulldecoder/APIintegration claimed.",
+        "pr1928_gate_repair": "PR1928 repair: preserve historical source identity; verified recovered upstream provenance remains in immutable notice/license."
       },
       "batch": "large-batch-02",
       "working_review_workspace": "/private/tmp/aas-full-catalog-source-05-20261014",
       "working_review_files": [
         {
           "path": "skills/imagen/SKILL.md",
-          "sha256": "f567f0d53772d5d3a4d5af5c05009b980a3c95763d1d67b4a55de716ed4c43f9"
-        },
-        {
-          "path": "skills/imagen/UPSTREAM-LICENSE.txt",
-          "sha256": "7999c0fed82cce6afd734c4f64c6a1ebc0c05ba33eaf4191a72b68093b9dba6e"
-        },
-        {
-          "path": "skills/imagen/UPSTREAM-NOTICE.md",
-          "sha256": "02b44276edba557f3570392a712a0640dbef4761a5119a733ed1d73e22272ffd"
-        },
-        {
-          "path": "skills/imagen/scripts/generate_image.py",
-          "sha256": "82a53f01e6c30d4df864777e56af44efcffc2dc7d32534ae39831c0098594728"
+          "sha256": "59ba773b773f5fccc15208be645be6aca872fcc8fbcbb515ca2e09182707ccc5"
         }
-      ]
+      ],
+      "post_repair_verification": "targeted checks pass; full-suite, exact-head evidence and CI/CodeQL rerun pending"
     },
     {
       "id": "interview-coach",
@@ -4862,7 +4842,8 @@
         "note": "cita 3 references/*.md e scripts/scan_skill.py assenti"
       },
       "report_disposition": {
-        "individual_semantic_review": "All seven tracked files directly read, including674line scanner, originalApachelicense/notice and three securityreferences. LiveCodeQL188 confirms plaintextoutput from sourcefindings. Redact detectedvalues/secretmetadata/URLcredentials before API/CLI report; bounded no-followregularreads, nestedtextcoverage and incomplete/nonzeroerrors. Correct phantomtool.py/hostpaths, familiarhostnamevs trust and cleanbadge assertions; all originalattackexamples retained as inert reviewdata. Five real local syntheticinput regressions pass; no contributedscript or externalURLexecuted, no CodeQLclosureclaim yet."
+        "individual_semantic_review": "All seven tracked files directly read, including674line scanner, originalApachelicense/notice and three securityreferences. LiveCodeQL188 confirms plaintextoutput from sourcefindings. Redact detectedvalues/secretmetadata/URLcredentials before API/CLI report; bounded no-followregularreads, nestedtextcoverage and incomplete/nonzeroerrors. Correct phantomtool.py/hostpaths, familiarhostnamevs trust and cleanbadge assertions; all originalattackexamples retained as inert reviewdata. Five real local syntheticinput regressions pass; no contributedscript or externalURLexecuted, no CodeQLclosureclaim yet.",
+        "pr1928_gate_repair": "PR1928 CodeQL191 repair: detected credential findings contain only fixed marker; redact complete or unterminated PEM private-key blocks. Seven scanner boundary tests pass including full scan with multiline metadata key; no CodeQL closure claimed."
       },
       "batch": "large-batch-02",
       "working_review_workspace": "/private/tmp/aas-full-catalog-source-05-20261014",
@@ -4893,9 +4874,10 @@
         },
         {
           "path": "skills/skill-scanner/scripts/scan_skill.py",
-          "sha256": "5ce60907232e0af08519ac15e5d600005bc29c89e4fec30ae636efb4eee2c176"
+          "sha256": "d58f720ade5b57d244950b9dc8e3e0bda1af4589bd685968bb4fe2005058802a"
         }
-      ]
+      ],
+      "post_repair_verification": "targeted checks pass; full-suite, exact-head evidence and CI/CodeQL rerun pending"
     },
     {
       "id": "zcode-delegate",
@@ -4920,14 +4902,15 @@
         "note": "scripts/relay.mjs non incluso (dichiarato)"
       },
       "report_disposition": {
-        "individual_semantic_review": "All eight tracked files read, including1071line relay and originallicense/notice/fourreferences. LiveCodeQL189 confirms uncontrolledpath through execSync shellcommand. Replace implicit rawshell with explicitcmd argumentboundary, reject expansion/control chars, preserve regularshims/Nativebundle, import-safe purehelpers and actualARGV tests. Correct reversedCLIresolution order, unboundedrawcapture promise and contradictory runtime/notbundled/no-writerisk claims. ActualWindows CLI execution not exercised; CodeQL closure not yet verified."
+        "individual_semantic_review": "All eight tracked files read, including1071line relay and originallicense/notice/fourreferences. LiveCodeQL189 confirms uncontrolledpath through execSync shellcommand. Replace implicit rawshell with explicitcmd argumentboundary, reject expansion/control chars, preserve regularshims/Nativebundle, import-safe purehelpers and actualARGV tests. Correct reversedCLIresolution order, unboundedrawcapture promise and contradictory runtime/notbundled/no-writerisk claims. ActualWindows CLI execution not exercised; CodeQL closure not yet verified.",
+        "pr1928_gate_repair": "PR1928 CodeQL190 repair: remove cmd.exe launch completely, refuse shell shims before version probe and runtime dispatch; require reviewed Node CLI entry/native executable. Synthetic actual relay refusal and pure helper checks pass; no native Windows execution or CodeQL closure claimed."
       },
       "working_review_workspace": "/private/tmp/aas-full-catalog-source-05-20261014",
       "batch": "large-batch-02",
       "working_review_files": [
         {
           "path": "skills/zcode-delegate/SKILL.md",
-          "sha256": "5618c8b89bd3eb45e7d7219c934c286e712823a88cdd58f00d1a1f5aea707364"
+          "sha256": "6ef25a9b11bf1f414dde68660ac6c14af1b84ad47cae60cec4627814ed27cdb8"
         },
         {
           "path": "skills/zcode-delegate/UPSTREAM-LICENSE.txt",
@@ -4935,7 +4918,7 @@
         },
         {
           "path": "skills/zcode-delegate/UPSTREAM-NOTICE.md",
-          "sha256": "f441cc0164c4b43fe46e7b31f757f08eaca78737961a5e29b512acb1ce292672"
+          "sha256": "d9382f3ecf97e5b731cfc6895a301cdf368251de72188ca85c94fcd79ec93827"
         },
         {
           "path": "skills/zcode-delegate/references/dispatch-and-poll.md",
@@ -4955,9 +4938,10 @@
         },
         {
           "path": "skills/zcode-delegate/scripts/relay.mjs",
-          "sha256": "0a66a4a650980865605534577fd693408041534c38db0af699a67dd2482b488c"
+          "sha256": "4fe1029d8262f4b56bacadc42d8ac310cfb1b80c6abd2ecc92f1738b13719496"
         }
-      ]
+      ],
+      "post_repair_verification": "targeted checks pass; full-suite, exact-head evidence and CI/CodeQL rerun pending"
     }
   ],
   "verification": {
@@ -4966,10 +4950,12 @@
     "validate_references": "passed",
     "security_docs": "passed",
     "warning_budget": "passed: 0/0",
-    "unsharded_tests": "passed: 148 groups; network integrations skipped",
-    "readme_credits": "pending committed-head check",
+    "unsharded_tests": "passed: 148 groups after CodeQL remediation; network integrations skipped",
+    "readme_credits": "committed-head check pending latest remediation",
     "protected_ci": "pending",
     "tessl_review": "pending; no automated passing result claimed",
-    "external_runtime_integrations": "not exercised; see cohort limitations"
+    "external_runtime_integrations": "not exercised; see cohort limitations",
+    "changed_skill_evidence": "pending new immutable head; original blockers repaired in source",
+    "codeql": "two reported gaps repaired; exact-head CI pending"
   }
 }

@@ -42,7 +42,7 @@
  *                           delta brief. Scoped to the directory, not a global "last".
  *   --session <id>          Continue a specific ZCode session by its sess_... id (from a
  *                           prior result.json). Mutually exclusive with --resume-last.
- *   --zcode-path <file>     Path to the ZCode CLI (a .cjs bundle or a binary/shim).
+ *   --zcode-path <file>     Path to the ZCode CLI (a Node bundle or native executable; no shell shims).
  *                           Overrides PATH and bundle discovery; ZCODE_CLI does the same.
  *   --timeout <dur>         Relay-side watchdog (default: off). Durations use h/m/s
  *                           strings like 30m or 2h. On expiry the ZCode child is killed
@@ -93,11 +93,9 @@ const SCHEMA = "delegate-relay.result.v1";
 // this repo already hit once (issue #55), so they are rejected up front instead.
 const ZCODE_MODES = new Set(["plan", "yolo"]);
 const ZCODE_REJECTED_MODES = new Set(["build", "edit"]);
-// ZCode session ids are sess_<uuid>. This value can reach cmd.exe on win32 when the
-// CLI resolved to a .cmd shim, so keep it to a shell-safe token shape.
+// Keep ZCode session ids within the documented sess_ token shape.
 const SAFE_SESSION = /^sess_[A-Za-z0-9][A-Za-z0-9._:-]*$/;
-// Reaches cmd.exe on win32 under a .cmd shim; ZCode accepts comma- or
-// space-separated tool names, optionally with a parenthesised pattern.
+// ZCode accepts comma- or space-separated tool names, optionally with a pattern.
 const SAFE_TOOLS = /^[A-Za-z0-9][A-Za-z0-9 ,.:*()_/-]*$/;
 
 // ZCode reads no stdin, so the brief travels as an attached file and the prompt
@@ -220,8 +218,7 @@ function parseArgs(argv) {
   if (opts.session !== null && opts.resumeLast) {
     fail("--session and --resume-last are mutually exclusive; pass only one");
   }
-  // This value can reach cmd.exe on win32 when ZCode resolved to a .cmd shim, so
-  // accept only the shell-safe sess_ token shape ZCode itself issues.
+  // Accept only the sess_ token shape ZCode itself issues.
   if (opts.session !== null && !SAFE_SESSION.test(opts.session)) {
     fail("--session must be a ZCode session id of the form sess_... (letters, digits, . _ : -)");
   }
@@ -373,35 +370,19 @@ function resolveZcode(opts) {
   return null;
 }
 
-/** True when the resolved command is a Windows shim that only cmd.exe can launch. */
-function needsShell(target) {
-  return process.platform === "win32" && /\.(?:cmd|bat)$/i.test(target.command);
-}
-
-/** Quote Windows shim inputs without interpreting expansion/control characters. */
-export function quoteWindowsShimValue(value) {
-  if (typeof value !== "string" || /["%!\r\n\0]/.test(value)) {
-    throw new Error("Windows shim paths/arguments cannot contain quotes, expansion or control characters; use the reviewed Node CLI bundle for such paths");
+/** Shell shims are never interpreted; callers must choose a reviewed CLI entry. */
+export function assertDirectExecutable(command) {
+  if (/\.(?:cmd|bat)$/i.test(command)) {
+    const error = new Error("Shell shims (.cmd/.bat) are unsupported; select the reviewed ZCode Node CLI entry (.cjs/.mjs/.js) or native executable with --zcode-path");
+    error.code = "UNSUPPORTED_SHELL_SHIM";
+    throw error;
   }
-  // The shim forwards argv to a native process; preserve a trailing backslash.
-  return `"${value.replace(/\\+$/, (tail) => tail + tail)}"`;
-}
-
-export function windowsShimInvocation(command, argv) {
-  const line = [command, ...argv].map(quoteWindowsShimValue).join(" ");
-  return { command: "cmd.exe", argv: ["/d", "/v:off", "/s", "/c", `"${line}"`] };
-}
-
-function spawnShellLaunch(command, argv, options, useShell) {
-  if (!useShell) return spawn(command, argv, { ...options, shell: false });
-  const invocation = windowsShimInvocation(command, argv);
-  return spawn(invocation.command, invocation.argv, { ...options, shell: false, windowsVerbatimArguments: true });
 }
 
 function zcodeVersion(target, probeTimeoutMs) {
   try {
-    // A .cmd shim needs an explicit cmd.exe interpreter; automatic shells are disabled.
-    // A `node <bundle>` launch is a real executable and must NOT get the flag.
+    // Refuse shell shims before version probing as well as runtime dispatch.
+    assertDirectExecutable(target.command);
     const options = {
       encoding: "utf8",
       shell: false,
@@ -409,19 +390,10 @@ function zcodeVersion(target, probeTimeoutMs) {
       killSignal: "SIGKILL",
       env: process.env,
     };
-    const invocation = needsShell(target)
-      ? windowsShimInvocation(target.command, [...target.prefixArgs, "--version"])
-      : { command: target.command, argv: [...target.prefixArgs, "--version"] };
-    const version = execFileSync(invocation.command, invocation.argv, { ...options, windowsVerbatimArguments: needsShell(target) }).trim();
+    const version = execFileSync(target.command, [...target.prefixArgs, "--version"], options).trim();
     return { version: version || "unknown", error: null };
   } catch (error) {
     if (error?.code === "ENOENT") return { version: null, error: null };
-    // The explicit shim interpreter reports a missing binary as a non-zero
-    // exit rather than ENOENT; that is still "not installed", not a broken install.
-    if (process.platform === "win32" &&
-        /not recognized as an internal or external command/i.test(String(error?.stderr || ""))) {
-      return { version: null, error: null };
-    }
     // Anything else — a hung probe we killed, or a real non-zero exit — means ZCode is
     // installed but not usable. Reporting that as "unavailable" would send the caller
     // off to reinstall a CLI that is already there.
@@ -795,7 +767,9 @@ function reportUnavailable(writeResult, resultPath) {
 function reportVersionFailure(opts, writeResult, run, error, probeTimeoutMs) {
   const timedOut = error?.code === "ETIMEDOUT";
   const stderr = String(error?.stderr || "").trim();
-  const message = timedOut
+  const message = error?.code === "UNSUPPORTED_SHELL_SHIM"
+    ? "Shell shims (.cmd/.bat) are unsupported; choose a reviewed Node CLI entry or native executable with --zcode-path; ZCode was not dispatched"
+    : timedOut
     ? `zcode --version preflight timed out after ${probeTimeoutMs}ms; ZCode was not dispatched`
     : `zcode --version preflight failed${Number.isInteger(error?.status) ? ` with exit ${error.status}` : ""}; ZCode was not dispatched`;
   const result = writeResult({
@@ -818,15 +792,16 @@ function reportVersionFailure(opts, writeResult, run, error, probeTimeoutMs) {
 
 function dispatchToZcode(opts, run, target, writeResult, beforeTree, beforeFingerprints, relayArtifacts) {
   const argv = buildArgv(opts, target, run.briefPath);
-  // Native launches pass argv directly. Windows shims use explicit cmd.exe with
-  // bounded, quoted inputs; unsafe expansion/control characters fail before dispatch.
+  assertDirectExecutable(target.command);
+  // Pass argv directly; no shell interpreter is involved.
   // detached on POSIX: the child leads a new process group so killChild can fell the whole tree
-  const child = spawnShellLaunch(target.command, [...target.prefixArgs, ...argv], {
+  const child = spawn(target.command, [...target.prefixArgs, ...argv], {
     cwd: opts.cd,
     stdio: ["ignore", "pipe", "pipe"],
     detached: process.platform !== "win32",
     env: process.env,
-  }, needsShell(target));
+    shell: false,
+  });
 
   let stdoutBuf = "";
   let stdoutTruncated = false;

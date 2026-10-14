@@ -1,18 +1,31 @@
 const assert = require('node:assert/strict');
 const path = require('node:path');
+const {mkdtempSync,writeFileSync,existsSync,readFileSync,rmSync}=require('node:fs');
+const {tmpdir}=require('node:os');
+const {spawnSync}=require('node:child_process');
 const {pathToFileURL} = require('node:url');
 (async () => {
   const modulePath=path.resolve(__dirname,'../../../skills/zcode-delegate/scripts/relay.mjs');
-  const {quoteWindowsShimValue,windowsShimInvocation}=await import(pathToFileURL(modulePath));
-  for(const unsafe of ['x" & echo injected','%COMSPEC%','!VALUE!','bad\rpath','bad\npath','bad\0path']) {
-    assert.throws(()=>quoteWindowsShimValue(unsafe));
-    assert.throws(()=>windowsShimInvocation(unsafe,['--version']));
-    assert.throws(()=>windowsShimInvocation('C:\\ZCode\\zcode.cmd',[unsafe]));
+  const {assertDirectExecutable}=await import(pathToFileURL(modulePath));
+  for(const shim of ['C:\\Program Files\\ZCode\\zcode.cmd','zcode.BAT','/tmp/untrusted.cmd']) {
+    assert.throws(()=>assertDirectExecutable(shim), /Shell shims.*unsupported/);
   }
-  const result=windowsShimInvocation('C:\\Program Files\\ZCode\\zcode.cmd',['--cwd','C:\\Research & Tests','--prompt','Follow the attached brief exactly.']);
-  assert.equal(result.command,'cmd.exe');
-  assert.deepEqual(result.argv.slice(0,4),['/d','/v:off','/s','/c']);
-  assert.ok(result.argv[4].includes('"C:\\Research & Tests"'));
-  assert.equal(quoteWindowsShimValue('C:\\'),'"C:\\\\"');
-  console.log('ZCode shim inputs reject expansion/control injection and preserve spaces/trailing backslashes; no CLI dispatched.');
+  for(const executable of ['C:\\Program Files\\ZCode\\zcode.exe','/reviewed/zcode','/usr/local/bin/node']) {
+    assert.doesNotThrow(()=>assertDirectExecutable(executable));
+  }
+  const directory=mkdtempSync(path.join(tmpdir(),'zcode-shim-refusal-'));
+  try {
+    const shim=path.join(directory,'zcode.cmd');
+    const marker=path.join(directory,'executed');
+    const output=path.join(directory,'artifacts');
+    writeFileSync(shim,`echo dispatched > "${marker}"`);
+    const run=spawnSync(process.execPath,[modulePath,'--zcode-path',shim,'--cd',directory,'--out-dir',output,'--read-only'],{input:'Review only.',encoding:'utf8',timeout:15000});
+    assert.equal(run.status,1);
+    assert.match(run.stderr,/Shell shims.*unsupported/);
+    assert.equal(existsSync(marker),false);
+    const receipt=JSON.parse(readFileSync(path.join(output,'result.json'),'utf8'));
+    assert.equal(receipt.status,'failed');
+    assert.match(receipt.error,/was not dispatched/);
+  } finally { rmSync(directory,{recursive:true,force:true}); }
+  console.log('Shell shims refused; direct executable paths accepted. No CLI or Windows execution claimed.');
 })().catch(error=>{console.error(error);process.exitCode=1;});

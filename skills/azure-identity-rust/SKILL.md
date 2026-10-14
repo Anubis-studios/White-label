@@ -24,7 +24,8 @@ cargo add azure_identity@=1.0.0 azure_core@=1.1.0
 # Service Principal (for production/CI)
 export AZURE_TENANT_ID="<your-tenant-id>"
 export AZURE_CLIENT_ID="<your-client-id>"
-export AZURE_CLIENT_SECRET="<your-client-secret>"
+: "${AZURE_CLIENT_SECRET:?Inject through the approved host or CI secret manager}"
+export AZURE_CLIENT_SECRET
 
 # User-assigned Managed Identity (optional)
 export AZURE_CLIENT_ID="<managed-identity-client-id>"

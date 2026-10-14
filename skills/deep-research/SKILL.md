@@ -3,8 +3,6 @@ name: deep-research
 description: "Run autonomous research tasks that plan, search, read, and synthesize information into comprehensive reports."
 risk: critical
 source: "https://github.com/sanjay3290/ai-skills/tree/main/skills/deep-research"
-source_repo: sanjay3290/ai-skills
-source_type: community
 license: Apache-2.0
 license_source: https://github.com/sanjay3290/ai-skills/blob/281d88df199357e3091a3be5c743a0fca9a9ae1b/LICENSE
 date_added: "2026-02-27"
@@ -35,7 +33,8 @@ Use this skill when:
 1. Use an existing authorized Gemini account/key or obtain explicit account/configuration approval first. Never paste a live key into chat or commit it. Verify current API, agent access and usage pricing in [Google’s Deep Research documentation](https://ai.google.dev/gemini-api/docs/deep-research).
 2. Set the environment variable:
    ```bash
-   export GEMINI_API_KEY="<secret supplied through the approved environment>"
+   : "${GEMINI_API_KEY:?Inject through the approved host secret manager}"
+   export GEMINI_API_KEY
    export DEEP_RESEARCH_CACHE_DIR="<absolute private task cache directory>"
    export DEEP_RESEARCH_TIMEOUT="600"
    export DEEP_RESEARCH_POLL_INTERVAL="10"

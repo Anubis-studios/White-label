@@ -4,8 +4,6 @@ description: "AI image generation skill powered by Google Gemini, enabling seaml
 risk: critical
 source: "https://github.com/sanjay3290/ai-skills/tree/main/skills/imagen"
 date_added: "2026-02-27"
-source_repo: sanjay3290/ai-skills
-source_type: community
 license: Apache-2.0
 license_source: "https://github.com/sanjay3290/ai-skills/blob/281d88df199357e3091a3be5c743a0fca9a9ae1b/LICENSE"
 ---
