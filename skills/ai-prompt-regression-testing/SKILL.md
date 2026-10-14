@@ -1,6 +1,6 @@
 ---
 name: ai-prompt-regression-testing
-description: 'Prompt engineering regression test matrix register: baseline outputs, semantic drift thresholds, judge evaluations, and golden dataset.'
+description: 'Use when comparing prompt changes against a fixed evaluation set: record actual model settings, required checks, missing results, judge limitations and case-level regression evidence.'
 category: engineering
 risk: safe
 source: self

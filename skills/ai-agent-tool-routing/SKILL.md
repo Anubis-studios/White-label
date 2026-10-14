@@ -1,6 +1,6 @@
 ---
 name: ai-agent-tool-routing
-description: 'Autonomous AI agent tool router register: schema registration, runtime parameter coercion, idempotency keys, and error recovery policies.'
+description: 'Use when designing or reviewing an AI agent tool registry or MCP router: document parameter schemas, caller authorization, execution limits, replay-safe retries and verification evidence.'
 category: engineering
 risk: safe
 source: self

@@ -9,7 +9,7 @@
     {
       "id": "ai-agent-tool-routing",
       "status": "repair-prepared",
-      "verdict": "Complete sole entrypoint and immutable upstream PR1752 source compared. Original generic Web3 register confirmed, not lost richer guidance. Replace with tool/principal/schema/authorization/runtime/retry contracts, consistent string IDs and actual draft JSON-schema example. No router deployment or authentication proof claimed.",
+      "verdict": "Complete sole entrypoint and immutable upstream PR1752 source compared. Original generic Web3 register confirmed, not lost richer guidance. Replace with tool/principal/schema/authorization/runtime/retry contracts, consistent string IDs and actual draft JSON-schema example. No router deployment or authentication proof claimed. Initial Tessl78 identified activation-description wording; actual purpose now explicit without promising unimplemented parameter coercion.",
       "original_report": {
         "verdict": "fix",
         "severity": "major",
@@ -25,7 +25,7 @@
         {
           "path": "skills/ai-agent-tool-routing/SKILL.md",
           "git_mode": "100644",
-          "sha256": "90eadc0e008f491bcef178eeaf7a75bf9f03b2f4910bc6e8375a7c1570427f41"
+          "sha256": "c83227fece5c073fdb850b86ba82ecff997c23182ab1f4e0663060ee8881b77d"
         }
       ]
     },
@@ -75,7 +75,7 @@
         {
           "path": "skills/ai-prompt-regression-testing/SKILL.md",
           "git_mode": "100644",
-          "sha256": "5d1d5ea9dbf96106129dc6ce28dc67c6272ca34d4a0d147ac65b55cb553628ba"
+          "sha256": "178bf2b9ac6ca9133eb9e00ab7b1dfd7d4d268aac6de0bd35300fadb02155aad"
         }
       ]
     },
