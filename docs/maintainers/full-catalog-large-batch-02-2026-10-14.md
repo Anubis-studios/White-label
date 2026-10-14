@@ -15,3 +15,5 @@ The review is limited to this cohort. Further review is paused at the user’s r
 ## Exact-head pre-merge repair
 
 Preserved historical provenance identity while retaining verified license/notice files. Replaced inline credential placeholders with approved-environment prerequisites and restored a substantive complete-output example. CodeQL findings prompted removal of shell-shim interpretation from the relay and complete private-key redaction in the scanner, including unterminated PEM blocks. Targeted regression tests and all 148 unsharded local test groups passed after regeneration. Exact-head evidence, CI and CodeQL remain separately required; no merge was performed.
+
+The final scanner repair reports only typed findings and private-source locators instead of raw metadata, snippets, decoded payloads or full URLs. Ten scanner regressions include actual CLI output with unrecognized synthetic secrets; filenames/domain identifiers remain explicitly visible. Full stable-tree repository tests passed again; exact-head CodeQL closure must be observed before acceptance.

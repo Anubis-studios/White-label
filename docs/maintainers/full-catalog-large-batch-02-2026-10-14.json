@@ -4843,14 +4843,15 @@
       },
       "report_disposition": {
         "individual_semantic_review": "All seven tracked files directly read, including674line scanner, originalApachelicense/notice and three securityreferences. LiveCodeQL188 confirms plaintextoutput from sourcefindings. Redact detectedvalues/secretmetadata/URLcredentials before API/CLI report; bounded no-followregularreads, nestedtextcoverage and incomplete/nonzeroerrors. Correct phantomtool.py/hostpaths, familiarhostnamevs trust and cleanbadge assertions; all originalattackexamples retained as inert reviewdata. Five real local syntheticinput regressions pass; no contributedscript or externalURLexecuted, no CodeQLclosureclaim yet.",
-        "pr1928_gate_repair": "PR1928 CodeQL191 repair: detected credential findings contain only fixed marker; redact complete or unterminated PEM private-key blocks. Seven scanner boundary tests pass including full scan with multiline metadata key; no CodeQL closure claimed."
+        "pr1928_gate_repair": "PR1928 CodeQL191 repair: detected credential findings contain only fixed marker; redact complete or unterminated PEM private-key blocks. Seven scanner boundary tests pass including full scan with multiline metadata key; no CodeQL closure claimed.",
+        "codeql191_structural_report_fix": "Locator-only v2 reports omit raw metadata, evidence, decoded contents, commands, link targets and complete URLs. Fixed fields/types, known tools, categories/counts and local file/line locators retained. Ten targeted boundary tests include actual CLI opaque payload fixture and guarded CLI errors. Relative names/domains remain visible identifiers. Full-suite/exact-head evidence/CodeQL rerun pending."
       },
       "batch": "large-batch-02",
       "working_review_workspace": "/private/tmp/aas-full-catalog-source-05-20261014",
       "working_review_files": [
         {
           "path": "skills/skill-scanner/SKILL.md",
-          "sha256": "c7a5a6c43e78f3bce5574a263d33ddfcfeb7d602e954da2fbd37487d50689a25"
+          "sha256": "d0ad273235999ff4471147e8627d24e2e9356255cbd4a3c69fa63522e4651a8b"
         },
         {
           "path": "skills/skill-scanner/UPSTREAM-LICENSE.txt",
@@ -4858,7 +4859,7 @@
         },
         {
           "path": "skills/skill-scanner/UPSTREAM-NOTICE.md",
-          "sha256": "4f314f0648b46311cff8f8003891d143aac3add745ce57e706f06393cf847601"
+          "sha256": "39d951a9c7ace6753613c832829326f8820d43ae7f427f9c8df12016f7c2fec3"
         },
         {
           "path": "skills/skill-scanner/references/dangerous-code-patterns.md",
@@ -4874,10 +4875,10 @@
         },
         {
           "path": "skills/skill-scanner/scripts/scan_skill.py",
-          "sha256": "d58f720ade5b57d244950b9dc8e3e0bda1af4589bd685968bb4fe2005058802a"
+          "sha256": "5acee72196c8646a25e117524f2fde228bb5d05d173e0e72625cc12f96c145b0"
         }
       ],
-      "post_repair_verification": "targeted checks pass; full-suite, exact-head evidence and CI/CodeQL rerun pending"
+      "post_repair_verification": "scanner10 targeted tests and validation/security docs pass; full-suite and exact-head evidence/CI/CodeQL pending"
     },
     {
       "id": "zcode-delegate",

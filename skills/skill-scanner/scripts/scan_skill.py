@@ -256,7 +256,7 @@ def check_frontmatter(skill_dir: Path, content: str) -> list[dict[str, Any]]:
             "type": "Name Mismatch",
             "severity": "medium",
             "location": "SKILL.md frontmatter",
-            "description": f"Frontmatter name '{fm['name']}' does not match directory name '{skill_dir.name}'",
+            "description": "Frontmatter name does not match the selected directory identifier",
             "category": "Validation",
         })
 
@@ -287,7 +287,6 @@ def check_prompt_injection(content: str, filepath: str) -> list[dict[str, Any]]:
                     "severity": severity,
                     "location": f"{filepath}:{line_num}",
                     "description": description,
-                    "evidence": line.strip()[:200],
                     "category": "Prompt Injection",
                 })
                 break  # One finding per line
@@ -329,16 +328,12 @@ def check_obfuscation(content: str, filepath: str) -> list[dict[str, Any]]:
     tag_pattern = re.compile(r"[\U000e0001-\U000e007f]")
     tag_chars = tag_pattern.findall(content)
     if tag_chars:
-        # Decode the hidden text
-        decoded = "".join(
-            chr(ord(c) - 0xE0000) for c in tag_chars if 0xE0020 <= ord(c) <= 0xE007E
-        )
         findings.append({
             "type": "Unicode Tag Smuggling",
             "severity": "critical",
             "location": filepath,
-            "description": f"Invisible Unicode Tag characters detected ({len(tag_chars)} chars). "
-                          f"Decoded hidden text: {decoded[:200]}",
+            "description": "Invisible Unicode Tag characters detected; inspect the source locally",
+            "tag_character_count": len(tag_chars),
             "category": "Obfuscation",
         })
 
@@ -356,7 +351,7 @@ def check_obfuscation(content: str, filepath: str) -> list[dict[str, Any]]:
                             "severity": "high",
                             "location": f"{filepath}:{line_num}",
                             "description": f"Base64 string decodes to text containing '{kw}'",
-                            "decoded_preview": decoded[:100],
+                            "decoded_length": len(decoded),
                             "category": "Obfuscation",
                         })
                         break
@@ -377,7 +372,6 @@ def check_obfuscation(content: str, filepath: str) -> list[dict[str, Any]]:
                     "severity": "critical",
                     "location": f"{filepath}:{line_num}",
                     "description": f"HTML comment contains injection pattern: {description}",
-                    "evidence": comment_text.strip()[:200],
                     "category": "Prompt Injection",
                 })
                 break
@@ -428,7 +422,6 @@ def check_scripts(script_path: Path) -> list[dict[str, Any]]:
                     "severity": severity,
                     "location": f"scripts/{relative}:{line_num}",
                     "description": description,
-                    "evidence": line.strip()[:200],
                     "category": "Malicious Code",
                 })
                 break  # One finding per line
@@ -457,7 +450,6 @@ def extract_urls(content: str, filepath: str) -> list[dict[str, Any]]:
                 trusted = False
 
             urls.append({
-                "url": redact_text(url),
                 "domain": domain,
                 "trusted": trusted,
                 "trust_basis": "familiar hostname only; not provenance or execution approval",
@@ -480,9 +472,8 @@ def check_structural_attacks(skill_dir: Path, content: str, frontmatter: dict[st
                 "type": "Symlink Detected",
                 "severity": "medium" if is_internal else "critical",
                 "location": str(path.relative_to(skill_dir)),
-                "description": f"Symlink points to {path.readlink()} (resolves to {str(target)}). "
-                              "Symlinks can trick agents into reading sensitive files (e.g., ~/.ssh/id_rsa) "
-                              "disguised as example/reference files.",
+                "description": "Symlink may expose other files; inspect its target locally",
+                "target_within_skill": is_internal,
                 "category": "Symlink Exfiltration",
             })
 
@@ -495,7 +486,7 @@ def check_structural_attacks(skill_dir: Path, content: str, frontmatter: dict[st
                 "type": "Frontmatter Hooks",
                 "severity": "critical",
                 "location": "SKILL.md frontmatter",
-                "description": f"Skill defines '{hook_type}' hooks. Hooks execute shell commands "
+                "description": "Skill defines lifecycle hooks. Hooks execute shell commands "
                               "automatically on lifecycle events — the model cannot prevent execution. "
                               "Review all hook commands carefully.",
                 "category": "Hook Exploitation",
@@ -510,9 +501,8 @@ def check_structural_attacks(skill_dir: Path, content: str, frontmatter: dict[st
                 "type": "Pre-prompt Command",
                 "severity": "high",
                 "location": f"SKILL.md:{line_num}",
-                "description": f"!`command` syntax executes at skill load time before the model sees "
-                              f"the prompt. Command: {cmd}",
-                "evidence": line.strip()[:200],
+                "description": "Pre-prompt command syntax can execute at skill load time; inspect locally",
+                "command_length": len(cmd),
                 "category": "Pre-prompt Injection",
             })
 
@@ -560,7 +550,7 @@ def check_structural_attacks(skill_dir: Path, content: str, frontmatter: dict[st
                     "type": "npm Lifecycle Hook",
                     "severity": "critical",
                     "location": str(pkg_json.relative_to(skill_dir)),
-                    "description": f"package.json defines '{hook}' script: {scripts[hook]}. "
+                    "description": f"package.json defines the '{hook}' lifecycle script. "
                                   "npm executes lifecycle hooks automatically on install — "
                                   "this is a common supply chain attack vector.",
                     "category": "Supply Chain",
@@ -603,7 +593,7 @@ def check_structural_attacks(skill_dir: Path, content: str, frontmatter: dict[st
                                 "type": "Image Metadata Text",
                                 "severity": "high",
                                 "location": str(img_path.relative_to(skill_dir)),
-                                "description": f"PNG contains text metadata ('{keyword}'): {value[:100]}. "
+                                "description": "PNG contains text metadata. "
                                               "Hidden instructions in image metadata can be read by "
                                               "multimodal LLMs when they inspect the file.",
                                 "category": "Image Injection",
@@ -749,7 +739,8 @@ def scan_skill(skill_dir: Path) -> dict[str, Any]:
         if isinstance(tools_str, str):
             tools_list = [t.strip() for t in tools_str.replace(",", " ").split() if t.strip()]
             tools_info = {
-                "tools": tools_list,
+                "tools": [tool for tool in ("Bash", "Edit", "Glob", "Grep", "Read", "Task", "WebFetch", "Write") if tool in tools_list],
+                "unknown_tool_count": sum(tool not in ("Read", "Grep", "Glob", "Bash", "Write", "Edit", "WebFetch", "Task", "*") for tool in tools_list),
                 "has_bash": "Bash" in tools_list,
                 "has_write": "Write" in tools_list,
                 "has_edit": "Edit" in tools_list,
@@ -758,14 +749,20 @@ def scan_skill(skill_dir: Path) -> dict[str, Any]:
                 "unrestricted": tools_str.strip() == "*",
             }
 
-    return redact_report({
+    return {
+        "report_format": "skill-scanner.locators.v2",
         "scan_complete": not coverage_errors,
         "coverage": {"scanned_files": scanned_files, "errors": coverage_errors,
                      "scope": "bounded static pattern inspection, not semantic approval"},
-        "skill_name": frontmatter.get("name", "unknown") if frontmatter else "unknown",
-        "skill_dir": str(skill_dir),
+        "skill_name": skill_dir.name,
         "structure": structure,
-        "frontmatter": frontmatter,
+        "frontmatter": {
+            "parseable": frontmatter is not None,
+            "fields": {
+                field: {"present": field in frontmatter, "expected_type": isinstance(frontmatter.get(field), expected)}
+                for field, expected in (("name", str), ("description", str), ("allowed-tools", str), ("hooks", dict))
+            } if frontmatter is not None else {},
+        },
         "tools": tools_info,
         "findings": all_findings,
         "finding_counts": severity_counts,
@@ -776,7 +773,7 @@ def scan_skill(skill_dir: Path) -> dict[str, Any]:
             "trusted_count": len(all_urls) - len(untrusted_urls),
         },
         "description_body_overlap": round(overlap, 2),
-    })
+    }
 
 
 
@@ -785,12 +782,15 @@ def main():
         print("Usage: scan_skill.py <skill-directory>", file=sys.stderr)
         sys.exit(1)
 
-    skill_dir = Path(sys.argv[1]).resolve()
-    if not skill_dir.is_dir():
-        print(json.dumps({"error": f"Not a directory: {skill_dir}"}))
-        sys.exit(1)
-
-    result = scan_skill(skill_dir)
+    try:
+        skill_dir = Path(sys.argv[1]).resolve()
+        if not skill_dir.is_dir():
+            print(json.dumps({"error": "Requested input is not a directory", "scan_complete": False}))
+            sys.exit(1)
+        result = scan_skill(skill_dir)
+    except (OSError, RuntimeError, ValueError):
+        # Filesystem/parser error details can contain sensitive paths or payloads.
+        result = {"error": "Input could not be inspected within guarded bounds", "scan_complete": False}
     print(json.dumps(result, indent=2))
     if result.get("error") or not result.get("scan_complete", False):
         sys.exit(2)

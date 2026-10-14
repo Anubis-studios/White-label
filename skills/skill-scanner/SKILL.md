@@ -24,19 +24,19 @@ Resolve this installed skill directory explicitly. Run the bundled helper with a
 
 ### `scripts/scan_skill.py`
 
-Static analysis scanner that detects deterministic patterns. Outputs structured JSON.
+Static analysis scanner that detects deterministic patterns. Outputs structured JSON (`skill-scanner.locators.v2`). It reports fixed finding descriptions, local file/line locators, counts, recognized tools and metadata field presence/types. It omits raw metadata values, source excerpts, decoded payloads, commands, symlink targets and complete URLs. Inspect those privately at the reported location. Relative filenames, the selected directory identifier and URL hostnames remain visible identifiers; the report is not an anonymizer for sensitive names. Unsupported inputs remain incomplete, not safe.
 
 ```bash
 python3 "<installed-skill-dir>/scripts/scan_skill.py" "<authorized-inert-skill-directory>"
 ```
 
-Returns JSON with findings, URLs, structure info, and severity counts. The script catches patterns mechanically — your job is to evaluate intent and filter false positives.
+Returns JSON with findings, URL host/line locators, structure info, and severity counts. The script catches patterns mechanically — your job is to evaluate intent and filter false positives.
 
 ## Scanner Coverage and Report Privacy
 
 Use a private inert snapshot: this helper is static inspection, not an execution sandbox. It refuses final symlinks/non-regular files and bounds a file to 1 MiB, a tree to 1,000 files / 16 MiB. Hosts without guarded no-follow file opens report incomplete rather than silently following links. Nested regular text files are included; binary/unreadable inputs remain explicit coverage gaps. A scan error or incomplete coverage exits nonzero, not a clean pass.
 
-Detected secret values, credential-bearing URLs and secret-named metadata are redacted before structured output. Redaction covers recognised patterns, not every possible private datum; inspect reports locally before sharing. No target script, lifecycle hook, test or external URL is executed. Domain familiarity and lexical overlap do not satisfy semantic review or merge authority.
+Source payloads are omitted from the report rather than relying on recognition of every secret format. Visible filenames and hostnames can still be confidential identifiers; inspect reports locally before sharing. No target script, lifecycle hook, test or external URL is executed. Domain familiarity and lexical overlap do not satisfy semantic review or merge authority.
 
 ## Workflow
 
@@ -133,7 +133,7 @@ If the skill has a `scripts/` directory:
 
 ### Phase 7: Supply Chain Assessment
 
-Review URLs from the scanner output and any additional URLs found in scripts:
+Review URL domains and file/line locators from the scanner output; inspect complete URLs locally in the source:
 
 - **Familiar domains**: GitHub, PyPI and documentation sites are discovery context, not proof that a particular repository/package is trustworthy
 - **Untrusted domains**: Unknown domains, personal sites, URL shorteners — flag for review
@@ -183,7 +183,7 @@ Example assessments:
 - **Confidence**: High
 - **Category**: Prompt Injection / Malicious Code / Excessive Permissions / Secret Exposure / Supply Chain / Validation
 - **Issue**: [What was found]
-- **Evidence**: [code snippet]
+- **Evidence**: [local file/line and matched pattern; omit secret-bearing source snippets]
 - **Risk**: [What could happen]
 - **Remediation**: [How to fix]
 
