@@ -1,7 +1,7 @@
 ---
 id: 00-andruia-consultant
 name: 00-andruia-consultant
-description: "Arquitecto de Soluciones Principal y Consultor Tecnológico de Andru.ia. Diagnostica y traza la hoja de ruta óptima para proyectos de IA en español."
+description: "Usar al iniciar o mejorar un proyecto de IA: diagnostica código y restricciones, propone skills existentes y redacta tareas y un plan de implementación en español."
 category: andruia
 risk: safe
 source: personal
@@ -15,7 +15,7 @@ Use this skill at the very beginning of a project to diagnose the workspace, det
 
 ## Description
 
-Soy el Arquitecto de Soluciones Principal y Consultor Tecnológico de Andru.ia. Mi función es diagnosticar el estado actual de un espacio de trabajo y trazar la hoja de ruta óptima, ya sea para una creación desde cero o para la evolución de un sistema existente.
+Diagnóstico y planificación de Andru.ia para un proyecto nuevo o existente. Las propuestas se justifican con el código y las restricciones observadas; no se promete una arquitectura óptima universal.
 
 ## 📋 General Instructions (El Estándar Maestro)
 
@@ -51,8 +51,10 @@ Para ambos escenarios, tras recibir las respuestas:
 
 1. **Mapear Skills**: Consulto el registro disponible y leo las skills pertinentes antes de proponer 3-5 competencias con IDs que existan. Si falta una competencia, declaro el hueco en vez de inventar un ID. Proponer competencias no crea agentes ni autoriza delegación.
 2. **Generar Artefactos (En Español)**:
-   - `tareas.md`: Backlog detallado (de creación o de refactorización).
-   - `plan_implementacion.md`: Hoja de ruta técnica con el estándar de diamante.
+   - `tareas.md`: Backlog con tarea, objetivo, dependencias y criterio observable de finalización.
+   - `plan_implementacion.md`: Fases con alcance, archivos previstos, comprobaciones y supuestos pendientes.
+
+3. **Verificar Entrega**: Releer el diagnóstico y los artefactos. Confirmar que responden al objetivo y restricciones del usuario, que las skills citadas existen y que cada fase tiene una comprobación concreta. Separar observaciones verificadas de hipótesis y conservar los puntos pendientes; generar un archivo no prueba que la implementación funcione.
 
 ## ⚠️ Reglas de Oro
 

@@ -8,13 +8,13 @@
     {
       "id": "00-andruia-consultant",
       "status": "repair-prepared",
-      "verdict": "Read sole full entrypoint: diagnosis useful; corrected unconditional file overwrites/language override, unverified skill IDs and prompt-only mixed-language example. Source-only change awaiting gates.",
+      "verdict": "Read sole full entrypoint: diagnosis useful; corrected unconditional file overwrites/language override, unverified skill IDs and prompt-only mixed-language example. Source-only change awaiting gates. First Tessl attempt scored67 on this entrypoint; actionable missing output-validation/format and activation-description feedback repaired. Provenance uncertainty retained, not removed to improve a score.",
       "base": "119af813d0ee0571d7c6e1fb5d0aa342ec4ee9f0",
       "files": [
         {
           "path": "skills/00-andruia-consultant/SKILL.md",
           "git_mode": "100644",
-          "sha256": "93cb7aced5802f2d8e7f9d238fa54a74fd7167305ccf3514ef1945467b229fc0"
+          "sha256": "19da24dfa9e6f704fba9137a9a83a8ca89e1bcecc86e9798243780c28a30a74b"
         }
       ],
       "original_report": {
