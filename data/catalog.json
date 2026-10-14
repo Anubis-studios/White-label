@@ -1,6 +1,6 @@
 {
   "generatedAt": "2026-10-13T18:55:57.000Z",
-  "total": 2689,
+  "total": 2690,
   "skills": [
     {
       "id": "00-andruia-consultant",
@@ -1120,9 +1120,9 @@
       "id": "aegisops-ai",
       "canonical_id": "aegisops-ai",
       "name": "aegisops-ai",
-      "description": "Autonomous DevSecOps & FinOps Guardrails. Orchestrates Gemini 3 Flash to audit Linux Kernel patches, Terraform cost drifts, and K8s compliance.",
-      "category": "devops",
-      "risk": "safe",
+      "description": "Autonomous DevSecOps & FinOps Guardrails. Guide to reviewing Linux kernel patches, Terraform cost changes and Kubernetes policy with a separately reviewed upstream tool and configured model.",
+      "category": "uncategorized",
+      "risk": "critical",
       "source": "community",
       "tags": [
         "aegisops",
@@ -1135,12 +1135,12 @@
         "devsecops",
         "finops",
         "guardrails",
-        "orchestrates",
-        "gemini",
-        "flash",
-        "audit",
+        "reviewing",
         "linux",
-        "kernel"
+        "kernel",
+        "patches",
+        "terraform",
+        "cost"
       ],
       "path": "skills/aegisops-ai/SKILL.md"
     },
@@ -1849,7 +1849,7 @@
       "name": "dep",
       "description": "Handles containerization, CI/CD pipelines, and deployment setup.",
       "category": "agent-squad",
-      "risk": "safe",
+      "risk": "critical",
       "source": "community",
       "tags": [
         "agent",
@@ -1950,7 +1950,7 @@
       "id": "agent-squad/quinn",
       "canonical_id": "quinn",
       "name": "quinn",
-      "description": "Proves the system works by writing and executing comprehensive test suites.",
+      "description": "Verifies specified behavior through appropriate tests and truthful coverage reports.",
       "category": "agent-squad",
       "risk": "safe",
       "source": "community",
@@ -1962,12 +1962,15 @@
         "agent",
         "squad/quinn",
         "quinn",
-        "proves",
-        "works",
-        "writing",
-        "executing",
-        "test",
-        "suites"
+        "verifies",
+        "specified",
+        "behavior",
+        "through",
+        "appropriate",
+        "tests",
+        "truthful",
+        "coverage",
+        "reports"
       ],
       "path": "skills/agent-squad/quinn/SKILL.md"
     },
@@ -2029,9 +2032,9 @@
       "id": "agentflow",
       "canonical_id": "agentflow",
       "name": "agentflow",
-      "description": "Orchestrate autonomous AI development pipelines through your Kanban board (Asana, GitHub Projects, Linear). Manages multi-worker Claude Code dispatch, deterministic quality gates, adversarial review, per-task cost tracking, and crash-proof pipeline execution.",
+      "description": "Orchestrate autonomous AI development pipelines through your Kanban board (Asana, GitHub Projects, Linear). Manages multi-worker Claude Code dispatch, deterministic quality gates, adversarial review, per-task cost tracking, and recoverable pipeline design.",
       "category": "agent-orchestration",
-      "risk": "safe",
+      "risk": "critical",
       "source": "community",
       "tags": [
         "agentflow"
@@ -2080,7 +2083,7 @@
       "id": "agentic-actions-auditor",
       "canonical_id": "agentic-actions-auditor",
       "name": "agentic-actions-auditor",
-      "description": "Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations  including Claude Code Action,  Gemini CLI, OpenAI Codex, and GitHub AI  Inference.  Detects attack vectors where attacker-controlled  input reaches. AI agents running in CI/CD pipelines.",
+      "description": "Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations including Claude Code Action, Gemini CLI, OpenAI Codex, and GitHub AI  Inference. Detects attack vectors where attacker-controlled  input reaches AI agents running in CI/CD pipelines.",
       "category": "ai-ml",
       "risk": "safe",
       "source": "community",
@@ -2109,9 +2112,9 @@
       "id": "agentmail",
       "canonical_id": "agentmail",
       "name": "agentmail",
-      "description": "Email infrastructure for AI agents. Create accounts, send/receive emails, manage webhooks, and check karma balance via the AgentMail API.",
+      "description": "Email infrastructure for AI agents. Create accounts, send/receive emails, manage webhooks, and inspect billing balance via the AgentMail API.",
       "category": "ai-ml",
-      "risk": "safe",
+      "risk": "critical",
       "source": "community",
       "tags": [
         "agentmail"
@@ -2127,8 +2130,8 @@
         "receive",
         "emails",
         "webhooks",
-        "check",
-        "karma"
+        "inspect",
+        "billing"
       ],
       "path": "skills/agentmail/SKILL.md"
     },
@@ -2226,7 +2229,7 @@
       "id": "agents-v2-py",
       "canonical_id": "agents-v2-py",
       "name": "agents-v2-py",
-      "description": "Build container-based Foundry Agents with Azure AI Projects SDK (ImageBasedHostedAgentDefinition). Use when creating hosted agents with custom container images in Azure AI Foundry.",
+      "description": "Build container-based Foundry Agents with Azure AI Projects SDK (HostedAgentDefinition). Use when creating hosted agents with custom container images in Azure AI Foundry.",
       "category": "ai-ml",
       "risk": "critical",
       "source": "community",
@@ -2244,7 +2247,7 @@
         "azure",
         "ai",
         "sdk",
-        "imagebasedhostedagentdefinition",
+        "hostedagentdefinition",
         "creating",
         "hosted",
         "custom"
@@ -2516,7 +2519,7 @@
       "id": "ai-analyzer",
       "canonical_id": "ai-analyzer",
       "name": "ai-analyzer",
-      "description": "AI驱动的综合健康分析系统，整合多维度健康数据、识别异常模式、预测健康风险、提供个性化建议。支持智能问答和AI健康报告生成。",
+      "description": "AI驱动的综合健康分析系统，整合多维度健康数据、识别异常模式、整理风险因素、提供一般性健康信息。支持智能问答和AI健康报告生成。",
       "category": "ai-ml",
       "risk": "critical",
       "source": "community",
@@ -2602,7 +2605,7 @@
       "id": "ai-dev-jobs-mcp",
       "canonical_id": "ai-dev-jobs-mcp",
       "name": "ai-dev-jobs-mcp",
-      "description": "Search 8,400+ AI and ML jobs across 489 companies, inspect listings and employers, match roles, and view salary and market stats via AI Dev Jobs MCP",
+      "description": "Search indexed AI and ML jobs, inspect listings and employers, match roles, and view salary and market stats via AI Dev Jobs MCP",
       "category": "mcp",
       "risk": "safe",
       "source": "https://aidevboard.com",
@@ -2627,7 +2630,7 @@
         "ai",
         "dev",
         "search",
-        "400",
+        "indexed",
         "ml"
       ],
       "path": "skills/ai-dev-jobs-mcp/SKILL.md"
@@ -2663,7 +2666,7 @@
       "id": "ai-engineering-toolkit",
       "canonical_id": "ai-engineering-toolkit",
       "name": "ai-engineering-toolkit",
-      "description": "6 production-ready AI engineering workflows: prompt evaluation (8-dimension scoring), context budget planning, RAG pipeline design, agent security audit (65-point checklist), eval harness building, and product sense coaching.",
+      "description": "Overview of six AI engineering workflows: prompt evaluation (8-dimension scoring), context budget planning, RAG pipeline design, agent security audit (65-point checklist), eval harness building, and product sense coaching.",
       "category": "data-ai",
       "risk": "offensive",
       "source": "community",
@@ -2685,9 +2688,9 @@
         "ai",
         "engineering",
         "toolkit",
-        "prompt",
-        "dimension",
-        "scoring"
+        "overview",
+        "six",
+        "prompt"
       ],
       "path": "skills/ai-engineering-toolkit/SKILL.md"
     },
@@ -2765,7 +2768,7 @@
       "id": "ai-inference-service-mesh",
       "canonical_id": "ai-inference-service-mesh",
       "name": "ai-inference-service-mesh",
-      "description": "Use service mesh patterns for AI inference traffic management, mTLS, canary releases, policy enforcement, and cross-cluster resilience.",
+      "description": "Use verified service mesh patterns for AI inference traffic management, mTLS, canary releases, policy enforcement, and cross-cluster resilience.",
       "category": "devops",
       "risk": "critical",
       "source": "https://github.com/BagelHole/DevOps-Security-Agent-Skills",
@@ -2784,14 +2787,14 @@
         "inference",
         "service",
         "mesh",
+        "verified",
         "traffic",
         "mtls",
         "canary",
         "releases",
         "policy",
         "enforcement",
-        "cross",
-        "cluster"
+        "cross"
       ],
       "path": "skills/ai-inference-service-mesh/SKILL.md"
     },
@@ -3155,7 +3158,7 @@
       "name": "ai-red-teaming",
       "description": "Run structured AI red team exercises for jailbreak resistance, data exfiltration risk, harmful output controls, and agent tool abuse resilience.",
       "category": "security",
-      "risk": "safe",
+      "risk": "offensive",
       "source": "https://github.com/BagelHole/DevOps-Security-Agent-Skills",
       "source_type": "community",
       "source_repo": "BagelHole/DevOps-Security-Agent-Skills",
@@ -5161,7 +5164,7 @@
       "name": "api-security-testing",
       "description": "API security testing workflow for REST and GraphQL APIs covering authentication, authorization, rate limiting, input validation, and security best practices.",
       "category": "granular-workflow-bundle",
-      "risk": "safe",
+      "risk": "offensive",
       "source": "personal",
       "tags": [
         "api",
@@ -9181,7 +9184,7 @@
       "name": "azure-communication-callingserver-java",
       "description": "⚠️ DEPRECATED: This SDK has been renamed to Call Automation. For new projects, use azure-communication-callautomation instead. This skill is for maintaining legacy code only.",
       "category": "cloud",
-      "risk": "safe",
+      "risk": "critical",
       "source": "community",
       "tags": [
         "azure",
@@ -13860,6 +13863,44 @@
       "path": "skills/browser-automation/SKILL.md"
     },
     {
+      "id": "browser-bridge",
+      "canonical_id": "browser-bridge",
+      "name": "browser-bridge",
+      "description": "Inspect, control, and automate tasks in your real Microsoft Edge or Google Chrome browser via Chrome DevTools Protocol (CDP) with bilingual UI, native tab grouping, and self-healing daemon.",
+      "category": "automation",
+      "risk": "critical",
+      "source": "community",
+      "source_type": "community",
+      "source_repo": "AshenJyy/antigravity-browser-bridge",
+      "license": "Apache-2.0",
+      "license_source": "https://github.com/AshenJyy/antigravity-browser-bridge/blob/main/LICENSE",
+      "tags": [
+        "browser",
+        "automation",
+        "cdp",
+        "edge",
+        "chrome",
+        "antigravity",
+        "gemini",
+        "i18n"
+      ],
+      "triggers": [
+        "browser",
+        "automation",
+        "cdp",
+        "edge",
+        "chrome",
+        "antigravity",
+        "gemini",
+        "i18n",
+        "bridge",
+        "inspect",
+        "control",
+        "automate"
+      ],
+      "path": "skills/browser-bridge/SKILL.md"
+    },
+    {
       "id": "browser-extension-builder",
       "canonical_id": "browser-extension-builder",
       "name": "browser-extension-builder",
@@ -14727,8 +14768,8 @@
       "source": "official",
       "source_type": "official",
       "source_repo": "BuyWhere/buywhere-mcp",
-      "license": "Not declared",
-      "license_source": "https://github.com/BuyWhere/buywhere-mcp",
+      "license": "MIT",
+      "license_source": "https://github.com/BuyWhere/buywhere-mcp/blob/eeb06674c9a22dcd103adecbed5a66c9473f55d7/LICENSE",
       "tags": [
         "buywhere",
         "ecommerce",
@@ -16064,7 +16105,7 @@
       "id": "clarvia-aeo-check",
       "canonical_id": "clarvia-aeo-check",
       "name": "clarvia-aeo-check",
-      "description": "Score any MCP server, API, or CLI for agent-readiness using Clarvia AEO (Agent Experience Optimization). Search 15,400+ indexed tools before adding them to your workflow.",
+      "description": "Score any MCP server, API, or CLI for agent-readiness using Clarvia AEO (Agent Experience Optimization). Use current provider evidence as advisory input when evaluating a tool.",
       "category": "tool-quality",
       "risk": "safe",
       "source": "community",
@@ -17453,7 +17494,7 @@
       "id": "code-refactoring-context-restore",
       "canonical_id": "code-refactoring-context-restore",
       "name": "code-refactoring-context-restore",
-      "description": "Use when working with code refactoring context restore",
+      "description": "Resume interrupted project work from a handoff and current checkout evidence; reconcile completed work, pending changes and existing user constraints.",
       "category": "development",
       "risk": "critical",
       "source": "community",
@@ -17467,7 +17508,14 @@
         "refactoring",
         "restore",
         "context",
-        "working"
+        "resume",
+        "interrupted",
+        "work",
+        "handoff",
+        "current",
+        "checkout",
+        "evidence",
+        "reconcile"
       ],
       "path": "skills/code-refactoring-context-restore/SKILL.md"
     },
@@ -18882,7 +18930,7 @@
       "id": "computer-vision-expert",
       "canonical_id": "computer-vision-expert",
       "name": "computer-vision-expert",
-      "description": "SOTA Computer Vision Expert (2026). Specialized in YOLO26, Segment Anything 3 (SAM 3), Vision Language Models, and real-time spatial analysis.",
+      "description": "Computer vision pipeline design and evaluation. Specialized in YOLO26, Segment Anything 3 (SAM 3), Vision Language Models, and real-time spatial analysis.",
       "category": "ai-ml",
       "risk": "critical",
       "source": "community",
@@ -18893,8 +18941,8 @@
       "triggers": [
         "computer",
         "vision",
-        "sota",
-        "2026",
+        "pipeline",
+        "evaluation",
         "specialized",
         "yolo26",
         "segment",
@@ -19658,7 +19706,7 @@
       "id": "context-management-context-restore",
       "canonical_id": "context-management-context-restore",
       "name": "context-management-context-restore",
-      "description": "Use when working with context management context restore",
+      "description": "Resume interrupted project work from a handoff and current checkout evidence; reconcile completed work, pending changes and existing user constraints.",
       "category": "ai-ml",
       "risk": "critical",
       "source": "community",
@@ -19668,7 +19716,16 @@
       "triggers": [
         "restore",
         "context",
-        "working"
+        "resume",
+        "interrupted",
+        "work",
+        "handoff",
+        "current",
+        "checkout",
+        "evidence",
+        "reconcile",
+        "completed",
+        "pending"
       ],
       "path": "skills/context-management-context-restore/SKILL.md"
     },
@@ -21067,7 +21124,7 @@
       "id": "csharp-pro",
       "canonical_id": "csharp-pro",
       "name": "csharp-pro",
-      "description": "Write modern C# code with advanced features like records, pattern matching, and async/await. Optimizes .NET applications, implements enterprise patterns, and ensures comprehensive testing.",
+      "description": "Write modern C# code with advanced features like records, pattern matching, and async/await. Use for version-compatible .NET implementation and evidence-based testing/performance review.",
       "category": "code",
       "risk": "critical",
       "source": "community",
@@ -21085,8 +21142,8 @@
         "matching",
         "async",
         "await",
-        "optimizes",
-        "net"
+        "version",
+        "compatible"
       ],
       "path": "skills/csharp-pro/SKILL.md"
     },
@@ -22825,8 +22882,10 @@
       "name": "deep-research",
       "description": "Run autonomous research tasks that plan, search, read, and synthesize information into comprehensive reports.",
       "category": "ai-ml",
-      "risk": "safe",
+      "risk": "critical",
       "source": "https://github.com/sanjay3290/ai-skills/tree/main/skills/deep-research",
+      "license": "Apache-2.0",
+      "license_source": "https://github.com/sanjay3290/ai-skills/blob/281d88df199357e3091a3be5c743a0fca9a9ae1b/LICENSE",
       "tags": [
         "deep",
         "research"
@@ -25151,7 +25210,7 @@
       "id": "deterministic-design",
       "canonical_id": "deterministic-design",
       "name": "deterministic-design",
-      "description": "Render the UI and prove it's balanced + usable: a deterministic layout audit (centroid / optical-center / pixel-oracle balance via explicit math + annotated screenshot) plus a vision-judged Nielsen usability audit by a separate fresh-eyes judge. The measurement layer taste-only design skills lack.",
+      "description": "Measure rendered UI layout with reproducible spatial metrics and a separately assessed usability review; distinguish measurements from subjective judgments and user tests.",
       "category": "design",
       "risk": "safe",
       "source": "community",
@@ -25174,11 +25233,11 @@
         "verification",
         "vision",
         "deterministic",
-        "render",
+        "measure",
+        "rendered",
         "ui",
-        "prove",
-        "balanced",
-        "usable"
+        "reproducible",
+        "spatial"
       ],
       "path": "skills/deterministic-design/SKILL.md"
     },
@@ -27227,7 +27286,7 @@
       "id": "dx-optimizer",
       "canonical_id": "dx-optimizer",
       "name": "dx-optimizer",
-      "description": "Developer Experience specialist. Improves tooling, setup, and workflows. Use PROACTIVELY when setting up new projects, after team feedback, or when development friction is noticed.",
+      "description": "Developer Experience specialist. Improves tooling, setup, and workflows. Use for requested project setup or measured development friction; respect existing team conventions.",
       "category": "development",
       "risk": "critical",
       "source": "community",
@@ -27243,11 +27302,11 @@
         "improves",
         "tooling",
         "setup",
-        "proactively",
-        "setting",
-        "up",
-        "new",
-        "after"
+        "requested",
+        "measured",
+        "development",
+        "friction",
+        "respect"
       ],
       "path": "skills/dx-optimizer/SKILL.md"
     },
@@ -29619,7 +29678,7 @@
       "id": "expo-ui-jetpack-compose",
       "canonical_id": "expo-ui-jetpack-compose",
       "name": "expo-ui-jetpack-compose",
-      "description": "expo-ui-jetpack-compose",
+      "description": "Build Android-native Expo SDK 55 UI with Jetpack Compose views/modifiers, Host sizing and platform-specific integration.",
       "category": "mobile",
       "risk": "critical",
       "source": "community",
@@ -29633,7 +29692,15 @@
         "expo",
         "ui",
         "jetpack",
-        "compose"
+        "compose",
+        "android",
+        "native",
+        "sdk",
+        "55",
+        "views",
+        "modifiers",
+        "host",
+        "sizing"
       ],
       "path": "skills/expo-ui-jetpack-compose/SKILL.md"
     },
@@ -29641,7 +29708,7 @@
       "id": "expo-ui-swift-ui",
       "canonical_id": "expo-ui-swift-ui",
       "name": "expo-ui-swift-ui",
-      "description": "expo-ui-swift-ui",
+      "description": "Build iOS-native Expo SDK 55 UI with SwiftUI views/modifiers, Host/RNHostView embedding and native rebuild prerequisites.",
       "category": "mobile",
       "risk": "critical",
       "source": "community",
@@ -29653,7 +29720,16 @@
       "triggers": [
         "expo",
         "ui",
-        "swift"
+        "swift",
+        "ios",
+        "native",
+        "sdk",
+        "55",
+        "swiftui",
+        "views",
+        "modifiers",
+        "host",
+        "rnhostview"
       ],
       "path": "skills/expo-ui-swift-ui/SKILL.md"
     },
@@ -29764,7 +29840,7 @@
       "name": "fact-check-x-unified",
       "description": "Fact-Check-X 流程编排能力，依次组织各方答案汇总、各方答案聚合（未核验）、权威核验后的最终答案和各方答案测评，生成可打开、可审计、可迁移的阶段产物与完整报告包。",
       "category": "agent-orchestration",
-      "risk": "unknown",
+      "risk": "critical",
       "source": "asi2030",
       "source_type": "official",
       "source_repo": "asi2030/fact-check-x",
@@ -30091,7 +30167,7 @@
       "id": "family-health-analyzer",
       "canonical_id": "family-health-analyzer",
       "name": "family-health-analyzer",
-      "description": "分析家族病史、评估遗传风险、识别家庭健康模式、提供个性化预防建议",
+      "description": "整理家族病史和已知健康记录，识别需要医生或遗传咨询师评估的线索，不计算未经验证的个体发病概率",
       "category": "health",
       "risk": "critical",
       "source": "community",
@@ -30251,7 +30327,7 @@
       "name": "fda-food-safety-auditor",
       "description": "Expert AI auditor for FDA Food Safety (FSMA), HACCP, and PCQI compliance. Reviews food facility records and preventive controls.",
       "category": "legal",
-      "risk": "safe",
+      "risk": "critical",
       "source": "community",
       "tags": [
         "fda",
@@ -30281,7 +30357,7 @@
       "name": "fda-medtech-compliance-auditor",
       "description": "Expert AI auditor for Medical Device (SaMD) compliance, IEC 62304, and 21 CFR Part 820. Reviews DHFs, technical files, and software validation.",
       "category": "legal",
-      "risk": "none",
+      "risk": "critical",
       "source": "community",
       "tags": [
         "fda",
@@ -35079,7 +35155,7 @@
       "id": "global-chat-agent-discovery",
       "canonical_id": "global-chat-agent-discovery",
       "name": "global-chat-agent-discovery",
-      "description": "Discover and search 18K+ MCP servers and AI agents across 6+ registries using Global Chat's cross-protocol directory and MCP server.",
+      "description": "Discover and compare MCP servers and AI agents using Global Chat's cross-protocol directory and MCP server.",
       "category": "development",
       "risk": "safe",
       "source": "community",
@@ -35105,7 +35181,7 @@
         "agent",
         "discovery",
         "discover",
-        "search"
+        "compare"
       ],
       "path": "skills/global-chat-agent-discovery/SKILL.md"
     },
@@ -36246,7 +36322,7 @@
       "id": "haskell-pro",
       "canonical_id": "haskell-pro",
       "name": "haskell-pro",
-      "description": "Expert Haskell engineer specializing in advanced type systems, pure",
+      "description": "Design and review Haskell types, pure domain logic, parsing, exception-safe concurrency, Cabal/Stack builds and measured performance.",
       "category": "code",
       "risk": "safe",
       "source": "community",
@@ -36256,10 +36332,16 @@
       "triggers": [
         "haskell",
         "pro",
-        "engineer",
-        "specializing",
-        "type",
-        "pure"
+        "review",
+        "types",
+        "pure",
+        "domain",
+        "logic",
+        "parsing",
+        "exception",
+        "safe",
+        "concurrency",
+        "cabal"
       ],
       "path": "skills/haskell-pro/SKILL.md"
     },
@@ -37119,7 +37201,7 @@
       "id": "hosted-agents-v2-py",
       "canonical_id": "hosted-agents-v2-py",
       "name": "hosted-agents-v2-py",
-      "description": "Build hosted agents using Azure AI Projects SDK with ImageBasedHostedAgentDefinition. Use when creating container-based agents in Azure AI Foundry.",
+      "description": "Build hosted agents using Azure AI Projects SDK with HostedAgentDefinition. Use when creating container-based agents in Azure AI Foundry.",
       "category": "ai-agents",
       "risk": "critical",
       "source": "community",
@@ -37137,7 +37219,7 @@
         "azure",
         "ai",
         "sdk",
-        "imagebasedhostedagentdefinition",
+        "hostedagentdefinition",
         "creating",
         "container",
         "foundry"
@@ -40270,8 +40352,10 @@
       "name": "imagen",
       "description": "AI image generation skill powered by Google Gemini, enabling seamless visual content creation for UI placeholders, documentation, and design assets.",
       "category": "graphics-processing",
-      "risk": "safe",
+      "risk": "critical",
       "source": "https://github.com/sanjay3290/ai-skills/tree/main/skills/imagen",
+      "license": "Apache-2.0",
+      "license_source": "https://github.com/sanjay3290/ai-skills/blob/281d88df199357e3091a3be5c743a0fca9a9ae1b/LICENSE",
       "tags": [
         "imagen"
       ],
@@ -41024,7 +41108,7 @@
       "id": "interview-coach",
       "canonical_id": "interview-coach",
       "name": "interview-coach",
-      "description": "Full job search coaching system — JD decoding, resume, storybank, mock interviews, transcript analysis, comp negotiation. 23 commands, persistent state.",
+      "description": "Full job search coaching system — JD decoding, resume, storybank, mock interviews, transcript analysis, comp negotiation. Coaching guide with an optional separately installed command package and scoped state.",
       "category": "productivity",
       "risk": "safe",
       "source": "community",
@@ -42641,7 +42725,7 @@
       "name": "kubernetes-deployment",
       "description": "Kubernetes deployment workflow for container orchestration, Helm charts, service mesh, and production-ready K8s configurations.",
       "category": "granular-workflow-bundle",
-      "risk": "safe",
+      "risk": "critical",
       "source": "personal",
       "tags": [
         "kubernetes",
@@ -43337,9 +43421,9 @@
       "id": "legal-advisor",
       "canonical_id": "legal-advisor",
       "name": "legal-advisor",
-      "description": "Draft privacy policies, terms of service, disclaimers, and legal notices. Creates GDPR-compliant texts, cookie policies, and data processing agreements.",
+      "description": "Draft privacy policies, terms of service, disclaimers, and legal notices. Prepares jurisdiction-aware drafts for qualified review, cookie policies, and data processing agreements.",
       "category": "legal",
-      "risk": "none",
+      "risk": "critical",
       "source": "community",
       "tags": [
         "legal",
@@ -43354,10 +43438,10 @@
         "terms",
         "disclaimers",
         "notices",
-        "creates",
-        "gdpr",
-        "compliant",
-        "texts"
+        "prepares",
+        "jurisdiction",
+        "aware",
+        "drafts"
       ],
       "path": "skills/legal-advisor/SKILL.md"
     },
@@ -45410,7 +45494,7 @@
       "id": "longbridge",
       "canonical_id": "longbridge",
       "name": "longbridge",
-      "description": "125+ agent skills for Longbridge Securities — real-time quotes, charts, fundamentals, portfolio analysis, options, and more for HK/US/A-share/SG markets. Trilingual: Simplified Chinese, Traditional Chinese, English.",
+      "description": "Guide to using a separately installed Longbridge integration — real-time quotes, charts, fundamentals, portfolio analysis, options, and more for HK/US/A-share/SG markets. Trilingual: Simplified Chinese, Traditional Chinese, English.",
       "category": "finance",
       "risk": "critical",
       "source": "official",
@@ -45432,12 +45516,12 @@
         "portfolio",
         "market-data",
         "longbridge",
-        "125",
-        "agent",
-        "skills",
-        "securities",
+        "separately",
+        "installed",
+        "integration",
         "real",
-        "time"
+        "time",
+        "quotes"
       ],
       "path": "skills/longbridge/SKILL.md"
     },
@@ -46826,7 +46910,7 @@
       "id": "makepad-reference",
       "canonical_id": "makepad-reference",
       "name": "makepad-reference",
-      "description": "This category provides reference materials for debugging, code quality, and advanced layout patterns.",
+      "description": "Guide to diagnosing Makepad build, widget, redraw and layout issues against the exact runtime revision.",
       "category": "development",
       "risk": "critical",
       "source": "community",
@@ -46837,13 +46921,15 @@
       "triggers": [
         "makepad",
         "reference",
-        "category",
-        "provides",
-        "materials",
-        "debugging",
-        "code",
-        "quality",
-        "layout"
+        "diagnosing",
+        "widget",
+        "redraw",
+        "layout",
+        "issues",
+        "against",
+        "exact",
+        "runtime",
+        "revision"
       ],
       "path": "skills/makepad-reference/SKILL.md"
     },
@@ -48744,7 +48830,7 @@
       "name": "mirrord",
       "description": "Run a local process inside a live Kubernetes cluster's network, env and traffic with mirrord, so changes are tested against real services without deploying.",
       "category": "devops",
-      "risk": "safe",
+      "risk": "critical",
       "source": "https://github.com/metalbear-co/skills",
       "source_type": "official",
       "source_repo": "metalbear-co/skills",
@@ -49463,7 +49549,7 @@
       "id": "monopoly/security-checklist",
       "canonical_id": "security-checklist",
       "name": "security-checklist",
-      "description": "Reference document for monopoly security-checklist.",
+      "description": "Review a scoped architecture against evidence-based network, identity, data, secrets, dependency and incident-response controls.",
       "category": "monopoly",
       "risk": "safe",
       "source": "community",
@@ -49475,9 +49561,15 @@
         "monopoly/security",
         "checklist",
         "security",
-        "reference",
-        "document",
-        "monopoly"
+        "review",
+        "scoped",
+        "architecture",
+        "against",
+        "evidence",
+        "network",
+        "identity",
+        "data",
+        "secrets"
       ],
       "path": "skills/monopoly/security-checklist/SKILL.md"
     },
@@ -49507,7 +49599,7 @@
       "id": "monorepo-architect",
       "canonical_id": "monorepo-architect",
       "name": "monorepo-architect",
-      "description": "Expert in monorepo architecture, build systems, and dependency management at scale. Masters Nx, Turborepo, Bazel, and Lerna for efficient multi-project development. Use PROACTIVELY for monorepo setup,",
+      "description": "Expert in monorepo architecture, build systems, and dependency management at scale. Masters Nx, Turborepo, Bazel, and Lerna for efficient multi-project development. Use for scoped monorepo setup, build or dependency review.",
       "category": "development",
       "risk": "safe",
       "source": "community",
@@ -51055,7 +51147,7 @@
       "id": "nerdzao-elite",
       "canonical_id": "nerdzao-elite",
       "name": "nerdzao-elite",
-      "description": "Senior Elite Software Engineer (15+) and Senior Product Designer. Full workflow with planning, architecture, TDD, clean code, and pixel-perfect UX validation.",
+      "description": "Software engineering and product design workflow and Senior Product Designer. Full workflow with planning, architecture, TDD, clean code, and pixel-perfect UX validation.",
       "category": "development",
       "risk": "safe",
       "source": "community",
@@ -51066,16 +51158,16 @@
       "triggers": [
         "nerdzao",
         "elite",
-        "senior",
         "software",
-        "engineer",
-        "15",
+        "engineering",
         "product",
+        "senior",
         "designer",
         "full",
         "planning",
         "architecture",
-        "tdd"
+        "tdd",
+        "clean"
       ],
       "path": "skills/nerdzao-elite/SKILL.md"
     },
@@ -53196,8 +53288,8 @@
       "source": "https://github.com/elementalsouls/Claude-BugHunter",
       "source_type": "community",
       "source_repo": "elementalsouls/Claude-BugHunter",
-      "license": "MIT",
-      "license_source": "https://github.com/elementalsouls/Claude-BugHunter/blob/main/LICENSE",
+      "license": "CC-BY-4.0",
+      "license_source": "https://github.com/elementalsouls/Claude-BugHunter/blob/58eec1dcfa705268b66eb9129c579b128772adea/LICENSE-CONTENT",
       "tags": [
         "offensive",
         "osint"

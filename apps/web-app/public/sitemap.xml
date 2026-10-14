@@ -229,6 +229,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://aaskills.tech/skill/browser-bridge/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://aaskills.tech/skill/api-contract-testing/</loc>
     <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -1298,12 +1304,6 @@
   </url>
   <url>
     <loc>https://aaskills.tech/skill/pre-boarding/</loc>
-    <lastmod>2026-10-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://aaskills.tech/skill/probation-tracker/</loc>
     <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

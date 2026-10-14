@@ -1,10 +1,13 @@
 # Subdomain & Infrastructure Recon
 
+> **AAS adaptation:** Read the authorization gate in [the skill](../SKILL.md) before any target request, credential use, or data collection. These are reference examples, not an instruction to run a sweep. Select only explicitly approved targets and techniques; set request, time, byte and concurrency limits and stop on errors or scope changes. Preserve TLS verification. Treat discoveries, pattern matches and historical provider claims as leads, not verified ownership, permission or severity. Minimize personal data and redact credentials before reports; do not send private evidence to public services. Prices, quotas, API shapes and tool availability require current official documentation. Changes and original source hashes are recorded in [the notice](../UPSTREAM-NOTICE.md).
+
+
 > Reference content for the `offensive-osint` skill. Originally §27 + §28 of the monolithic SKILL.md (refactored 2026-05-02 for size/load efficiency).
 
 ## 27. Subdomain-Source Stack (Passive)
 
-Practical "what actually returns useful data in 2026" reference, ordered by recall:
+Historical upstream provider list, not measured current recall or availability:
 
 | Source | Tier | Notes |
 |---|---|---|
@@ -22,13 +25,13 @@ Practical "what actually returns useful data in 2026" reference, ordered by reca
 | Amass | Free | Comparable, more thorough, slower. |
 | Recon-ng | Free | Modular framework; many free providers built in. |
 
-**DNS AXFR opportunism:** for every name server discovered, attempt zone transfer:
+**DNS AXFR opportunism:** only for explicitly approved authoritative servers and an agreed response-byte budget, consider a zone transfer:
 ```
 dig @<ns-host> <target-domain> AXFR
 ```
-Most NSs reject; those that don't = full zone disclosure (CRITICAL).
+An accepted transfer exposes the zone’s published records; severity depends on unintended sensitive information and policy. It is not automatically critical.
 
-**Brute-force tier:** Subfinder/Subbrute against `assetnote.io` wordlists (best-curated public wordlist source).
+**Active brute-force tier:** Subbrute/puredns (Subfinder is a passive-source aggregator) against `assetnote.io` wordlists (best-curated public wordlist source).
 
 ### 27.0.1 crt.sh down? Fallback chain (try in order)
 
@@ -41,28 +44,28 @@ D="target.example"
 censys search "names: ${D}" --index-type certificates --fields names | jq -r '.names[]' | sort -u
 
 # 2. Cert Spotter API (sslmate) — free w/ rate limits
-curl -sk "https://api.certspotter.com/v1/issuances?domain=${D}&include_subdomains=true&expand=dns_names" | \
+curl -sS -m 15 "https://api.certspotter.com/v1/issuances?domain=${D}&include_subdomains=true&expand=dns_names" | \
   jq -r '.[].dns_names[]' | sort -u
 
 # 3. CertStream archive (Calidog) — historical CT log mirror
-curl -sk "https://crt.calidog.io/?q=${D}" | jq -r '.[].name_value' | sort -u
+curl -sS -m 15 "https://crt.calidog.io/?q=${D}" | jq -r '.[].name_value' | sort -u
 
 # 4. Subfinder bundled aggregator (uses 30+ sources internally — Chaos, Anubis, BinaryEdge, BufferOver, Censys, CertSpotter, Crobat, Crtsh, DNSDumpster, FOFA, Fullhunt, GitHub, HackerTarget, IntelX, PassiveTotal, Quake, Rapiddns, Shodan, Spyse, ThreatBook, ThreatMiner, URLScan, VirusTotal, WhoisXML, ZoomEye, etc.)
 subfinder -d ${D} -all -recursive -silent
 
 # 5. AlienVault OTX — free, no key
-curl -sk "https://otx.alienvault.com/api/v1/indicators/domain/${D}/passive_dns" | \
+curl -sS -m 15 "https://otx.alienvault.com/api/v1/indicators/domain/${D}/passive_dns" | \
   jq -r '.passive_dns[].hostname' | sort -u
 
 # 6. ThreatMiner — free
-curl -sk "https://api.threatminer.org/v2/domain.php?q=${D}&rt=5" | jq -r '.results[]'
+curl -sS -m 15 "https://api.threatminer.org/v2/domain.php?q=${D}&rt=5" | jq -r '.results[]'
 
 # 7. URLScan — passive DNS via past scans
-curl -sk "https://urlscan.io/api/v1/search/?q=domain:${D}" | \
+curl -sS -m 15 "https://urlscan.io/api/v1/search/?q=domain:${D}" | \
   jq -r '.results[].page.domain' | sort -u
 
 # 8. Anubis-DB / DNSDumpster (HTML scrape, last resort)
-curl -sk -A "Mozilla/5.0" "https://anubisdb.com/anubis/subdomains/${D}" | jq -r '.[]'
+curl -sS -m 15 -A "Mozilla/5.0" "https://anubisdb.com/anubis/subdomains/${D}" | jq -r '.[]'
 ```
 
 PowerShell crt.sh wrapper with retry + fallback to Subfinder:
@@ -102,7 +105,7 @@ function Get-Subs {
 
 **Size guidance:**
 - **<10k entries** → fast subdomain check (1–2 min); use for opportunistic/passive-supplement.
-- **10k–100k entries** → standard depth (10–30 min); use as default brute-force.
+- **10k–100k entries** → potentially substantial active traffic; never a default without an approved request budget.
 - **100k–1M entries** → thorough; use when the target is a known high-value engagement (1–4 hours).
 - **>1M entries** → exhaustive; reserve for week-long engagements; expect rate-limiting.
 
@@ -139,22 +142,22 @@ ffuf -u "https://target.example/FUZZ" -w raft-large-words.txt -mc 200,301,403 -t
 
 - [Hurricane Electric BGP Toolkit](https://bgp.he.net/), [RIPEstat](https://stat.ripe.net/), [BGPView](https://bgpview.io/), [bgp.tools](https://bgp.tools/), [PeeringDB](https://www.peeringdb.com/).
 
-**Bulk IP → ASN — recipes that actually work in 2026:**
+**Historical bulk IP → ASN recipe examples (verify current provider docs):**
 
 ```bash
-# Cymru bulk WHOIS (fastest; no rate-limit issues; no key required)
+# Cymru bulk WHOIS (bulk example; verify current limits and permitted use)
 echo -e "begin\nverbose\n8.8.8.8\n1.1.1.1\nend" | nc whois.cymru.com 43
 # Or one-shot:
 whois -h whois.cymru.com " -v 8.8.8.8"
 
 # RIPEstat (free; CORS-friendly; ~1 req/sec polite limit)
-curl -sk "https://stat.ripe.net/data/network-info/data.json?resource=8.8.8.8" | jq '.data'
+curl -sS -m 15 "https://stat.ripe.net/data/network-info/data.json?resource=8.8.8.8" | jq '.data'
 
 # bgp.tools per-IP API (free; light rate-limit; requires UA)
-curl -sk -A "osint-recon/1.0 (contact@example.com)" "https://bgp.tools/api/ip/8.8.8.8" | jq .
+curl -sS -m 15 -A "osint-recon/1.0 (contact@example.com)" "https://bgp.tools/api/ip/8.8.8.8" | jq .
 
 # IPinfo Lite (free 50k req/month with free key)
-curl -sk "https://ipinfo.io/8.8.8.8?token=<key>" | jq .
+curl -sS -m 15 "https://ipinfo.io/8.8.8.8?token=<key>" | jq .
 ```
 
 **Watch out:**
@@ -170,7 +173,7 @@ curl -sk "https://ipinfo.io/8.8.8.8?token=<key>" | jq .
 
 ### 28.3 Web tech / TLS / fingerprinting
 
-- **httpx (ProjectDiscovery)** — Wappalyzer-compatible ~600 signatures, JARM, favicon mmh3, TLS cert SHA256, security headers, screenshots. Recommended one-shot probe wrapper for thousands of hosts.
+- **httpx (ProjectDiscovery)** — Wappalyzer-compatible ~600 signatures, JARM, favicon mmh3, TLS cert SHA256, security headers, screenshots. Use only the explicit approved host list and request budget; do not default to thousands of hosts.
 - **JARM** — TLS handshake hash; stable per server config; useful for clustering.
 - **Wappalyzer** browser extension or CLI for tech enumeration.
 
@@ -202,13 +205,13 @@ nmap --script ssl-enum-ciphers,ssl-cert -p 443 target.example
 
 | Issue | Severity | What to look for |
 |---|---|---|
-| TLS 1.0 / 1.1 supported | MEDIUM | Deprecated; PCI-DSS forbids TLS 1.0. |
+| TLS 1.0 / 1.1 supported | Contextual | Deprecated protocols; evaluate current applicable standard and configuration, without declaring compliance from a banner. |
 | SSL 3.0 / 2.0 supported | HIGH | Critically deprecated. |
-| Weak ciphers (RC4, 3DES, CBC modes) | MEDIUM | RC4 = NOMORE attack; 3DES = SWEET32. |
+| Weak or deprecated ciphers (evaluate exact suite/protocol; CBC alone is not proof) | MEDIUM | RC4 = NOMORE attack; 3DES = SWEET32. |
 | Anonymous DH | HIGH | No authentication. |
 | Self-signed cert on production | MEDIUM | Trust failure. |
 | Expired cert | MEDIUM | Operational + trust failure. |
-| Cert valid for too long (>397 days) | LOW | Browser warnings since 2020. |
+| Certificate lifetime policy mismatch | Contextual | Verify the current CA/Browser policy, issuance date and public/private trust model; do not hardcode a historical day limit. |
 | Wildcard cert covering critical hosts | INFO | Operational risk if private key compromised. |
 | Weak key size (<2048 RSA, <256 ECDSA) | HIGH | Cryptographically weak. |
 | Heartbleed (CVE-2014-0160) | CRITICAL | Memory disclosure. |
@@ -225,14 +228,14 @@ nmap --script ssl-enum-ciphers,ssl-cert -p 443 target.example
 
 ### 28.5 Reverse DNS Sweep & IPv6 Enumeration
 
-When a target owns an IP range (their ASN), enumerate it.
+ASN association alone does not establish ownership of every hosted asset or authorization to enumerate the range. Obtain the exact approved prefixes and request budget.
 
 **Reverse DNS sweep (within scope):**
 ```bash
 # Single /24
 for i in $(seq 1 254); do
   IP="203.0.113.$i"
-  PTR=$(dig +short -x $IP)
+  PTR=$(dig +short -x "$IP")
   [ -n "$PTR" ] && echo "$IP -> $PTR"
 done
 
@@ -258,14 +261,14 @@ IPv6 has weaker enumeration tradition (huge address space precludes brute-force)
 
 ```bash
 # AAAA records for every discovered subdomain
-for sub in $(cat all-subs.txt); do
-  AAAA=$(dig +short AAAA $sub)
+while IFS= read -r sub; do
+  AAAA=$(dig +short AAAA "$sub")
   [ -n "$AAAA" ] && echo "$sub -> $AAAA"
-done
+done < approved-subs.txt
 
 # IPv6 reverse DNS sweep is generally infeasible (2^64 host bits per subnet)
 # Instead: extract IPv6 prefixes from the target's allocations
-whois -h whois.cymru.com " -v target.example.com"   # gets ASN; then look up prefix
+whois -h whois.cymru.com " -v <approved-IP>"   # IP-to-ASN example; not hostname resolution or scope proof
 ```
 
 **BGP route observation:**
