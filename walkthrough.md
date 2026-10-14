@@ -877,6 +877,11 @@ Unify 28 overlapping packs into existing destinations: 30 focused packs plus the
 Address the actual Tessl feedback from the consolidation: require every RBAC hook input, add post-deployment verification and remove unsupported custom-domain preservation guarantees. Validate examples without executing Azure operations.
 
 
+## 2026-10-14 — Exhaustive individual catalog review, first additional batch
+
+Correct the scope of the earlier 90-skill review: full inventory is 2689 canonical entrypoints and 8617 tracked files. Directly review eight additional trees, repair Andru.ia diagnosis/authoring/domain boundaries and broken 3D examples, retain three AAS native workflows and the verified A/B setup guide. Full review remains open; see docs/maintainers/full-catalog-individual-review-2026-10-14.md and exact file receipts.
+
+
 ## 2026-10-14 — Exhaustive catalog review, second additional batch
 
 Review nine additional complete trees. Replace three out-of-domain AI operational registers with tool-routing/code-review/prompt-regression contracts and actual tested examples; correct build delivery/status/path boundaries, Django access illustration and score-eval execution classification. Retain three already repaired upstream-routing guides. Full catalog work remains incomplete. See docs/maintainers/full-catalog-individual-review-batch-02-2026-10-14.md.
