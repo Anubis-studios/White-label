@@ -875,3 +875,8 @@ Unify 28 overlapping packs into existing destinations: 30 focused packs plus the
 ### Azure plugin review follow-up
 
 Address the actual Tessl feedback from the consolidation: require every RBAC hook input, add post-deployment verification and remove unsupported custom-domain preservation guarantees. Validate examples without executing Azure operations.
+
+
+## 2026-10-14 — Exhaustive catalog review, EAS workflow support
+
+Review all EAS workflow entrypoint/support files. Correct schema/permission/launch boundaries and implement bounded reference retrieval with cache outside the immutable skill. Eleven real helper regressions and actual public-schema fetch; no authenticated EAS job or feedback. Full catalog work remains incomplete; see docs/maintainers/full-catalog-individual-review-batch-03-2026-10-14.md.
