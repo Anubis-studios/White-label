@@ -452,6 +452,9 @@ Preflight verification → Changelog → repository/plugin convergence → `npm 
     npm run validate:strict
     ```
 2.  **Update Changelog**: Add the new release section to `CHANGELOG.md`.
+
+    **Release command security boundary:** `release_workflow.js` must reject non-SemVer input before Git or filesystem mutation and launch `git`, `npm`, and `gh` without a command shell. On Windows, invoke npm through `node.exe` and the resolved `npm-cli.js`; never restore `shell: true`, route release arguments through `cmd.exe`, or concatenate data into a command string. Keep the Windows metacharacter regression that proves no injected marker is created.
+
 3.  **Prepare the protected release PR**:
     ```bash
     npm run release:prepare -- X.Y.Z
