@@ -35,7 +35,7 @@ The reported cohorts have individual receipts and bundled-file review evidence. 
 
 ### Thanks
 
-Thanks to **@AshenJyy** and **@WenCastillo** for the browser, TypeScript and web-performance contributions, and to the upstream authors whose licensed resources were recovered.
+Thanks to **@AshenJyy** and **@jwcastillo** for the browser, TypeScript and web-performance contributions, and to the upstream authors whose licensed resources were recovered.
 
 ---
 
