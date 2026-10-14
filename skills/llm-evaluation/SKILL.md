@@ -419,7 +419,7 @@ class RegressionDetector:
 
             # Calculate relative change
             if baseline_score <= 0:
-                raise ValueError("Relative regression requires a positive baseline; use an absolute threshold instead.")
+                raise ValueError("Relative regression requires a positive nonzero baseline; use an absolute threshold instead.")
             relative_change = (new_score - baseline_score) / baseline_score
 
             # Default is higher-is-better; explicitly mark latency/cost as lower.

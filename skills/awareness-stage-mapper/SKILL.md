@@ -40,7 +40,7 @@ Label the audience as unaware, problem aware, solution aware, product aware, or 
 *Planning hypothesis (verify before presenting as research): message processing differs sharply by prior knowledge and perceived relevance (ELM; Zhang et al., 2024).*
 
 **Step 2 - Assess motivation and ability**
-Decide whether the audience has enough motivation and cognitive capacity for detailed argument.
+Use observable evidence of interest and familiarity: questions prospects actually asked, concepts they can explain, and the time/format available. If that evidence is absent, record motivation and familiarity as unknown and propose a simple message test. Do not infer intelligence or mental capacity from demographic labels.
 *Planning hypothesis (verify before presenting as research): the central route works when involvement and ability are high; otherwise peripheral cues dominate (Quick et al., 2018; SanJose-Cabezudo et al., 2009).*
 
 **Step 3 - Select the persuasion route**

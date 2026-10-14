@@ -233,10 +233,10 @@
         {
           "path": "skills/awareness-stage-mapper/SKILL.md",
           "git_mode": "100644",
-          "sha256": "48d67fa7bffd80d2e20196b86f5d764e57b9b2c6a144315eeb5848c068bc264e"
+          "sha256": "34d8343ca953d31c0e97abc478a685714946ac8e29cb435118b7c2c1aa4c8d3d"
         }
       ],
-      "tree_sha256": "3cabb0162f1c97807671d3d8ac90b9b0b7b0d5e759fb9a888cedc9fe82bceecb"
+      "tree_sha256": "ea8d47aafaf44b5e23c60a71305109c99505765a411f7fecd7a73e265d4af49b"
     },
     {
       "skill": "azd-deployment",
@@ -719,7 +719,7 @@
         {
           "path": "skills/llm-evaluation/SKILL.md",
           "git_mode": "100644",
-          "sha256": "acbe10d984b9c141f71a4939abf2b5313d5fd855d99a082de3f0f8bc2e5c5501"
+          "sha256": "9abf92538721f388eedf9ddf76fcdfe5855967e9d15f4be5c0ae95441d1c70b7"
         },
         {
           "path": "skills/llm-evaluation/references/benchmarking.md",
@@ -727,7 +727,7 @@
           "sha256": "af9b16ab441e09eed0e46379cd7689778b82d24a9d5ff95ca92f726ef15689cb"
         }
       ],
-      "tree_sha256": "83307c8e9ebf57da7664af0a60ed89caa6b6261d3a13bf2c92c922a01612170d"
+      "tree_sha256": "0b449b19b117a0b7fc42866af49d13c0dd4efb8085e2807e06e1aa3f6a4cfe86"
     },
     {
       "skill": "loss-aversion-designer",
