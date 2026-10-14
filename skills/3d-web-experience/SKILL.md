@@ -369,13 +369,13 @@ These are capability labels; check actual IDs and read their scope in the curren
 catalog before recommending them. They do not authorize spawning agents.
 
 - scroll animation|parallax|GSAP -> scroll-experience (Scroll integration)
-- react|next|frontend -> frontend (React integration)
-- performance|slow|fps -> performance-hunter (3D performance optimization)
-- product page|landing|marketing -> landing-page-design (Product landing with 3D)
+- react|next|frontend -> frontend-developer (React integration)
+- performance|slow|fps -> performance-engineer (3D performance optimization)
+- product page|landing|marketing -> frontend-design (Product landing with 3D)
 
 ### Product Configurator
 
-Skills: 3d-web-experience, frontend, landing-page-design
+Skills: 3d-web-experience, frontend-developer, frontend-design
 
 Workflow:
 
@@ -405,7 +405,7 @@ Workflow:
 
 ## Related Skills
 
-Works well with: `scroll-experience`, `interactive-portfolio`, `frontend`, `landing-page-design`
+Works well with: `scroll-experience`, `interactive-portfolio`, `frontend-developer`, `frontend-design`
 
 ## When to Use
 

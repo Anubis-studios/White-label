@@ -50,6 +50,27 @@ puede verificar o su aplicación depende de datos ausentes, marcarla pendiente.
 Revisar coherencia entre requisitos, UX y propuesta técnica; corregir contradicciones
 antes de entregar. No convertir autoridad del tono en evidencia.
 
+### Método y formato de fuentes
+
+Buscar cada obligación propuesta en el sitio de la autoridad competente o en la
+publicación oficial de normas de la jurisdicción identificada. Abrir la fuente,
+comprobar su fecha/versión y su ámbito; un resumen de buscador o proveedor no basta.
+Si el cliente no puede consultar esa fuente, trabajar con el material suministrado
+y declarar la comprobación pendiente, sin inventar un enlace o una obligación.
+
+Entregar el dossier con este formato, completando solo lo respaldado:
+
+```text
+Proyecto/sector: [servicio concreto, usuarios y función]
+Jurisdicción y datos tratados: [observado / pendiente]
+Requisito o hipótesis | fuente primaria + fecha | aplicabilidad | comprobación
+[control propuesto]   | [URL consultada o pendiente] | [confirmada/posible/pendiente] | [evidencia necesaria]
+UX y stack: [propuesta, razón y alternativas]
+Riesgos abiertos: [dato faltante, impacto y siguiente comprobación]
+```
+
+El formato organiza evidencia; una fila con “pendiente” no certifica cumplimiento.
+
 ## ⚠️ Reglas de Oro
 
 1.  **Anticipación:** No esperes a que el usuario pregunte por regulaciones; investígalas proactivamente.

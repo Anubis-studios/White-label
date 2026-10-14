@@ -62,13 +62,13 @@
     {
       "id": "20-andruia-niche-intelligence",
       "status": "repair-prepared",
-      "verdict": "Read sole full entrypoint: useful niche dossier retained; removed duplicate usage heading, simulated credentials and private-reasoning demand; jurisdiction/source/applicability distinctions plus dental worked example. Awaiting gates.",
+      "verdict": "Read sole full entrypoint: useful niche dossier retained; removed duplicate usage heading, simulated credentials and private-reasoning demand; jurisdiction/source/applicability distinctions plus dental worked example. Awaiting gates. Latest Tessl70 identified missing concrete dossier/source method; added official-source verification method and inline evidence/output table without inventing legal facts.",
       "base": "119af813d0ee0571d7c6e1fb5d0aa342ec4ee9f0",
       "files": [
         {
           "path": "skills/20-andruia-niche-intelligence/SKILL.md",
           "git_mode": "100644",
-          "sha256": "c10655eafd1c130ed9b4d61d8e36c737e5e4fe8dc2cb2d8433ff4c9a023044e1"
+          "sha256": "5aba9ba51c7ba509d57a8b36e798c9cb7b29e0c8a3f25086f43febb3011ba10b"
         }
       ],
       "original_report": {
@@ -158,13 +158,13 @@
     {
       "id": "3d-web-experience",
       "status": "repair-prepared",
-      "verdict": "Read complete sole entrypoint. Correct missing Canvas/useRef imports and meaningless mesh/fallback placeholders; actual Canvas fallback and project error-boundary requirement; register GSAP plugin with mount/cleanup context; pinned local tooling rather than global mutable install; triangle/transfer/FPS budgets illustrative, actual device testing and accessible DOM/reduced motion required. Verified primary R3F Canvas and glTF Transform docs. No live GPU test claimed.",
+      "verdict": "Read complete sole entrypoint. Correct missing Canvas/useRef imports and meaningless mesh/fallback placeholders; actual Canvas fallback and project error-boundary requirement; register GSAP plugin with mount/cleanup context; pinned local tooling rather than global mutable install; triangle/transfer/FPS budgets illustrative, actual device testing and accessible DOM/reduced motion required. Verified primary R3F Canvas and glTF Transform docs. No live GPU test claimed. Verified related workflow IDs against actual catalog and replaced nonexistent spawner-local labels with existing IDs; caller must still read applicability.",
       "base": "119af813d0ee0571d7c6e1fb5d0aa342ec4ee9f0",
       "files": [
         {
           "path": "skills/3d-web-experience/SKILL.md",
           "git_mode": "100644",
-          "sha256": "08858ea704a0075cbe9897c8c29de29191d3f98f7ebed14ff65fcc1a43f06ad9"
+          "sha256": "8e74355fda466bc5f80ce068c5082558ad118ab6f5e0c7d706613a422767600b"
         }
       ],
       "original_report": {
