@@ -113,7 +113,9 @@ enum LoadState { case idle, loading, loaded(String), failed(Error) }
 '''
         with tempfile.TemporaryDirectory() as directory:
             p=Path(directory)/'main.swift'; p.write_text(source); binary=Path(directory)/'check'
-            compiled=subprocess.run(['swiftc','-module-cache-path',str(Path(directory)/'module-cache'),'-parse-as-library',str(p),'-o',str(binary)],capture_output=True,text=True,timeout=60)
+            # A fresh private module cache compiles Foundation on Linux CI hosts.
+            # Keep compilation bounded separately from the 10-second execution check.
+            compiled=subprocess.run(['swiftc','-module-cache-path',str(Path(directory)/'module-cache'),'-parse-as-library',str(p),'-o',str(binary)],capture_output=True,text=True,timeout=180)
             self.assertEqual(compiled.returncode,0,compiled.stderr)
             result=subprocess.run([str(binary)],capture_output=True,text=True,timeout=10)
             self.assertEqual(result.returncode,0,result.stderr)
