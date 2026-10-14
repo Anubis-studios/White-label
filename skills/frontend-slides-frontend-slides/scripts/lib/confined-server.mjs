@@ -1,18 +1,73 @@
 // SPDX-License-Identifier: MIT
 import { createServer } from 'node:http';
-import { readFileSync, realpathSync, statSync } from 'node:fs';
+import { readdirSync, readFileSync, realpathSync, statSync } from 'node:fs';
 import { extname, isAbsolute, relative, resolve, sep } from 'node:path';
+
+const MAX_INDEXED_FILES = 10000;
+const SKIPPED_DIRECTORIES = new Set(['.git', '.next', '.cache', 'node_modules']);
 
 function inside(root, file) {
   const rel = relative(root, file);
   return rel !== '..' && !rel.startsWith(`..${sep}`) && !isAbsolute(rel);
 }
 
+function buildFileIndex(root, entry) {
+  const files = new Map();
+  const blocked = new Set();
+  const entryPath = resolve(root, entry);
+  if (!inside(root, entryPath)) throw new TypeError('Deck entry must be inside the deck root');
+  const entryReal = realpathSync(entryPath);
+  if (!inside(root, entryReal) || !statSync(entryReal).isFile()) {
+    throw new TypeError('Deck entry must be an in-root file');
+  }
+  files.set('/', entryReal);
+
+  const pending = [{ directory: root, depth: 0 }];
+  let indexed = 0;
+  while (pending.length) {
+    const { directory, depth } = pending.pop();
+    if (depth > 64) throw new RangeError('Deck directory nesting exceeds the 64-level limit');
+    for (const item of readdirSync(directory, { withFileTypes: true })) {
+      if (SKIPPED_DIRECTORIES.has(item.name)) continue;
+      const candidate = resolve(directory, item.name);
+      if (!inside(root, candidate)) continue;
+      const route = `/${relative(root, candidate).split(sep).join('/')}`;
+
+      if (item.isDirectory()) {
+        pending.push({ directory: candidate, depth: depth + 1 });
+        continue;
+      }
+      if (!item.isFile() && !item.isSymbolicLink()) continue;
+      indexed += 1;
+      if (indexed > MAX_INDEXED_FILES) {
+        throw new RangeError(`Deck contains more than ${MAX_INDEXED_FILES} files; select a smaller deck directory`);
+      }
+
+      let canonical;
+      try {
+        canonical = realpathSync(candidate);
+      } catch {
+        blocked.add(route);
+        continue;
+      }
+      if (!inside(root, canonical)) {
+        blocked.add(route);
+        continue;
+      }
+      if (!statSync(canonical).isFile()) continue;
+      files.set(route, canonical);
+    }
+  }
+  return { files, blocked };
+}
+
 // Serve an explicitly selected deck directory, including its in-root assets.
-// Both lexical traversal and symlinks to files outside the deck are rejected.
+// Request paths only select entries in a startup-verified map; they never reach
+// filesystem APIs. Symlinks outside the deck are indexed as blocked routes.
 export async function startDeckServer(directory, entry, mimeTypes = {}) {
   const root = realpathSync(directory);
   if (!statSync(root).isDirectory()) throw new TypeError('Deck root must be a directory');
+  const { files, blocked } = buildFileIndex(root, entry);
   const server = createServer((req, res) => {
     res.setHeader('X-Content-Type-Options', 'nosniff');
     const port = server.address()?.port;
@@ -30,13 +85,15 @@ export async function startDeckServer(directory, entry, mimeTypes = {}) {
       if (!pathname.startsWith('/') || /[\0\r\n]/.test(pathname)) {
         res.writeHead(400); res.end('Bad request'); return;
       }
-      const candidate = resolve(root, pathname === '/' ? entry : `.${pathname}`);
-      if (!inside(root, candidate)) {
+      if (pathname.split('/').some(segment => segment === '.' || segment === '..')) {
         res.writeHead(403); res.end('Forbidden'); return;
       }
-      const file = realpathSync(candidate);
-      if (!inside(root, file)) {
+      if (blocked.has(pathname)) {
         res.writeHead(403); res.end('Forbidden'); return;
+      }
+      const file = files.get(pathname);
+      if (!file) {
+        res.writeHead(404); res.end('Not found'); return;
       }
       if (!statSync(file).isFile()) {
         res.writeHead(404); res.end('Not found'); return;
