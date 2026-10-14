@@ -293,9 +293,9 @@ Total skills: 2689
 
 | Skill | Description | Risk | Source | Tags | Triggers |
 | --- | --- | --- | --- | --- | --- |
-| `00-andruia-consultant` | Arquitecto de Soluciones Principal y Consultor Tecnológico de Andru.ia. Diagnostica y traza la hoja de ruta óptima para proyectos de IA en español. | safe | personal | 00, andruia, consultant | 00, andruia, consultant, arquitecto, de, soluciones, principal, consultor, tecnol, gico, andru, ia |
-| `10-andruia-skill-smith` | Ingeniero de Sistemas de Andru.ia. Diseña, redacta y despliega nuevas habilidades (skills) dentro del repositorio siguiendo el Estándar de Diamante. | safe | personal | 10, andruia, skill, smith | 10, andruia, skill, smith, ingeniero, de, sistemas, andru, ia, dise, redacta, despliega |
-| `20-andruia-niche-intelligence` | Estratega de Inteligencia de Dominio de Andru.ia. Analiza el nicho específico de un proyecto para inyectar conocimientos, regulaciones y estándares únicos de... | safe | personal | 20, andruia, niche, intelligence | 20, andruia, niche, intelligence, estratega, de, inteligencia, dominio, andru, ia, analiza, el |
+| `00-andruia-consultant` | Usar al iniciar o mejorar un proyecto de IA: diagnostica código y restricciones, propone skills existentes y redacta tareas y un plan de implementación en es... | safe | personal | 00, andruia, consultant | 00, andruia, consultant, usar, al, iniciar, mejorar, un, proyecto, de, ia, diagnostica |
+| `10-andruia-skill-smith` | Usar para crear o mejorar una skill de Andru.ia: define entradas y resultados, redacta SKILL.md con ejemplos y límites, valida la estructura y prepara una PR. | safe | personal | 10, andruia, skill, smith | 10, andruia, skill, smith, usar, para, crear, mejorar, una, de, andru, ia |
+| `20-andruia-niche-intelligence` | Usar tras definir el sector de un proyecto: prepara un dossier en español con contexto, normas aplicables, patrones UX y riesgos, distinguiendo fuentes verif... | safe | personal | 20, andruia, niche, intelligence | 20, andruia, niche, intelligence, usar, tras, definir, el, sector, de, un, proyecto |
 
 ## api-integration (42)
 
@@ -1223,7 +1223,7 @@ Total skills: 2689
 
 | Skill | Description | Risk | Source | Tags | Triggers |
 | --- | --- | --- | --- | --- | --- |
-| `3d-web-experience` | Expert in building 3D experiences for the web - Three.js, React Three Fiber, Spline, WebGL, and interactive 3D scenes. Covers product configurators, 3D portf... | critical | vibeship-spawner-skills (Apache 2.0) | 3d, web, experience | 3d, web, experience, building, experiences, three, js, react, fiber, spline, webgl, interactive |
+| `3d-web-experience` | Use when building or debugging web 3D scenes, product configurators or portfolios with Three.js, React Three Fiber or Spline; review assets, loading, control... | critical | vibeship-spawner-skills (Apache 2.0) | 3d, web, experience | 3d, web, experience, building, debugging, scenes, product, configurators, portfolios, three, js, react |
 | `accessibility-compliance-accessibility-audit` | Audit pages and user journeys against a declared WCAG scope. Use when identifying keyboard, screen-reader, focus or contrast barriers and planning verified r... | safe | community | accessibility, compliance, audit | accessibility, compliance, audit, pages, user, journeys, against, declared, wcag, scope, identifying, keyboard |
 | `accesslint-diff` | Diff a live page's accessibility violations against a baseline — by default compares uncommitted changes (stash-based), or pass --branch [<name>] to diff aga... | safe | https://github.com/AccessLint/skills | accesslint, diff | accesslint, diff, live, page, accessibility, violations, against, baseline, default, compares, uncommitted, changes |
 | `accesslint-scan` | Audit a live page for accessibility issues, locate each WCAG violation precisely, and return a selector-grounded fix worklist without editing. | safe | https://github.com/AccessLint/skills | accesslint, scan | accesslint, scan, audit, live, page, accessibility, issues, locate, each, wcag, violation, precisely |
