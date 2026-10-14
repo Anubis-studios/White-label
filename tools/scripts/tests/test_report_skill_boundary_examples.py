@@ -23,6 +23,28 @@ class BoundaryExamples(unittest.TestCase):
         self.assertFalse(cls({'latency':100}, directions={'latency':'lower'}).check_for_regression({'latency':80})['has_regression'])
         with self.assertRaises(ValueError): cls({'accuracy':1}).check_for_regression({'accuracy':float('nan')})
 
+    def test_benchmark_rejects_empty_missing_and_duplicate_metrics(self):
+        import math
+        import statistics
+        from types import SimpleNamespace
+        text = (ROOT/'skills/llm-evaluation/references/benchmarking.md').read_text()
+        code = re.search(r'```python\n(.*?)\n```', text, re.S).group(1)
+        nodes = [n for n in ast.parse(code).body if isinstance(n, ast.ClassDef)]
+        scope = {'math':math, 'np':SimpleNamespace(mean=statistics.mean, std=statistics.pstdev)}
+        exec(compile(ast.Module(body=nodes, type_ignores=[]), '<actual-benchmark-example>', 'exec'), scope)
+        cls = scope['BenchmarkRunner']
+        with self.assertRaises(ValueError): cls([])
+        with self.assertRaises(ValueError): cls([{}, {}], max_examples=1)
+        data = [{'input':'inert', 'reference':'fixture'}]
+        runner = cls(data)
+        model = SimpleNamespace(predict=lambda value: value)
+        metric = SimpleNamespace(name='test', calculate=lambda **kwargs: 1)
+        self.assertEqual(runner.run_benchmark(model, [metric])['test']['mean'], 1)
+        with self.assertRaises(ValueError): runner.run_benchmark(model, [])
+        with self.assertRaises(ValueError): runner.run_benchmark(model, [metric, metric])
+        missing = SimpleNamespace(name='test', calculate=lambda **kwargs: None)
+        with self.assertRaises(ValueError): runner.run_benchmark(model, [missing])
+
     def test_unknown_privacy_values_survive_sql_and_schema(self):
         text = (ROOT/'skills/data-privacy-controls/SKILL.md').read_text()
         ddl = re.search(r'```sql\n(.*?)\n```', text, re.S).group(1)

@@ -443,44 +443,11 @@ class RegressionDetector:
 
 ## Benchmarking
 
-### Running Benchmarks
-```python
-class BenchmarkRunner:
-    def __init__(self, benchmark_dataset):
-        self.dataset = benchmark_dataset
-
-    def run_benchmark(self, model, metrics):
-        """Run model on benchmark and calculate metrics."""
-        results = {metric.name: [] for metric in metrics}
-
-        for example in self.dataset:
-            # Generate prediction
-            prediction = model.predict(example["input"])
-
-            # Calculate each metric
-            for metric in metrics:
-                score = metric.calculate(
-                    prediction=prediction,
-                    reference=example["reference"],
-                    context=example.get("context")
-                )
-                results[metric.name].append(score)
-
-        # Aggregate results
-        return {
-            metric: {
-                "mean": np.mean(scores),
-                "std": np.std(scores),
-                "min": min(scores),
-                "max": max(scores)
-            }
-            for metric, scores in results.items()
-        }
-```
+Read [the local benchmark example](references/benchmarking.md) for a bounded runner, adapter prerequisites and incomplete-data handling.
 
 ## Local Resources and execution boundaries
 
-No separate evaluation framework, dataset, runner or reference bundle is included. Code below illustrates patterns that must be adapted to the project's actual dependencies and validated before use; the `llm_eval` interface is pseudocode, not a promised installed package. Inspect existing SDK versions instead of copying legacy provider calls unchanged.
+The local benchmark reference contains an illustrative runner, not an installed evaluation framework or dataset. Code below illustrates patterns that must be adapted to the project's actual dependencies and validated before use; the `llm_eval` interface is pseudocode, not a promised installed package. Inspect existing SDK versions instead of copying legacy provider calls unchanged.
 
 Use sanitized, representative data and an explicit evaluation budget. Model downloads, hosted inference, paid judge calls and telemetry exports require authorization for the data and cost. Prefer already cached models; do not treat a prompt as a security boundary against instructions embedded in evaluated outputs. Calibrate judge scores against a human-labeled sample and inspect errors, bias and disagreement. Overlap scores do not prove correctness, safety or production readiness.
 

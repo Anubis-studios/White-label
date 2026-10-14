@@ -2,7 +2,7 @@
   "base_sha": "d5ee36be322269c7c1250ba315d1435bfe97be08",
   "scope": "all named individual skill trees in the three cited reports; not the full 2689 catalog",
   "trees": 90,
-  "files": 176,
+  "files": 177,
   "corrected": 60,
   "records": [
     {
@@ -714,15 +714,20 @@
     {
       "skill": "llm-evaluation",
       "outcome": "corrected",
-      "disposition": "Missing metrics remain incomplete; lower-is-better latency supported, finite metrics required; undefined fact-check adapter fails explicitly; inconclusive A/B results are not winners.",
+      "disposition": "Missing metrics remain incomplete; lower-is-better latency supported, finite metrics required; undefined fact-check adapter fails explicitly; inconclusive A/B results are not winners. Move bounded benchmark runner into a real local reference; empty/missing/duplicate metrics fail.",
       "files": [
         {
           "path": "skills/llm-evaluation/SKILL.md",
           "git_mode": "100644",
-          "sha256": "a3accc9a44720de258754abd12a93ed2a00d983fd4f801d6d2ba56f05d5dd144"
+          "sha256": "98e9e2a255b6634f1fd88e6f9b5360f46f73fa9b94fdbe59055b159e8b3e1ab9"
+        },
+        {
+          "path": "skills/llm-evaluation/references/benchmarking.md",
+          "git_mode": "100644",
+          "sha256": "af9b16ab441e09eed0e46379cd7689778b82d24a9d5ff95ca92f726ef15689cb"
         }
       ],
-      "tree_sha256": "87c723a14a441ebc738e9390d58cff6ad8b8e08c95ead4733866ce5d70a60681"
+      "tree_sha256": "3b81e5b934359ee1cc431b3ada03680e86d52574b649107b865389e3371c0766"
     },
     {
       "skill": "loss-aversion-designer",
@@ -1617,5 +1622,6 @@
       "base_sha": "6e9ea293d0649b01a19a9369e062d3c1649b40b4",
       "changed_trees": 29
     }
-  ]
+  ],
+  "base_files": 176
 }
