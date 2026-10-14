@@ -17,8 +17,6 @@ license_source: "https://github.com/glukicov/slideops/blob/main/LICENSE"
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
 
-- `.agents/skills/slideops/scripts/cite.py`
-- `.agents/skills/slideops/scripts/check.py`
 - `skills/slideops/assets/template.html`
 - `skills/slideops/references/diagrams.md`
 - `<support-root>/references/automation.md`

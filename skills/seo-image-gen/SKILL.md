@@ -19,10 +19,7 @@ allowed-tools:
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
 
 - `<support-root>/references/prompt-engineering.md`
-- `.claude/skills/seo-image-gen/scripts/presets.py`
 - `<support-root>/references/seo-image-presets.md`
-- `.claude/skills/seo-image-gen/scripts/cost_tracker.py`
-- `.claude/skills/seo-image-gen/scripts/generate.py`
 - `<support-root>/references/gemini-models.md`
 - `<support-root>/references/mcp-tools.md`
 - `<support-root>/references/post-processing.md`

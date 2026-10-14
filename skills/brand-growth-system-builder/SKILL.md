@@ -15,7 +15,6 @@ source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 
 This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
 
-- `<support-root>/resources/SKILL.md`
 - `../../references/free-design-resource-map.md`
 - `../../references/print-brand-kit-specs.md`
 - `../../references/backlink-directory-master-list.md`

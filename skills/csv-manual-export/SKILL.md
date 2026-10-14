@@ -13,13 +13,7 @@ source_repo: WHOISABHISHEKADHIKARI/sme-ops-system-builder
 ---
 ## Supporting material availability
 
-This catalog copy contains the inline guidance below, but does not include the following supporting paths. They are external prerequisites, not bundled files:
-
-- `<support-root>/references/catalog.md`
-- `<support-root>/resources/SKILL.md`
-
-Obtain the required material from the [declared upstream source](https://github.com/WHOISABHISHEKADHIKARI/sme-ops-system-builder), or from a user-provided installation of that source. Resolve each path relative to that installation, inspect its contents, and verify any applicable license and execution prerequisites. Do not run a command or claim a referenced procedure was followed until its required file exists. Do not fabricate the missing scripts or treat an unrelated file with the same name as equivalent. Independent steps fully documented here can proceed within the user’s authorized scope; report any dependent step as unavailable.
-
+The following are external prerequisites, not bundled files: `<support-root>/references/catalog.md`. Obtain them from the original source or an existing installation and inspect them before use. Do not execute or claim completion of a dependent step until its required file exists; report unavailable steps. The fully documented inline workflow remains usable within the authorized scope.
 
 # CSV Manual Export
 
