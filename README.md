@@ -336,6 +336,8 @@ Key source families include:
 
 ### Community Contributors
 
+- **[huyanxius/logo-to-stickers](https://github.com/huyanxius/logo-to-stickers)**: MIT source for `logo-to-stickers` — brand marks become consistent paper-sticker characters with small visual stories, reference roles and fifteen real examples.
+
 - **[AshenJyy/antigravity-browser-bridge](https://github.com/AshenJyy/antigravity-browser-bridge)**: Source for the Browser Bridge guide for authorized Edge/Chrome automation using a separately installed local extension and daemon (Apache-2.0).
 
 - **[Reak-Z/mcd-secret-menu-lab](https://github.com/Reak-Z/mcd-secret-menu-lab)**: MIT community recipe-planning workflow for McDonald's China using an authorized MCP connection and explicit account-action boundaries.
